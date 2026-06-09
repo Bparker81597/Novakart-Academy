@@ -6,6 +6,7 @@ const SAVE_PATH := "user://save.json"
 const ALL_CHARACTERS := ["blaze_bolt", "finn_tide", "nova_spark", "dash_rocket"]
 const DEFAULT_PROGRESS := {
 	"unlocked_characters": ALL_CHARACTERS,
+	"selected_character": "nova_spark",
 	"collected_stickers": [],
 	"races_completed": 0,
 	"total_nova_stars": 0,
@@ -36,6 +37,15 @@ func save_progress() -> void:
 
 func is_character_unlocked(character_id: String) -> bool:
 	return character_id in progress.get("unlocked_characters", [])
+
+func get_selected_character() -> String:
+	return progress.get("selected_character", "nova_spark")
+
+func save_selected_character(character_id: String) -> void:
+	if not is_character_unlocked(character_id):
+		return
+	progress["selected_character"] = character_id
+	save_progress()
 
 func unlock_character(character_id: String) -> bool:
 	var unlocked: Array = progress.get("unlocked_characters", [])

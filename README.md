@@ -40,7 +40,8 @@ art assets to support incremental development.
 
 ## Character Identity Layer
 
-- Four data-driven character profiles with icons, abilities, and catchphrases
+- Four large portrait cards with names, abilities, icons, and catchphrases
+- Selected character is saved and displayed in the Sunny Speedway HUD
 - Voice-ready character greeting and narration hooks
 - Sticker rewards unlocked by finishing races and collecting Nova Stars
 - Sticker Book available from the main menu

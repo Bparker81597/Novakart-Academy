@@ -10,11 +10,20 @@ func _initialize() -> void:
 		var profile: Dictionary = content_catalog.get_character(character_id)
 		for key: String in ["name", "icon", "ability", "catchphrase"]:
 			assert(profile.has(key), "%s is missing %s" % [character_id, key])
-	for key: String in ["unlocked_characters", "collected_stickers", "races_completed", "total_nova_stars", "best_nova_stars"]:
+	var expected_abilities := {
+		"blaze_bolt": "Turbo Burst",
+		"finn_tide": "Wave Rider",
+		"nova_spark": "Rocket Boost",
+		"dash_rocket": "Trail Blazer",
+	}
+	for character_id: String in expected_abilities:
+		assert(content_catalog.get_character(character_id).ability == expected_abilities[character_id], "Wrong ability for %s" % character_id)
+	for key: String in ["unlocked_characters", "selected_character", "collected_stickers", "races_completed", "total_nova_stars", "best_nova_stars"]:
 		assert(save_manager.progress.has(key), "Save progress is missing %s" % key)
 	for scene_path: String in [
 		"res://scenes/main/CharacterSelect.tscn",
 		"res://scenes/main/StickerBook.tscn",
+		"res://scenes/race/RaceScene.tscn",
 		"res://scenes/ui/VictoryScreen.tscn",
 	]:
 		var scene: PackedScene = load(scene_path)
@@ -27,6 +36,9 @@ func _initialize() -> void:
 			instance.show_victory(7, 10, reward_ids)
 			await process_frame
 			assert(instance.visible, "Victory screen did not become visible.")
+		if scene_path.ends_with("RaceScene.tscn"):
+			var saved_profile: Dictionary = content_catalog.get_character(save_manager.get_selected_character())
+			assert(instance.get_node("HUD/CharacterName").text == saved_profile.name.to_upper(), "HUD did not show selected character.")
 		instance.queue_free()
 		await process_frame
 	print("Sprint 2 content, save, and UI checks passed.")

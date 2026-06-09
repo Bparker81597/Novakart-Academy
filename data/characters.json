@@ -4,7 +4,7 @@
       "id": "blaze_bolt",
       "name": "Blaze Bolt",
       "icon": "⚡",
-      "ability": "Super Start",
+      "ability": "Turbo Burst",
       "catchphrase": "Let's blaze a trail!",
       "color": "#ff563d",
       "greeting_audio": ""
@@ -13,7 +13,7 @@
       "id": "finn_tide",
       "name": "Finn Tide",
       "icon": "🌊",
-      "ability": "Smooth Steering",
+      "ability": "Wave Rider",
       "catchphrase": "Ride the wave!",
       "color": "#32a8ff",
       "greeting_audio": ""
@@ -22,7 +22,7 @@
       "id": "nova_spark",
       "name": "Nova Spark",
       "icon": "★",
-      "ability": "Star Boost",
+      "ability": "Rocket Boost",
       "catchphrase": "Shine bright and race!",
       "color": "#a94dff",
       "greeting_audio": ""
@@ -31,7 +31,7 @@
       "id": "dash_rocket",
       "name": "Dash Rocket",
       "icon": "🚀",
-      "ability": "Long Boost",
+      "ability": "Trail Blazer",
       "catchphrase": "Ready, set, zoom!",
       "color": "#ffc928",
       "greeting_audio": ""

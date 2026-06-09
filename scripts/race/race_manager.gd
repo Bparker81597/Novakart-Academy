@@ -8,9 +8,11 @@ const TOTAL_STARS := 10
 @onready var victory_screen: VictoryScreen = $VictoryScreen
 
 func _ready() -> void:
+	GameState.load_saved_character()
 	GameState.reset_race()
 	player.nova_star_collected.connect(_on_nova_star_collected)
 	$FinishLine.race_finished.connect(_on_race_finished)
+	hud.set_character_name(ContentCatalog.get_character(GameState.selected_character).get("name", "Nova Spark"))
 	hud.set_star_count(0, TOTAL_STARS)
 
 func _on_nova_star_collected() -> void:

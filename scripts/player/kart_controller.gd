@@ -14,6 +14,7 @@ var can_drive: bool = true
 var current_speed: float = 0.0
 
 func _ready() -> void:
+	GameState.load_saved_character()
 	var colors := {
 		"blaze_bolt": Color("ff563d"),
 		"finn_tide": Color("32a8ff"),

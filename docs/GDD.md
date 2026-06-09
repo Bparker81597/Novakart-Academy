@@ -49,6 +49,9 @@ Each driver has a name, large visual icon, special ability identity, color, and
 catchphrase. Selecting a driver requests a greeting through `AudioManager`, so
 recorded narration can be added later without changing the character UI.
 
+The selected driver is saved immediately and restored the next time Character
+Select opens. Sunny Speedway displays the selected driver's name in the HUD.
+
 Finishing races unlocks stickers for the selected driver and race achievements.
 The Sticker Book shows collected rewards and gentle visual hints for locked
 stickers. Progress is saved locally after every completed race.
