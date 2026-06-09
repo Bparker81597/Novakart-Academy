@@ -39,6 +39,6 @@ material_override = SubResource("PlayerMaterial")
 [node name="CameraRig" type="Node3D" parent="."]
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig"]
-position = Vector3(0, 18, 14)
-rotation = Vector3(-0.82, 0, 0)
+rotation = Vector3(-0.88, 0, 0)
 current = true
+fov = 62.0

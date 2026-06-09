@@ -88,6 +88,10 @@ Large labeled landmarks and reusable trigger zones connect activities:
 - Garage is prepared for kart customization.
 - Event Plaza is prepared for seasonal content.
 
+Nearby buildings show large color-coded prompts. Arrow keys move through the
+Hub and Space activates the nearby building, keeping navigation consistent with
+the race controls without requiring small menus.
+
 ### Visual Polish Foundation
 
 The Hub presentation uses reusable stylized academy buildings with colorful

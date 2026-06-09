@@ -57,7 +57,8 @@ art assets to support incremental development.
 - Premium animated title screen inspired by the supplied campus concept
 - Character Select and hero introduction entered from `Start Racing`
 - Safe arrow-key exploration with no enemies or timers
-- Race Center and Sticker Book Hall activity triggers
+- Large proximity prompts with Space interaction at every Hub building
+- Race Center launches Sunny Speedway; future buildings show coming-soon prompts
 - Learning Lab, Garage, and Event Plaza expansion-ready trigger zones
 - Stylized buildings, fountain plaza, trees, gardens, banners, lamps, pathways,
   soft atmosphere, moving clouds, sparkles, and character idle animation
@@ -65,3 +66,4 @@ art assets to support incremental development.
   `FloatingStar` presentation components
 - Selected-character portraits integrated into the title flow, Hub welcome,
   race HUD, and victory celebration
+- Large race HUD star count, character identity, and simple control hint

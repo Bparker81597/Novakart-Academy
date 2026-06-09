@@ -33,6 +33,10 @@ is stuck.
 - Did the celebration feel exciting and easy to understand?
 - Could the player find and recognize a newly unlocked sticker?
 - Did the character icons and colors help the player choose?
+- Could the player understand the Hub building prompts?
+- Did the player use Space to enter the Race Center?
+- Were building signs readable before reaching the entrance?
+- Did the Hub camera keep the player and nearby buildings visible?
 - Where did the player become confused or disengaged?
 
 ## MAIZE Review

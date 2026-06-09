@@ -109,18 +109,20 @@ mesh = SubResource("StepMesh")
 material_override = SubResource("StoneMaterial")
 
 [node name="Sign" type="Label3D" parent="."]
-position = Vector3(0, 4.45, 2.8)
-font_size = 42
-outline_size = 11
+position = Vector3(0, 4.55, 2.9)
+modulate = Color(1, 1, 1, 1)
+outline_modulate = Color(0.08, 0.16, 0.42, 1)
+font_size = 48
+outline_size = 14
 text = "★ ACADEMY"
-pixel_size = 0.026
+pixel_size = 0.024
 billboard = 1
 
 [node name="EntranceIcon" type="Label3D" parent="."]
 position = Vector3(0, 6.9, 2.4)
 modulate = Color(1, 0.9, 0.18, 1)
 outline_modulate = Color(0.18, 0.25, 0.62, 1)
-font_size = 74
+font_size = 92
 outline_size = 14
 text = "★"
 pixel_size = 0.024
