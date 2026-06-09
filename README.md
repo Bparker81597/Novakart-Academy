@@ -37,3 +37,11 @@ The first playable MVP lets a child:
 
 The project structure separates scenes, scripts, game data, documentation, and
 art assets to support incremental development.
+
+## Character Identity Layer
+
+- Four data-driven character profiles with icons, abilities, and catchphrases
+- Voice-ready character greeting and narration hooks
+- Sticker rewards unlocked by finishing races and collecting Nova Stars
+- Sticker Book available from the main menu
+- Local save data for unlocked characters, stickers, and race progress

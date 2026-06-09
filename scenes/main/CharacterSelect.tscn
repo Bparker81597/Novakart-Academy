@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource path="res://scripts/ui/character_select.gd" type="Script" id="1"]
+
+[sub_resource type="StyleBoxFlat" id="ProfileStyle"]
+bg_color = Color(0.15, 0.25, 0.55, 0.92)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
 
 [node name="CharacterSelect" type="Control"]
 layout_mode = 3
@@ -16,58 +23,123 @@ script = ExtResource("1")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_top = 55.0
-offset_bottom = 125.0
+offset_top = 24.0
+offset_bottom = 82.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0.15, 0.25, 0.55, 1)
-theme_override_font_sizes/font_size = 44
+theme_override_font_sizes/font_size = 38
 text = "PICK YOUR DRIVER"
 horizontal_alignment = 1
 
 [node name="Drivers" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -500.0
-offset_top = -110.0
-offset_right = 500.0
-offset_bottom = 130.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 22
+layout_mode = 0
+offset_left = 45.0
+offset_top = 110.0
+offset_right = 1235.0
+offset_bottom = 315.0
+theme_override_constants/separation = 18
+alignment = 1
 
 [node name="Blaze" type="Button" parent="Drivers"]
-custom_minimum_size = Vector2(230, 230)
+custom_minimum_size = Vector2(275, 190)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.3, 0.15, 1)
-theme_override_font_sizes/font_size = 72
-text = "●\n▶"
+theme_override_font_sizes/font_size = 42
+text = "⚡\nBLAZE"
 
 [node name="Finn" type="Button" parent="Drivers"]
-custom_minimum_size = Vector2(230, 230)
+custom_minimum_size = Vector2(275, 190)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.1, 0.55, 1, 1)
-theme_override_font_sizes/font_size = 72
-text = "●\n▶"
+theme_override_font_sizes/font_size = 42
+text = "🌊\nFINN"
 
 [node name="Nova" type="Button" parent="Drivers"]
-custom_minimum_size = Vector2(230, 230)
+custom_minimum_size = Vector2(275, 190)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.65, 0.25, 1, 1)
-theme_override_font_sizes/font_size = 72
-text = "★\n▶"
+theme_override_font_sizes/font_size = 42
+text = "★\nNOVA"
 
 [node name="Dash" type="Button" parent="Drivers"]
-custom_minimum_size = Vector2(230, 230)
+custom_minimum_size = Vector2(275, 190)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.75, 0.1, 1)
-theme_override_font_sizes/font_size = 72
-text = "●\n▶"
+theme_override_font_sizes/font_size = 42
+text = "🚀\nDASH"
 
-[connection signal="pressed" from="Drivers/Blaze" to="." method="_choose_character" binds=["blaze_bolt"]]
-[connection signal="pressed" from="Drivers/Finn" to="." method="_choose_character" binds=["finn_tide"]]
-[connection signal="pressed" from="Drivers/Nova" to="." method="_choose_character" binds=["nova_spark"]]
-[connection signal="pressed" from="Drivers/Dash" to="." method="_choose_character" binds=["dash_rocket"]]
+[node name="Profile" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 135.0
+offset_top = 345.0
+offset_right = 1145.0
+offset_bottom = 590.0
+theme_override_styles/panel = SubResource("ProfileStyle")
+
+[node name="Icon" type="Label" parent="Profile"]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 35.0
+offset_right = 245.0
+offset_bottom = 210.0
+theme_override_font_sizes/font_size = 110
+text = "★"
+horizontal_alignment = 1
+
+[node name="Name" type="Label" parent="Profile"]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 24.0
+offset_right = 970.0
+offset_bottom = 90.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 44
+text = "Nova Spark"
+horizontal_alignment = 1
+
+[node name="Ability" type="Label" parent="Profile"]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 95.0
+offset_right = 970.0
+offset_bottom = 145.0
+theme_override_colors/font_color = Color(1, 0.87, 0.2, 1)
+theme_override_font_sizes/font_size = 30
+text = "Star Boost"
+horizontal_alignment = 1
+
+[node name="Catchphrase" type="Label" parent="Profile"]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 155.0
+offset_right = 970.0
+offset_bottom = 210.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 27
+text = "\"Shine bright and race!\""
+horizontal_alignment = 1
+
+[node name="Home" type="Button" parent="."]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 615.0
+offset_right = 340.0
+offset_bottom = 695.0
+theme_override_font_sizes/font_size = 42
+text = "⌂"
+
+[node name="Race" type="Button" parent="."]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 615.0
+offset_right = 1130.0
+offset_bottom = 695.0
+theme_override_font_sizes/font_size = 42
+text = "▶ RACE"
+
+[connection signal="pressed" from="Drivers/Blaze" to="." method="_select_character" binds=["blaze_bolt"]]
+[connection signal="pressed" from="Drivers/Finn" to="." method="_select_character" binds=["finn_tide"]]
+[connection signal="pressed" from="Drivers/Nova" to="." method="_select_character" binds=["nova_spark"]]
+[connection signal="pressed" from="Drivers/Dash" to="." method="_select_character" binds=["dash_rocket"]]
+[connection signal="pressed" from="Home" to="." method="_go_home"]
+[connection signal="pressed" from="Race" to="." method="_start_race"]

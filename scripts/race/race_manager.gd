@@ -21,4 +21,5 @@ func _on_race_finished() -> void:
 	if not player.can_drive:
 		return
 	player.can_drive = false
-	victory_screen.show_victory(GameState.nova_stars, TOTAL_STARS)
+	var new_stickers := SaveManager.record_race(GameState.nova_stars, GameState.selected_character)
+	victory_screen.show_victory(GameState.nova_stars, TOTAL_STARS, new_stickers)

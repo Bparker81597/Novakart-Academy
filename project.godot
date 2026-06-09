@@ -16,6 +16,7 @@ config/features=PackedStringArray("4.6")
 
 [autoload]
 
+ContentCatalog="*res://scripts/global/content_catalog.gd"
 GameState="*res://scripts/global/game_state.gd"
 SaveManager="*res://scripts/global/save_manager.gd"
 AudioManager="*res://scripts/global/audio_manager.gd"

@@ -30,6 +30,9 @@ is stuck.
 - Did the child discover Space to boost?
 - Did the player recognize the finish line?
 - Could the player replay or return home without reading?
+- Did the celebration feel exciting and easy to understand?
+- Could the player find and recognize a newly unlocked sticker?
+- Did the character icons and colors help the player choose?
 - Where did the player become confused or disengaged?
 
 ## MAIZE Review

@@ -21,20 +21,34 @@ simple, readable challenges.
 - Use large buttons, familiar symbols, bright colors, and immediate feedback.
 - Use a simple four-arrow control scheme with a large, fun boost.
 - Keep the track wide and prevent the kart from leaving it.
-- Do not punish missed coins or slow driving.
+- Do not punish missed Nova Stars or slow driving.
 - A race should take less than one minute.
 
 ## MVP Architecture
 
 - `MainMenu.tscn`: Large play button.
-- `CharacterSelect.tscn`: Four color-coded driver buttons.
-- `RaceScene.tscn`: Track, coins, finish line, kart, and HUD.
+- `CharacterSelect.tscn`: Four color-coded profiles and greeting hooks.
+- `StickerBook.tscn`: Collected sticker gallery and unlock hints.
+- `RaceScene.tscn`: Track, Nova Stars, finish line, kart, and HUD.
 - `PlayerKart.tscn`: Simple visible kart and follow camera.
-- `race_manager.gd`: Tracks coins and completes the race.
-- `kart_controller.gd`: Automatic forward movement and simple steering.
-- `HUD.tscn`: Coin count, direction hint, and finish controls.
+- `race_manager.gd`: Tracks Nova Stars, rewards stickers, and completes the race.
+- `kart_controller.gd`: Arrow-key driving and boost controls.
+- `HUD.tscn`: Nova Star count and direction hint.
+- `VictoryScreen.tscn`: Animated celebration, confetti, and next actions.
+- `SaveManager`: Persists characters, stickers, and player progress.
+- `AudioManager`: Provides voice-ready greeting and narration hooks.
 
 ## Next Learning Feature
 
 Add optional shape gates that reward driving through the matching large shape.
 Incorrect choices should gently redirect the player without ending the race.
+
+## Character Identity Layer
+
+Each driver has a name, large visual icon, special ability identity, color, and
+catchphrase. Selecting a driver requests a greeting through `AudioManager`, so
+recorded narration can be added later without changing the character UI.
+
+Finishing races unlocks stickers for the selected driver and race achievements.
+The Sticker Book shows collected rewards and gentle visual hints for locked
+stickers. Progress is saved locally after every completed race.

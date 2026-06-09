@@ -1,0 +1,11 @@
+{
+  "stickers": [
+    {"id": "sunny_finisher", "name": "Sunny Finisher", "icon": "☀", "hint": "Finish Sunny Speedway"},
+    {"id": "star_collector", "name": "Star Collector", "icon": "★", "hint": "Collect 5 Nova Stars"},
+    {"id": "perfect_stars", "name": "Perfect Stars", "icon": "✦", "hint": "Collect all 10 Nova Stars"},
+    {"id": "blaze_badge", "name": "Blaze Badge", "icon": "⚡", "hint": "Race with Blaze Bolt"},
+    {"id": "finn_badge", "name": "Finn Badge", "icon": "🌊", "hint": "Race with Finn Tide"},
+    {"id": "nova_badge", "name": "Nova Badge", "icon": "★", "hint": "Race with Nova Spark"},
+    {"id": "dash_badge", "name": "Dash Badge", "icon": "🚀", "hint": "Race with Dash Rocket"}
+  ]
+}

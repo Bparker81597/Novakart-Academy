@@ -1,8 +1,40 @@
 {
   "characters": [
-    {"id": "blaze_bolt", "name": "Blaze Bolt"},
-    {"id": "finn_tide", "name": "Finn Tide"},
-    {"id": "nova_spark", "name": "Nova Spark"},
-    {"id": "dash_rocket", "name": "Dash Rocket"}
+    {
+      "id": "blaze_bolt",
+      "name": "Blaze Bolt",
+      "icon": "⚡",
+      "ability": "Super Start",
+      "catchphrase": "Let's blaze a trail!",
+      "color": "#ff563d",
+      "greeting_audio": ""
+    },
+    {
+      "id": "finn_tide",
+      "name": "Finn Tide",
+      "icon": "🌊",
+      "ability": "Smooth Steering",
+      "catchphrase": "Ride the wave!",
+      "color": "#32a8ff",
+      "greeting_audio": ""
+    },
+    {
+      "id": "nova_spark",
+      "name": "Nova Spark",
+      "icon": "★",
+      "ability": "Star Boost",
+      "catchphrase": "Shine bright and race!",
+      "color": "#a94dff",
+      "greeting_audio": ""
+    },
+    {
+      "id": "dash_rocket",
+      "name": "Dash Rocket",
+      "icon": "🚀",
+      "ability": "Long Boost",
+      "catchphrase": "Ready, set, zoom!",
+      "color": "#ffc928",
+      "greeting_audio": ""
+    }
   ]
 }
