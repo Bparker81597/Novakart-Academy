@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3]
+
+[sub_resource type="CylinderMesh" id="PostMesh"]
+top_radius = 0.1
+bottom_radius = 0.16
+height = 3.0
+
+[sub_resource type="StandardMaterial3D" id="PostMaterial"]
+albedo_color = Color(0.12, 0.2, 0.4, 1)
+metallic = 0.55
+
+[sub_resource type="SphereMesh" id="LightMesh"]
+radius = 0.34
+height = 0.68
+
+[sub_resource type="StandardMaterial3D" id="LightMaterial"]
+albedo_color = Color(1, 0.87, 0.3, 1)
+emission_enabled = true
+emission = Color(1, 0.55, 0.08, 1)
+emission_energy_multiplier = 2.2
+
+[sub_resource type="CylinderMesh" id="BaseMesh"]
+top_radius = 0.35
+bottom_radius = 0.5
+height = 0.35
+
+[sub_resource type="StandardMaterial3D" id="BaseMaterial"]
+albedo_color = Color(0.18, 0.28, 0.5, 1)
+
+[node name="AcademyLamp" type="Node3D"]
+
+[node name="Base" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.18, 0)
+mesh = SubResource("BaseMesh")
+material_override = SubResource("BaseMaterial")
+
+[node name="Post" type="MeshInstance3D" parent="."]
+position = Vector3(0, 1.65, 0)
+mesh = SubResource("PostMesh")
+material_override = SubResource("PostMaterial")
+
+[node name="Light" type="MeshInstance3D" parent="."]
+position = Vector3(0, 3.2, 0)
+mesh = SubResource("LightMesh")
+material_override = SubResource("LightMaterial")
+
+[node name="Glow" type="OmniLight3D" parent="."]
+position = Vector3(0, 3.2, 0)
+light_color = Color(1, 0.75, 0.3, 1)
+light_energy = 1.2
+omni_range = 4.0

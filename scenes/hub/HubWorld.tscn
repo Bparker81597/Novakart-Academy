@@ -1,47 +1,131 @@
-[gd_scene load_steps=16 format=3]
+[gd_scene load_steps=29 format=3]
 
 [ext_resource path="res://scripts/hub/hub_world.gd" type="Script" id="1"]
 [ext_resource path="res://scenes/hub/HubPlayer.tscn" type="PackedScene" id="2"]
 [ext_resource path="res://scenes/hub/HubActivityZone.tscn" type="PackedScene" id="3"]
+[ext_resource path="res://scenes/hub/AcademyBuilding.tscn" type="PackedScene" id="4"]
+[ext_resource path="res://scenes/hub/AcademyTree.tscn" type="PackedScene" id="5"]
+[ext_resource path="res://scenes/hub/AcademyLamp.tscn" type="PackedScene" id="6"]
 
 [sub_resource type="Environment" id="Environment"]
 background_mode = 1
-background_color = Color(0.38, 0.8, 1, 1)
+background_color = Color(0.38, 0.78, 1, 1)
 ambient_light_source = 3
-ambient_light_color = Color(1, 1, 1, 1)
-ambient_light_energy = 0.9
+ambient_light_color = Color(1, 0.95, 0.84, 1)
+ambient_light_energy = 0.86
+fog_enabled = true
+fog_light_color = Color(0.75, 0.9, 1, 1)
+fog_light_energy = 0.45
+fog_density = 0.006
 
 [sub_resource type="BoxMesh" id="GroundMesh"]
-size = Vector3(42, 0.3, 34)
+size = Vector3(46, 0.3, 38)
 
 [sub_resource type="StandardMaterial3D" id="GroundMaterial"]
-albedo_color = Color(0.28, 0.75, 0.34, 1)
+albedo_color = Color(0.24, 0.68, 0.31, 1)
+roughness = 0.9
+
+[sub_resource type="BoxMesh" id="PathMesh"]
+size = Vector3(5.2, 0.12, 30)
+
+[sub_resource type="StandardMaterial3D" id="PathMaterial"]
+albedo_color = Color(0.94, 0.78, 0.5, 1)
+roughness = 0.82
 
 [sub_resource type="CylinderMesh" id="PlazaMesh"]
-top_radius = 7.0
-bottom_radius = 7.0
-height = 0.15
+top_radius = 8.0
+bottom_radius = 8.4
+height = 0.22
 
 [sub_resource type="StandardMaterial3D" id="PlazaMaterial"]
-albedo_color = Color(0.9, 0.82, 0.58, 1)
+albedo_color = Color(0.98, 0.84, 0.58, 1)
 
-[sub_resource type="BoxMesh" id="BuildingMesh"]
-size = Vector3(7, 5, 5)
+[sub_resource type="CylinderMesh" id="FountainBaseMesh"]
+top_radius = 3.0
+bottom_radius = 3.4
+height = 0.65
 
-[sub_resource type="StandardMaterial3D" id="RaceMaterial"]
-albedo_color = Color(1, 0.3, 0.2, 1)
+[sub_resource type="CylinderMesh" id="FountainWaterMesh"]
+top_radius = 2.65
+bottom_radius = 2.65
+height = 0.12
 
-[sub_resource type="StandardMaterial3D" id="StickerMaterial"]
-albedo_color = Color(0.62, 0.3, 1, 1)
+[sub_resource type="StandardMaterial3D" id="StoneMaterial"]
+albedo_color = Color(0.92, 0.86, 0.74, 1)
 
-[sub_resource type="StandardMaterial3D" id="LearningMaterial"]
-albedo_color = Color(0.18, 0.65, 1, 1)
+[sub_resource type="StandardMaterial3D" id="WaterMaterial"]
+transparency = 1
+albedo_color = Color(0.1, 0.68, 1, 0.82)
+metallic = 0.25
+roughness = 0.15
 
-[sub_resource type="StandardMaterial3D" id="GarageMaterial"]
-albedo_color = Color(1, 0.7, 0.12, 1)
+[sub_resource type="CylinderMesh" id="FountainColumnMesh"]
+top_radius = 0.35
+bottom_radius = 0.55
+height = 3.0
 
-[sub_resource type="StandardMaterial3D" id="EventMaterial"]
-albedo_color = Color(0.25, 0.78, 0.45, 1)
+[sub_resource type="SphereMesh" id="BushMesh"]
+radius = 0.75
+height = 1.25
+
+[sub_resource type="StandardMaterial3D" id="BushMaterial"]
+albedo_color = Color(0.12, 0.58, 0.22, 1)
+
+[sub_resource type="SphereMesh" id="FlowerMesh"]
+radius = 0.2
+height = 0.32
+
+[sub_resource type="StandardMaterial3D" id="PinkFlower"]
+albedo_color = Color(1, 0.25, 0.62, 1)
+emission_enabled = true
+emission = Color(0.3, 0.02, 0.1, 1)
+
+[sub_resource type="StandardMaterial3D" id="YellowFlower"]
+albedo_color = Color(1, 0.85, 0.1, 1)
+emission_enabled = true
+emission = Color(0.3, 0.18, 0, 1)
+
+[sub_resource type="SphereMesh" id="CloudMesh"]
+radius = 3.2
+height = 3.8
+
+[sub_resource type="StandardMaterial3D" id="CloudMaterial"]
+albedo_color = Color(1, 1, 1, 0.82)
+transparency = 1
+shading_mode = 0
+
+[sub_resource type="SphereMesh" id="SunMesh"]
+radius = 2.2
+height = 4.4
+
+[sub_resource type="StandardMaterial3D" id="SunMaterial"]
+albedo_color = Color(1, 0.84, 0.12, 1)
+emission_enabled = true
+emission = Color(1, 0.5, 0.05, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="ParticleProcessMaterial" id="StarParticleProcess"]
+emission_shape = 3
+emission_box_extents = Vector3(20, 5, 16)
+direction = Vector3(0, 1, 0)
+spread = 45.0
+gravity = Vector3(0, 0.18, 0)
+initial_velocity_min = 0.15
+initial_velocity_max = 0.55
+scale_min = 0.06
+scale_max = 0.18
+color = Color(1, 0.82, 0.12, 1)
+
+[sub_resource type="StandardMaterial3D" id="StarParticleMaterial"]
+albedo_color = Color(1, 0.88, 0.16, 1)
+emission_enabled = true
+emission = Color(1, 0.5, 0.04, 1)
+emission_energy_multiplier = 2.4
+
+[sub_resource type="SphereMesh" id="StarParticleMesh"]
+material = SubResource("StarParticleMaterial")
+radius = 0.12
+height = 0.24
 
 [sub_resource type="StyleBoxFlat" id="HudStyle"]
 bg_color = Color(0.1, 0.22, 0.58, 0.88)
@@ -68,104 +152,263 @@ script = ExtResource("1")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment")
 
-[node name="Sun" type="DirectionalLight3D" parent="."]
-rotation = Vector3(-0.8, -0.45, 0)
-light_energy = 1.2
+[node name="SunLight" type="DirectionalLight3D" parent="."]
+rotation = Vector3(-0.78, -0.55, 0)
+light_color = Color(1, 0.9, 0.72, 1)
+light_energy = 1.25
 shadow_enabled = true
+
+[node name="SunDisc" type="MeshInstance3D" parent="."]
+position = Vector3(-19, 17, -20)
+mesh = SubResource("SunMesh")
+material_override = SubResource("SunMaterial")
+
+[node name="Clouds" type="Node3D" parent="."]
+
+[node name="Cloud1" type="MeshInstance3D" parent="Clouds"]
+position = Vector3(-14, 13, -18)
+scale = Vector3(2.2, 0.55, 0.8)
+mesh = SubResource("CloudMesh")
+material_override = SubResource("CloudMaterial")
+
+[node name="Cloud2" type="MeshInstance3D" parent="Clouds"]
+position = Vector3(8, 15, -20)
+scale = Vector3(2.6, 0.6, 0.9)
+mesh = SubResource("CloudMesh")
+material_override = SubResource("CloudMaterial")
+
+[node name="Cloud3" type="MeshInstance3D" parent="Clouds"]
+position = Vector3(20, 11, 2)
+scale = Vector3(1.8, 0.5, 0.7)
+mesh = SubResource("CloudMesh")
+material_override = SubResource("CloudMaterial")
 
 [node name="Ground" type="MeshInstance3D" parent="."]
 position = Vector3(0, -0.15, 0)
 mesh = SubResource("GroundMesh")
 material_override = SubResource("GroundMaterial")
 
-[node name="EventPlaza" type="MeshInstance3D" parent="."]
+[node name="PathNorthSouth" type="MeshInstance3D" parent="."]
 position = Vector3(0, 0.02, 0)
+mesh = SubResource("PathMesh")
+material_override = SubResource("PathMaterial")
+
+[node name="PathEastWest" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.025, 0)
+rotation = Vector3(0, 1.5708, 0)
+mesh = SubResource("PathMesh")
+material_override = SubResource("PathMaterial")
+
+[node name="EventPlaza" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.08, 0)
 mesh = SubResource("PlazaMesh")
 material_override = SubResource("PlazaMaterial")
 
-[node name="RaceCenter" type="MeshInstance3D" parent="."]
-position = Vector3(-13, 2.5, -9)
-mesh = SubResource("BuildingMesh")
-material_override = SubResource("RaceMaterial")
+[node name="FountainBase" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.42, 0)
+mesh = SubResource("FountainBaseMesh")
+material_override = SubResource("StoneMaterial")
 
-[node name="RaceSign" type="Label3D" parent="."]
-position = Vector3(-13, 5.8, -9)
-font_size = 52
-outline_size = 12
-text = "🏁 RACE CENTER"
-pixel_size = 0.02
+[node name="FountainWater" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.78, 0)
+mesh = SubResource("FountainWaterMesh")
+material_override = SubResource("WaterMaterial")
+
+[node name="FountainColumn" type="MeshInstance3D" parent="."]
+position = Vector3(0, 2.15, 0)
+mesh = SubResource("FountainColumnMesh")
+material_override = SubResource("StoneMaterial")
+
+[node name="FountainStar" type="Label3D" parent="."]
+position = Vector3(0, 4.1, 0)
+modulate = Color(1, 0.82, 0.12, 1)
+outline_modulate = Color(0.45, 0.15, 0.75, 1)
+font_size = 90
+outline_size = 15
+text = "★"
 billboard = 1
+
+[node name="RaceCenter" parent="." instance=ExtResource("4")]
+position = Vector3(-13, 0, -10)
+rotation = Vector3(0, 0.9, 0)
+building_name = "RACE CENTER"
+building_icon = "🏁"
+primary_color = Color(0.92, 0.22, 0.14, 1)
+accent_color = Color(1, 0.72, 0.08, 1)
+
+[node name="StickerHall" parent="." instance=ExtResource("4")]
+position = Vector3(13, 0, -10)
+rotation = Vector3(0, -0.9, 0)
+building_name = "STICKER HALL"
+building_icon = "★"
+primary_color = Color(0.55, 0.2, 0.85, 1)
+accent_color = Color(1, 0.45, 0.78, 1)
+
+[node name="LearningLab" parent="." instance=ExtResource("4")]
+position = Vector3(-13, 0, 10)
+rotation = Vector3(0, 2.23, 0)
+building_name = "LEARNING LAB"
+building_icon = "✦"
+primary_color = Color(0.08, 0.55, 0.9, 1)
+accent_color = Color(0.18, 0.9, 0.86, 1)
+
+[node name="Garage" parent="." instance=ExtResource("4")]
+position = Vector3(13, 0, 10)
+rotation = Vector3(0, -2.23, 0)
+building_name = "GARAGE"
+building_icon = "⚙"
+primary_color = Color(0.95, 0.55, 0.08, 1)
+accent_color = Color(1, 0.88, 0.18, 1)
+
+[node name="EventPavilion" parent="." instance=ExtResource("4")]
+position = Vector3(0, 0, -16)
+scale = Vector3(0.72, 0.72, 0.72)
+building_name = "EVENT PLAZA"
+building_icon = "☀"
+primary_color = Color(0.15, 0.68, 0.32, 1)
+accent_color = Color(1, 0.84, 0.12, 1)
+
+[node name="Trees" type="Node3D" parent="."]
+
+[node name="Tree1" parent="Trees" instance=ExtResource("5")]
+position = Vector3(-20, 0, -14)
+
+[node name="Tree2" parent="Trees" instance=ExtResource("5")]
+position = Vector3(20, 0, -14)
+scale = Vector3(0.9, 0.9, 0.9)
+
+[node name="Tree3" parent="Trees" instance=ExtResource("5")]
+position = Vector3(-20, 0, 13)
+scale = Vector3(1.1, 1.1, 1.1)
+
+[node name="Tree4" parent="Trees" instance=ExtResource("5")]
+position = Vector3(20, 0, 13)
+
+[node name="Tree5" parent="Trees" instance=ExtResource("5")]
+position = Vector3(-7, 0, -17)
+scale = Vector3(0.8, 0.8, 0.8)
+
+[node name="Tree6" parent="Trees" instance=ExtResource("5")]
+position = Vector3(7, 0, -17)
+scale = Vector3(0.85, 0.85, 0.85)
+
+[node name="Lamps" type="Node3D" parent="."]
+
+[node name="Lamp1" parent="Lamps" instance=ExtResource("6")]
+position = Vector3(-4.2, 0, -8)
+
+[node name="Lamp2" parent="Lamps" instance=ExtResource("6")]
+position = Vector3(4.2, 0, -8)
+
+[node name="Lamp3" parent="Lamps" instance=ExtResource("6")]
+position = Vector3(-4.2, 0, 8)
+
+[node name="Lamp4" parent="Lamps" instance=ExtResource("6")]
+position = Vector3(4.2, 0, 8)
+
+[node name="Lamp5" parent="Lamps" instance=ExtResource("6")]
+position = Vector3(-9, 0, -3.6)
+
+[node name="Lamp6" parent="Lamps" instance=ExtResource("6")]
+position = Vector3(9, 0, -3.6)
+
+[node name="Gardens" type="Node3D" parent="."]
+
+[node name="Bush1" type="MeshInstance3D" parent="Gardens"]
+position = Vector3(-8, 0.65, -7)
+scale = Vector3(2.2, 0.8, 0.8)
+mesh = SubResource("BushMesh")
+material_override = SubResource("BushMaterial")
+
+[node name="Bush2" type="MeshInstance3D" parent="Gardens"]
+position = Vector3(8, 0.65, -7)
+scale = Vector3(2.2, 0.8, 0.8)
+mesh = SubResource("BushMesh")
+material_override = SubResource("BushMaterial")
+
+[node name="Bush3" type="MeshInstance3D" parent="Gardens"]
+position = Vector3(-8, 0.65, 7)
+scale = Vector3(2.2, 0.8, 0.8)
+mesh = SubResource("BushMesh")
+material_override = SubResource("BushMaterial")
+
+[node name="Bush4" type="MeshInstance3D" parent="Gardens"]
+position = Vector3(8, 0.65, 7)
+scale = Vector3(2.2, 0.8, 0.8)
+mesh = SubResource("BushMesh")
+material_override = SubResource("BushMaterial")
+
+[node name="Flower1" type="MeshInstance3D" parent="Gardens"]
+position = Vector3(-9, 0.35, -6.3)
+mesh = SubResource("FlowerMesh")
+material_override = SubResource("PinkFlower")
+
+[node name="Flower2" type="MeshInstance3D" parent="Gardens"]
+position = Vector3(-8.2, 0.35, -6.2)
+mesh = SubResource("FlowerMesh")
+material_override = SubResource("YellowFlower")
+
+[node name="Flower3" type="MeshInstance3D" parent="Gardens"]
+position = Vector3(8.2, 0.35, -6.2)
+mesh = SubResource("FlowerMesh")
+material_override = SubResource("PinkFlower")
+
+[node name="Flower4" type="MeshInstance3D" parent="Gardens"]
+position = Vector3(9, 0.35, -6.3)
+mesh = SubResource("FlowerMesh")
+material_override = SubResource("YellowFlower")
+
+[node name="Flower5" type="MeshInstance3D" parent="Gardens"]
+position = Vector3(-9, 0.35, 6.3)
+mesh = SubResource("FlowerMesh")
+material_override = SubResource("YellowFlower")
+
+[node name="Flower6" type="MeshInstance3D" parent="Gardens"]
+position = Vector3(-8.2, 0.35, 6.2)
+mesh = SubResource("FlowerMesh")
+material_override = SubResource("PinkFlower")
+
+[node name="Flower7" type="MeshInstance3D" parent="Gardens"]
+position = Vector3(8.2, 0.35, 6.2)
+mesh = SubResource("FlowerMesh")
+material_override = SubResource("YellowFlower")
+
+[node name="Flower8" type="MeshInstance3D" parent="Gardens"]
+position = Vector3(9, 0.35, 6.3)
+mesh = SubResource("FlowerMesh")
+material_override = SubResource("PinkFlower")
+
+[node name="FloatingStars" type="GPUParticles3D" parent="."]
+position = Vector3(0, 3, 0)
+amount = 55
+lifetime = 12.0
+randomness = 0.75
+process_material = SubResource("StarParticleProcess")
+draw_pass_1 = SubResource("StarParticleMesh")
 
 [node name="RaceZone" parent="." instance=ExtResource("3")]
 position = Vector3(-13, 0, -5)
 activity_name = "Race Center"
 target_scene = "res://scenes/main/CharacterSelect.tscn"
 
-[node name="StickerHall" type="MeshInstance3D" parent="."]
-position = Vector3(13, 2.5, -9)
-mesh = SubResource("BuildingMesh")
-material_override = SubResource("StickerMaterial")
-
-[node name="StickerSign" type="Label3D" parent="."]
-position = Vector3(13, 5.8, -9)
-font_size = 48
-outline_size = 12
-text = "★ STICKER HALL"
-pixel_size = 0.02
-billboard = 1
-
 [node name="StickerZone" parent="." instance=ExtResource("3")]
 position = Vector3(13, 0, -5)
 activity_name = "Sticker Book Hall"
 target_scene = "res://scenes/main/StickerBook.tscn"
 
-[node name="LearningLab" type="MeshInstance3D" parent="."]
-position = Vector3(-13, 2.5, 9)
-mesh = SubResource("BuildingMesh")
-material_override = SubResource("LearningMaterial")
-
-[node name="LearningSign" type="Label3D" parent="."]
-position = Vector3(-13, 5.8, 9)
-font_size = 48
-outline_size = 12
-text = "✦ LEARNING LAB"
-pixel_size = 0.02
-billboard = 1
-
 [node name="LearningZone" parent="." instance=ExtResource("3")]
 position = Vector3(-13, 0, 5)
 activity_name = "Learning Lab"
-
-[node name="Garage" type="MeshInstance3D" parent="."]
-position = Vector3(13, 2.5, 9)
-mesh = SubResource("BuildingMesh")
-material_override = SubResource("GarageMaterial")
-
-[node name="GarageSign" type="Label3D" parent="."]
-position = Vector3(13, 5.8, 9)
-font_size = 52
-outline_size = 12
-text = "⚙ GARAGE"
-pixel_size = 0.02
-billboard = 1
 
 [node name="GarageZone" parent="." instance=ExtResource("3")]
 position = Vector3(13, 0, 5)
 activity_name = "Garage"
 
-[node name="EventSign" type="Label3D" parent="."]
-position = Vector3(0, 1.2, -1)
-font_size = 38
-outline_size = 10
-text = "☀ EVENT PLAZA"
-pixel_size = 0.02
-billboard = 1
-
 [node name="EventZone" parent="." instance=ExtResource("3")]
 activity_name = "Event Plaza"
 
 [node name="HubPlayer" parent="." instance=ExtResource("2")]
-position = Vector3(0, 0, 9)
+position = Vector3(0, 0, 10)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

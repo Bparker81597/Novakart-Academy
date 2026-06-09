@@ -29,6 +29,8 @@ func _initialize() -> void:
 	for zone_name: String in ["RaceZone", "StickerZone", "LearningZone", "GarageZone", "EventZone"]:
 		assert(hub.has_node(zone_name), "Hub is missing %s" % zone_name)
 	assert(hub.has_node("HubPlayer"), "Hub is missing a safe player controller.")
+	for visual_name: String in ["RaceCenter", "StickerHall", "LearningLab", "Garage", "EventPavilion", "Trees", "Lamps", "Gardens", "FloatingStars"]:
+		assert(hub.has_node(visual_name), "Hub visual polish is missing %s" % visual_name)
 
 	print("Sprint 3 title, character card, and campus hub checks passed.")
 	quit()

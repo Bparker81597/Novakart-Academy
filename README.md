@@ -54,3 +54,5 @@ art assets to support incremental development.
 - Safe arrow-key exploration with no enemies or timers
 - Race Center and Sticker Book Hall activity triggers
 - Learning Lab, Garage, and Event Plaza expansion-ready trigger zones
+- Stylized buildings, fountain plaza, trees, gardens, banners, lamps, pathways,
+  soft atmosphere, moving clouds, sparkles, and character idle animation

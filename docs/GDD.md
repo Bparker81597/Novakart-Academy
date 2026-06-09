@@ -76,3 +76,11 @@ Large labeled landmarks and reusable trigger zones connect activities:
 - Learning Lab is prepared for educational activities.
 - Garage is prepared for kart customization.
 - Event Plaza is prepared for seasonal content.
+
+### Visual Polish Foundation
+
+The Hub presentation uses reusable stylized academy buildings with colorful
+roofs, domes, glowing windows, columns, banners, and clear signs. Landscaped
+paths connect a central fountain plaza to trees, bushes, flowers, and street
+lamps. Soft fog, drifting clouds, sunlight, floating stars, and subtle player
+idle motion make the campus feel magical without changing gameplay.

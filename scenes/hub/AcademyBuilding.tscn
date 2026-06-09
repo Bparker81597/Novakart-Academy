@@ -1,0 +1,117 @@
+[gd_scene load_steps=13 format=3]
+
+[ext_resource path="res://scripts/hub/academy_building.gd" type="Script" id="1"]
+
+[sub_resource type="BoxMesh" id="BodyMesh"]
+size = Vector3(7.6, 4.5, 5.2)
+
+[sub_resource type="CylinderMesh" id="RoofMesh"]
+top_radius = 0.35
+bottom_radius = 4.8
+height = 2.1
+radial_segments = 8
+
+[sub_resource type="SphereMesh" id="DomeMesh"]
+radius = 1.45
+height = 1.6
+
+[sub_resource type="BoxMesh" id="DoorMesh"]
+size = Vector3(1.6, 2.5, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="DoorMaterial"]
+albedo_color = Color(0.17, 0.28, 0.55, 1)
+metallic = 0.15
+
+[sub_resource type="BoxMesh" id="WindowMesh"]
+size = Vector3(1.25, 1.35, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="WindowMaterial"]
+albedo_color = Color(0.38, 0.88, 1, 1)
+emission_enabled = true
+emission = Color(0.08, 0.34, 0.55, 1)
+emission_energy_multiplier = 0.75
+
+[sub_resource type="CylinderMesh" id="ColumnMesh"]
+top_radius = 0.32
+bottom_radius = 0.4
+height = 3.4
+
+[sub_resource type="StandardMaterial3D" id="StoneMaterial"]
+albedo_color = Color(1, 0.92, 0.72, 1)
+
+[sub_resource type="BoxMesh" id="AwningMesh"]
+size = Vector3(3.5, 0.45, 1.5)
+
+[sub_resource type="BoxMesh" id="BannerMesh"]
+size = Vector3(0.7, 2.3, 0.12)
+
+[sub_resource type="BoxMesh" id="StepMesh"]
+size = Vector3(4.2, 0.35, 2.0)
+
+[node name="AcademyBuilding" type="Node3D"]
+script = ExtResource("1")
+
+[node name="Body" type="MeshInstance3D" parent="."]
+position = Vector3(0, 2.25, 0)
+mesh = SubResource("BodyMesh")
+
+[node name="Roof" type="MeshInstance3D" parent="."]
+position = Vector3(0, 5.2, 0)
+scale = Vector3(1, 1, 0.72)
+mesh = SubResource("RoofMesh")
+
+[node name="Dome" type="MeshInstance3D" parent="."]
+position = Vector3(0, 6.3, 0)
+scale = Vector3(1, 0.65, 1)
+mesh = SubResource("DomeMesh")
+
+[node name="Door" type="MeshInstance3D" parent="."]
+position = Vector3(0, 1.3, 2.7)
+mesh = SubResource("DoorMesh")
+material_override = SubResource("DoorMaterial")
+
+[node name="WindowLeft" type="MeshInstance3D" parent="."]
+position = Vector3(-2.35, 2.55, 2.7)
+mesh = SubResource("WindowMesh")
+material_override = SubResource("WindowMaterial")
+
+[node name="WindowRight" type="MeshInstance3D" parent="."]
+position = Vector3(2.35, 2.55, 2.7)
+mesh = SubResource("WindowMesh")
+material_override = SubResource("WindowMaterial")
+
+[node name="ColumnLeft" type="MeshInstance3D" parent="."]
+position = Vector3(-1.85, 1.7, 3.2)
+mesh = SubResource("ColumnMesh")
+material_override = SubResource("StoneMaterial")
+
+[node name="ColumnRight" type="MeshInstance3D" parent="."]
+position = Vector3(1.85, 1.7, 3.2)
+mesh = SubResource("ColumnMesh")
+material_override = SubResource("StoneMaterial")
+
+[node name="Awning" type="MeshInstance3D" parent="."]
+position = Vector3(0, 3.65, 3.05)
+rotation = Vector3(-0.18, 0, 0)
+mesh = SubResource("AwningMesh")
+
+[node name="BannerLeft" type="MeshInstance3D" parent="."]
+position = Vector3(-3.45, 3.0, 2.72)
+mesh = SubResource("BannerMesh")
+
+[node name="BannerRight" type="MeshInstance3D" parent="."]
+position = Vector3(3.45, 3.0, 2.72)
+mesh = SubResource("BannerMesh")
+
+[node name="Steps" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.18, 3.4)
+mesh = SubResource("StepMesh")
+material_override = SubResource("StoneMaterial")
+
+[node name="Sign" type="Label3D" parent="."]
+position = Vector3(0, 4.45, 2.8)
+font_size = 42
+outline_size = 11
+text = "★ ACADEMY"
+pixel_size = 0.018
+billboard = 1
