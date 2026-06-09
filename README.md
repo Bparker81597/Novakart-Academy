@@ -55,6 +55,7 @@ art assets to support incremental development.
 ## Campus Experience
 
 - Premium animated title screen inspired by the supplied campus concept
+- Supplied NovaKart lineup artwork displayed for Blaze, Finn, Nova, and Dash
 - Character Select and hero introduction entered from `Start Racing`
 - Safe arrow-key exploration with no enemies or timers
 - Large proximity prompts with Space interaction at every Hub building

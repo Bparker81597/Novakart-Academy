@@ -8,8 +8,9 @@ func _initialize() -> void:
 	assert(content_catalog.stickers.size() == 7, "Expected seven sticker definitions.")
 	for character_id: String in ["blaze_bolt", "finn_tide", "nova_spark", "dash_rocket"]:
 		var profile: Dictionary = content_catalog.get_character(character_id)
-		for key: String in ["name", "type", "color_theme", "icon", "personality", "bio", "catchphrase", "intro_line", "ability", "favorite_activity", "greeting_audio"]:
+		for key: String in ["name", "type", "color_theme", "icon", "personality", "bio", "catchphrase", "intro_line", "ability", "favorite_activity", "portrait", "greeting_audio"]:
 			assert(profile.has(key), "%s is missing %s" % [character_id, key])
+		assert(ResourceLoader.exists(profile.portrait), "%s portrait asset is missing" % character_id)
 	var expected_abilities := {
 		"blaze_bolt": "Turbo Burst",
 		"finn_tide": "Wave Rider",

@@ -36,6 +36,9 @@ func _initialize() -> void:
 	for portrait_name: String in ["Blaze", "Finn", "Nova", "Dash"]:
 		var portrait: Control = title.get_node("Showcase/%s" % portrait_name)
 		assert(portrait.global_position.y >= 0.0 and portrait.global_position.y + portrait.size.y <= 720.0, "%s is clipped on the title screen." % portrait_name)
+		assert(portrait.get_node("Content/Portrait").visible, "%s should show real character artwork." % portrait_name)
+		assert(portrait.get_node("Content/Portrait").texture != null, "%s portrait texture did not load." % portrait_name)
+		assert(not portrait.get_node("Content/FallbackIcon").visible, "%s should not use the icon fallback." % portrait_name)
 
 	var intro: Node = load("res://scenes/main/CharacterIntro.tscn").instantiate()
 	root.add_child(intro)

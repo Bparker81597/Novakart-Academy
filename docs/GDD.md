@@ -73,6 +73,10 @@ the academy campus sits behind a large logo, four animated character showcases
 frame the scene, stars sparkle, clouds drift, and the primary actions use large
 high-contrast buttons.
 
+The four title showcases use cropped portraits from the supplied NovaKart
+character lineup. Portraits preserve their aspect ratio and fall back to the
+character icon only when an art asset cannot load.
+
 `Start Racing` enters Character Select, followed by the selected hero's
 introduction and the Campus Hub. Characters, Sticker Book, and Settings remain
 available as direct title-screen shortcuts.

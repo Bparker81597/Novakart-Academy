@@ -15,6 +15,7 @@
       "favorite_activity": "Sprint races at the Race Center",
       "color": "#ff563d",
       "particle_icon": "⚡",
+      "portrait": "res://assets/characters/blaze_bolt/blaze_portrait.png",
       "greeting_audio": "res://assets/audio/voice/blaze_intro.ogg"
     },
     {
@@ -32,6 +33,7 @@
       "favorite_activity": "Exploring the fountain plaza",
       "color": "#32a8ff",
       "particle_icon": "●",
+      "portrait": "res://assets/characters/finn_tide/finn_portrait.png",
       "greeting_audio": "res://assets/audio/voice/finn_intro.ogg"
     },
     {
@@ -49,6 +51,7 @@
       "favorite_activity": "Creating inventions in the Learning Lab",
       "color": "#a94dff",
       "particle_icon": "✦",
+      "portrait": "res://assets/characters/nova_spark/nova_portrait.png",
       "greeting_audio": "res://assets/audio/voice/nova_intro.ogg"
     },
     {
@@ -66,6 +69,7 @@
       "favorite_activity": "Planning adventures at Event Plaza",
       "color": "#48b84f",
       "particle_icon": "★",
+      "portrait": "res://assets/characters/dash_rocket/dash_portrait.png",
       "greeting_audio": "res://assets/audio/voice/dash_intro.ogg"
     }
   ]
