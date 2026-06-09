@@ -46,3 +46,11 @@ art assets to support incremental development.
 - Sticker rewards unlocked by finishing races and collecting Nova Stars
 - Sticker Book available from the main menu
 - Local save data for unlocked characters, stickers, and race progress
+
+## Campus Experience
+
+- Premium animated title screen inspired by the supplied campus concept
+- Central Campus Hub entered from `Start Racing`
+- Safe arrow-key exploration with no enemies or timers
+- Race Center and Sticker Book Hall activity triggers
+- Learning Lab, Garage, and Event Plaza expansion-ready trigger zones

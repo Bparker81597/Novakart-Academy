@@ -55,3 +55,24 @@ Select opens. Sunny Speedway displays the selected driver's name in the HUD.
 Finishing races unlocks stickers for the selected driver and race achievements.
 The Sticker Book shows collected rewards and gentle visual hints for locked
 stickers. Progress is saved locally after every completed race.
+
+## Premium Title Screen
+
+The title screen presents NovaKart Academy as a magical commercial game world:
+the academy campus sits behind a large logo, four animated character showcases
+frame the scene, stars sparkle, clouds drift, and the primary actions use large
+high-contrast buttons.
+
+`Start Racing` enters the Campus Hub. Characters, Sticker Book, and Settings
+remain available as direct title-screen shortcuts.
+
+## Campus Hub
+
+The Campus Hub is a safe 3D exploration space with no enemies and no timers.
+Large labeled landmarks and reusable trigger zones connect activities:
+
+- Race Center opens Character Select and racing.
+- Sticker Book Hall opens collected rewards.
+- Learning Lab is prepared for educational activities.
+- Garage is prepared for kart customization.
+- Event Plaza is prepared for seasonal content.

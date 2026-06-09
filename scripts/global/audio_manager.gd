@@ -3,7 +3,11 @@ extends Node
 signal greeting_requested(character_id: String, catchphrase: String)
 signal narration_requested(narration_id: String)
 
+var voice_enabled := true
+
 func play_character_greeting(character_id: String) -> void:
+	if not voice_enabled:
+		return
 	var profile := ContentCatalog.get_character(character_id)
 	var audio_path: String = profile.get("greeting_audio", "")
 	greeting_requested.emit(character_id, profile.get("catchphrase", ""))
@@ -11,6 +15,8 @@ func play_character_greeting(character_id: String) -> void:
 		play_sound(load(audio_path))
 
 func request_narration(narration_id: String) -> void:
+	if not voice_enabled:
+		return
 	narration_requested.emit(narration_id)
 
 func play_sound(stream: AudioStream) -> void:
