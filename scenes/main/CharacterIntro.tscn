@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3]
+[gd_scene load_steps=10 format=3]
 
 [ext_resource path="res://scripts/ui/character_intro_controller.gd" type="Script" id="1"]
 [ext_resource path="res://scenes/ui/CharacterPortraitCard.tscn" type="PackedScene" id="2"]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/ui/BadgePopup.tscn" type="PackedScene" id="4"]
 [ext_resource path="res://scenes/ui/CharacterParticleEffect.tscn" type="PackedScene" id="5"]
 [ext_resource path="res://scenes/ui/BigKidButton.tscn" type="PackedScene" id="6"]
+[ext_resource path="res://scenes/ui/StickerUnlockPopup.tscn" type="PackedScene" id="7"]
 
 [sub_resource type="StyleBoxFlat" id="IdentityStyle"]
 bg_color = Color(1, 1, 1, 0.92)
@@ -171,6 +172,9 @@ text = "←  CHOOSE AGAIN"
 button_color = Color(0.2, 0.48, 0.82, 1)
 
 [node name="BadgePopup" parent="." instance=ExtResource("4")]
+layout_mode = 1
+
+[node name="StickerUnlockPopup" parent="." instance=ExtResource("7")]
 layout_mode = 1
 
 [connection signal="pressed" from="Actions/StartAdventure" to="." method="_start_adventure"]

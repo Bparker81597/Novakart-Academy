@@ -13,7 +13,7 @@ func _initialize() -> void:
 
 	var expected_prompts := {
 		"RaceZone": "PRESS SPACE TO RACE!",
-		"StickerZone": "STICKER BOOK COMING SOON!",
+		"StickerZone": "PRESS SPACE FOR STICKER BOOK!",
 		"LearningZone": "LEARNING LAB COMING SOON!",
 		"GarageZone": "GARAGE COMING SOON!",
 		"EventZone": "EVENTS COMING SOON!",

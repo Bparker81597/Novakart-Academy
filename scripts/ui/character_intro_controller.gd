@@ -13,6 +13,7 @@ func _ready() -> void:
 	$Actions/StartAdventure.grab_focus()
 	if SaveManager.unlock_academy_student_badge():
 		$BadgePopup.celebrate()
+		get_tree().create_timer(3.0).timeout.connect(_show_academy_student_sticker)
 
 func _show_character(new_character_id: String) -> void:
 	character_id = new_character_id
@@ -49,3 +50,6 @@ func _start_adventure() -> void:
 func _choose_again() -> void:
 	AudioManager.play_button_confirm()
 	get_tree().change_scene_to_file("res://scenes/main/CharacterSelect.tscn")
+
+func _show_academy_student_sticker() -> void:
+	$StickerUnlockPopup.show_stickers(["academy_student"])

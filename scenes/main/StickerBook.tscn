@@ -1,6 +1,21 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=4 format=3]
 
 [ext_resource path="res://scripts/ui/sticker_book.gd" type="Script" id="1"]
+[ext_resource path="res://scenes/ui/BigKidButton.tscn" type="PackedScene" id="2"]
+
+[sub_resource type="StyleBoxFlat" id="CaseStyle"]
+bg_color = Color(0.12, 0.22, 0.58, 0.94)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(1, 0.82, 0.16, 1)
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+shadow_color = Color(0.08, 0.12, 0.35, 0.38)
+shadow_size = 15
 
 [node name="StickerBook" type="Control"]
 layout_mode = 3
@@ -9,46 +24,136 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-modulate = Color(1, 0.97, 0.82, 1)
 script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.82, 0.95, 1, 1)
 
 [node name="Title" type="Label" parent="."]
 layout_mode = 0
-offset_top = 25.0
+offset_top = 18.0
 offset_right = 1280.0
-offset_bottom = 90.0
-theme_override_colors/font_color = Color(0.45, 0.2, 0.65, 1)
-theme_override_font_sizes/font_size = 46
-text = "★ STICKER BOOK ★"
+offset_bottom = 78.0
+theme_override_colors/font_color = Color(0.4, 0.15, 0.72, 1)
+theme_override_font_sizes/font_size = 44
+text = "★  NOVAKART STICKER BOOK  ★"
 horizontal_alignment = 1
 
 [node name="Progress" type="Label" parent="."]
 layout_mode = 0
-offset_top = 88.0
+offset_top = 76.0
 offset_right = 1280.0
-offset_bottom = 138.0
-theme_override_colors/font_color = Color(0.85, 0.45, 0.05, 1)
-theme_override_font_sizes/font_size = 30
-text = "★  0 / 7"
+offset_bottom = 116.0
+theme_override_colors/font_color = Color(0.15, 0.34, 0.7, 1)
+theme_override_font_sizes/font_size = 23
+text = "★  0 / 8 STICKERS UNLOCKED"
+horizontal_alignment = 1
+
+[node name="Categories" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 125.0
+offset_right = 1180.0
+offset_bottom = 200.0
+theme_override_constants/separation = 14
+alignment = 1
+
+[node name="Characters" parent="Categories" instance=ExtResource("2")]
+custom_minimum_size = Vector2(250, 66)
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "★ CHARACTERS"
+button_color = Color(0.62, 0.25, 0.88, 1)
+
+[node name="Racing" parent="Categories" instance=ExtResource("2")]
+custom_minimum_size = Vector2(250, 66)
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "🏁 RACING"
+button_color = Color(0.95, 0.35, 0.1, 1)
+
+[node name="Academy" parent="Categories" instance=ExtResource("2")]
+custom_minimum_size = Vector2(250, 66)
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "🏅 ACADEMY"
+button_color = Color(0.1, 0.55, 0.9, 1)
+
+[node name="Exploration" parent="Categories" instance=ExtResource("2")]
+custom_minimum_size = Vector2(250, 66)
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "✦ EXPLORATION"
+button_color = Color(0.18, 0.68, 0.35, 1)
+
+[node name="Case" type="Control" parent="."]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 215.0
+offset_right = 1215.0
+offset_bottom = 620.0
+
+[node name="Backdrop" type="Panel" parent="Case"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("CaseStyle")
+
+[node name="CategoryTitle" type="Label" parent="Case"]
+layout_mode = 0
+offset_top = 16.0
+offset_right = 1150.0
+offset_bottom = 58.0
+theme_override_colors/font_color = Color(1, 0.86, 0.18, 1)
+theme_override_font_sizes/font_size = 28
+text = "CHARACTER STICKERS"
 horizontal_alignment = 1
 
 [node name="StickerGrid" type="GridContainer" parent="."]
 layout_mode = 0
 offset_left = 105.0
-offset_top = 160.0
+offset_top = 290.0
 offset_right = 1175.0
-offset_bottom = 570.0
+offset_bottom = 575.0
 theme_override_constants/h_separation = 20
-theme_override_constants/v_separation = 20
+theme_override_constants/v_separation = 18
 columns = 4
 
-[node name="Back" type="Button" parent="."]
+[node name="Empty" type="Label" parent="."]
+visible = false
 layout_mode = 0
-offset_left = 520.0
-offset_top = 610.0
-offset_right = 760.0
-offset_bottom = 695.0
-theme_override_font_sizes/font_size = 46
-text = "⌂"
+offset_left = 250.0
+offset_top = 350.0
+offset_right = 1030.0
+offset_bottom = 470.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 34
+text = "NEW EXPLORATION STICKERS\nCOMING SOON!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
+[node name="Back" parent="." instance=ExtResource("2")]
+layout_mode = 0
+offset_left = 475.0
+offset_top = 635.0
+offset_right = 805.0
+offset_bottom = 710.0
+text = "⌂  BACK TO CAMPUS"
+button_color = Color(0.15, 0.35, 0.75, 1)
+
+[connection signal="pressed" from="Categories/Characters" to="." method="_show_characters"]
+[connection signal="pressed" from="Categories/Racing" to="." method="_show_racing"]
+[connection signal="pressed" from="Categories/Academy" to="." method="_show_academy"]
+[connection signal="pressed" from="Categories/Exploration" to="." method="_show_exploration"]
 [connection signal="pressed" from="Back" to="." method="_go_home"]

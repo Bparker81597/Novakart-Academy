@@ -57,6 +57,18 @@ Finishing races unlocks stickers for the selected driver and race achievements.
 The Sticker Book shows collected rewards and gentle visual hints for locked
 stickers. Progress is saved locally after every completed race.
 
+### Sticker Progression
+
+The first Sticker Book collection includes Academy Student, First Race, First
+Win, Star Collector, and one fan sticker for each hero. Stickers are grouped
+into Characters, Racing, Academy, and Exploration categories. Common,
+uncommon, rare, and epic rarity colors make rewards easy to distinguish.
+
+New stickers use a reusable reward popup with a large preview, animation,
+confetti, and a silent-safe sound hook. The Academy Student sticker unlocks
+during the first character introduction; race stickers unlock on the victory
+screen.
+
 Character Select cards link to data-driven profile pages. Each profile shows a
 large portrait, name, bio, catchphrase, ability, and favorite academy activity,
 with previous/next browsing and a direct Choose action.

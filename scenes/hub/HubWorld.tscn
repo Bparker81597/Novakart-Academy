@@ -413,9 +413,10 @@ target_scene = "res://scenes/race/RaceScene.tscn"
 [node name="StickerZone" parent="." instance=ExtResource("3")]
 position = Vector3(13, 0, -5)
 activity_name = "Sticker Book Hall"
-prompt_text = "STICKER BOOK COMING SOON!"
+prompt_text = "PRESS SPACE FOR STICKER BOOK!"
 prompt_icon = "★"
 prompt_color = Color(0.58, 0.25, 0.88, 1)
+target_scene = "res://scenes/main/StickerBook.tscn"
 
 [node name="LearningZone" parent="." instance=ExtResource("3")]
 position = Vector3(-13, 0, 5)

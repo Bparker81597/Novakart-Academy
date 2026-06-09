@@ -32,6 +32,9 @@ is stuck.
 - Could the player replay or return home without reading?
 - Did the celebration feel exciting and easy to understand?
 - Could the player find and recognize a newly unlocked sticker?
+- Did the sticker unlock popup feel exciting and understandable?
+- Could the player find the Sticker Book Hall and open the collection?
+- Could the player tell locked stickers from unlocked stickers?
 - Did the character icons and colors help the player choose?
 - Could the player understand the Hub building prompts?
 - Did the player use Space to enter the Race Center?

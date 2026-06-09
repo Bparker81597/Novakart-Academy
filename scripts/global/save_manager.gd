@@ -4,6 +4,13 @@ signal progress_changed
 
 const SAVE_PATH := "user://save.json"
 const ALL_CHARACTERS := ["blaze_bolt", "finn_tide", "nova_spark", "dash_rocket"]
+const STICKER_ID_MIGRATION := {
+	"sunny_finisher": "first_win",
+	"blaze_badge": "blaze_fan",
+	"finn_badge": "finn_fan",
+	"nova_badge": "nova_fan",
+	"dash_badge": "dash_fan",
+}
 const DEFAULT_PROGRESS := {
 	"unlocked_characters": ALL_CHARACTERS,
 	"selected_character": "nova_spark",
@@ -26,6 +33,7 @@ func load_progress() -> Dictionary:
 		var parsed: Variant = JSON.parse_string(file.get_as_text()) if file else null
 		if parsed is Dictionary:
 			progress.merge(parsed, true)
+	_migrate_stickers()
 	return progress
 
 func save_progress() -> void:
@@ -50,8 +58,11 @@ func save_selected_character(character_id: String) -> void:
 
 func unlock_academy_student_badge() -> bool:
 	if progress.get("academy_student_badge", false):
+		if unlock_sticker("academy_student"):
+			save_progress()
 		return false
 	progress["academy_student_badge"] = true
+	unlock_sticker("academy_student")
 	save_progress()
 	return true
 
@@ -87,17 +98,27 @@ func record_race(stars: int, character_id: String) -> Array[String]:
 	return new_stickers
 
 func _earned_stickers(stars: int, character_id: String) -> Array[String]:
-	var character_badges := {
-		"blaze_bolt": "blaze_badge",
-		"finn_tide": "finn_badge",
-		"nova_spark": "nova_badge",
-		"dash_rocket": "dash_badge",
+	var character_fans := {
+		"blaze_bolt": "blaze_fan",
+		"finn_tide": "finn_fan",
+		"nova_spark": "nova_fan",
+		"dash_rocket": "dash_fan",
 	}
-	var earned: Array[String] = ["sunny_finisher"]
-	if character_badges.has(character_id):
-		earned.append(character_badges[character_id])
+	var earned: Array[String] = ["first_win"]
+	if int(progress.get("races_completed", 0)) == 1:
+		earned.append("first_race")
+	if character_fans.has(character_id):
+		earned.append(character_fans[character_id])
 	if stars >= 5:
 		earned.append("star_collector")
-	if stars >= 10:
-		earned.append("perfect_stars")
 	return earned
+
+func _migrate_stickers() -> void:
+	var migrated: Array = []
+	for sticker_id: String in progress.get("collected_stickers", []):
+		var new_id: String = STICKER_ID_MIGRATION.get(sticker_id, sticker_id)
+		if new_id in ContentCatalog.stickers and new_id not in migrated:
+			migrated.append(new_id)
+	if progress.get("academy_student_badge", false) and "academy_student" not in migrated:
+		migrated.append("academy_student")
+	progress["collected_stickers"] = migrated

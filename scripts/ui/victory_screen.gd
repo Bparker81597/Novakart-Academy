@@ -9,6 +9,7 @@ func show_victory(stars: int, total: int, new_stickers: Array[String] = []) -> v
 	if not new_stickers.is_empty():
 		var sticker := ContentCatalog.get_sticker(new_stickers[0])
 		$Celebration/NewSticker.text = "NEW STICKER!  %s  %s" % [sticker.get("icon", "★"), sticker.get("name", "")]
+		$StickerUnlockPopup.show_stickers(new_stickers)
 	$Confetti.emitting = true
 	$AnimationPlayer.play("celebrate")
 	AudioManager.request_narration("victory")

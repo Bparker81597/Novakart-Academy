@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene load_steps=11 format=3]
 
 [ext_resource path="res://scripts/ui/victory_screen.gd" type="Script" id="1"]
 [ext_resource path="res://scenes/ui/CharacterPortrait.tscn" type="PackedScene" id="2"]
 [ext_resource path="res://scenes/ui/BigKidButton.tscn" type="PackedScene" id="3"]
+[ext_resource path="res://scenes/ui/StickerUnlockPopup.tscn" type="PackedScene" id="4"]
 
 [sub_resource type="StyleBoxFlat" id="BackgroundStyle"]
 bg_color = Color(0.18, 0.32, 0.82, 0.97)
@@ -165,6 +166,8 @@ button_color = Color(0.72, 0.3, 0.92, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {"": SubResource("AnimationLibrary")}
+
+[node name="StickerUnlockPopup" parent="." instance=ExtResource("4")]
 
 [connection signal="pressed" from="Celebration/RaceAgain" to="." method="_on_race_again_pressed"]
 [connection signal="pressed" from="Celebration/CharacterSelect" to="." method="_on_character_select_pressed"]

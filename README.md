@@ -49,7 +49,9 @@ art assets to support incremental development.
 - Voice-ready character greeting and narration hooks
 - Future character intro recordings are expected in `assets/audio/voice`
 - Sticker rewards unlocked by finishing races and collecting Nova Stars
-- Sticker Book available from the main menu
+- Sticker Book available from the main menu and Academy Hub Sticker Hall
+- Eight starter stickers across Characters, Racing, Academy, and Exploration
+- Rarity-colored locked/unlocked cards and animated reward popups
 - Local save data for unlocked characters, stickers, and race progress
 
 ## Campus Experience

@@ -34,7 +34,9 @@ func _initialize() -> void:
 
 	var original_progress: Dictionary = save_manager.progress.duplicate(true)
 	save_manager.progress["academy_student_badge"] = false
+	save_manager.progress["collected_stickers"] = []
 	assert(save_manager.unlock_academy_student_badge(), "Badge should unlock the first time.")
+	assert(save_manager.has_sticker("academy_student"), "Academy Student sticker should unlock with the badge.")
 	assert(not save_manager.unlock_academy_student_badge(), "Badge should not unlock twice.")
 	save_manager.progress = original_progress
 	save_manager.save_progress()

@@ -1,11 +1,76 @@
 {
   "stickers": [
-    {"id": "sunny_finisher", "name": "Sunny Finisher", "icon": "☀", "hint": "Finish Sunny Speedway"},
-    {"id": "star_collector", "name": "Star Collector", "icon": "★", "hint": "Collect 5 Nova Stars"},
-    {"id": "perfect_stars", "name": "Perfect Stars", "icon": "✦", "hint": "Collect all 10 Nova Stars"},
-    {"id": "blaze_badge", "name": "Blaze Badge", "icon": "⚡", "hint": "Race with Blaze Bolt"},
-    {"id": "finn_badge", "name": "Finn Badge", "icon": "🌊", "hint": "Race with Finn Tide"},
-    {"id": "nova_badge", "name": "Nova Badge", "icon": "★", "hint": "Race with Nova Spark"},
-    {"id": "dash_badge", "name": "Dash Badge", "icon": "🚀", "hint": "Race with Dash Rocket"}
+    {
+      "id": "first_race",
+      "name": "First Race",
+      "icon": "🏁",
+      "hint": "Finish your first race",
+      "category": "racing",
+      "rarity": "common",
+      "rarity_color": "#62b7ff"
+    },
+    {
+      "id": "first_win",
+      "name": "First Win",
+      "icon": "🏆",
+      "hint": "Cross the finish line",
+      "category": "racing",
+      "rarity": "rare",
+      "rarity_color": "#a94dff"
+    },
+    {
+      "id": "blaze_fan",
+      "name": "Blaze Fan",
+      "icon": "⚡",
+      "hint": "Race with Blaze Bolt",
+      "category": "characters",
+      "rarity": "uncommon",
+      "rarity_color": "#49c95a"
+    },
+    {
+      "id": "finn_fan",
+      "name": "Finn Fan",
+      "icon": "🌊",
+      "hint": "Race with Finn Tide",
+      "category": "characters",
+      "rarity": "uncommon",
+      "rarity_color": "#49c95a"
+    },
+    {
+      "id": "nova_fan",
+      "name": "Nova Fan",
+      "icon": "★",
+      "hint": "Race with Nova Spark",
+      "category": "characters",
+      "rarity": "uncommon",
+      "rarity_color": "#49c95a"
+    },
+    {
+      "id": "dash_fan",
+      "name": "Dash Fan",
+      "icon": "🚀",
+      "hint": "Race with Dash Rocket",
+      "category": "characters",
+      "rarity": "uncommon",
+      "rarity_color": "#49c95a"
+    },
+    {
+      "id": "academy_student",
+      "name": "Academy Student",
+      "icon": "🏅",
+      "hint": "Meet your first Academy hero",
+      "category": "academy",
+      "rarity": "rare",
+      "rarity_color": "#a94dff"
+    },
+    {
+      "id": "star_collector",
+      "name": "Star Collector",
+      "icon": "✦",
+      "hint": "Collect 5 Nova Stars in one race",
+      "category": "racing",
+      "rarity": "epic",
+      "rarity_color": "#ff9f1c"
+    }
   ]
 }
