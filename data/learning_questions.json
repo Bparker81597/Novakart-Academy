@@ -1,0 +1,10 @@
+{
+  "questions": [
+    {
+      "id": "shape_circle_01",
+      "prompt": "Which shape is a circle?",
+      "choices": ["circle", "square", "triangle"],
+      "correct_answer": "circle"
+    }
+  ]
+}

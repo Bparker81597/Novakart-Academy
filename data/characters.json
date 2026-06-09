@@ -1,0 +1,8 @@
+{
+  "characters": [
+    {"id": "blaze_bolt", "name": "Blaze Bolt"},
+    {"id": "finn_tide", "name": "Finn Tide"},
+    {"id": "nova_spark", "name": "Nova Spark"},
+    {"id": "dash_rocket", "name": "Dash Rocket"}
+  ]
+}

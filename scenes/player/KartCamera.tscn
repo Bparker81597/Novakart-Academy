@@ -1,0 +1,6 @@
+[gd_scene format=3]
+
+[node name="KartCamera" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+current = true
