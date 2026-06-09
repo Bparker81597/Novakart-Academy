@@ -8,13 +8,17 @@ The first playable MVP lets a child:
 
 1. Press the large green play button.
 2. Pick a driver by color.
-3. Steer a kart down a wide track.
-4. Collect bright coins.
+3. Drive a kart down Sunny Speedway.
+4. Collect 10 bright Nova Stars.
 5. Cross the glowing finish line.
 6. Replay or return home using symbol buttons.
 
-The kart moves forward automatically. Use `Left Arrow` / `A` and
-`Right Arrow` / `D` to steer. Hold `Down Arrow` / `S` to slow down.
+## Controls
+
+- `Up Arrow`: Accelerate
+- `Down Arrow`: Brake and reverse
+- `Left Arrow` / `Right Arrow`: Steer
+- `Space`: Boost
 
 ## Tech Stack
 

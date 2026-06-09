@@ -1,14 +1,17 @@
 class_name KartController
 extends CharacterBody3D
 
-signal coin_collected
+signal nova_star_collected
 
-@export var drive_speed: float = 11.0
-@export var brake_speed: float = 4.0
+@export var drive_speed: float = 13.0
+@export var reverse_speed: float = 5.0
+@export var boost_speed: float = 19.0
+@export var acceleration: float = 18.0
 @export var steering_speed: float = 7.0
-@export var track_half_width: float = 5.0
+@export var track_half_width: float = 7.0
 
 var can_drive: bool = true
+var current_speed: float = 0.0
 
 func _ready() -> void:
 	var colors := {
@@ -23,15 +26,26 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if not can_drive:
-		velocity = velocity.move_toward(Vector3.ZERO, 20.0 * delta)
+		current_speed = move_toward(current_speed, 0.0, acceleration * delta)
+		velocity = Vector3(0.0, 0.0, -current_speed)
 		move_and_slide()
 		return
 
-	var speed := brake_speed if Input.is_action_pressed("brake") else drive_speed
+	var driving_forward := Input.is_action_pressed("drive_forward") or Input.is_action_pressed("ui_up")
+	var driving_reverse := Input.is_action_pressed("brake") or Input.is_action_pressed("ui_down")
+	var target_speed := 0.0
+	if driving_forward:
+		target_speed = boost_speed if Input.is_action_pressed("boost") else drive_speed
+	elif driving_reverse:
+		target_speed = -reverse_speed
+	current_speed = move_toward(current_speed, target_speed, acceleration * delta)
+
 	var steering := Input.get_axis("steer_left", "steer_right")
-	velocity = Vector3(steering * steering_speed, 0.0, -speed)
+	velocity = Vector3(steering * steering_speed, 0.0, -current_speed)
+	rotation.y = lerp(rotation.y, -steering * 0.18, delta * 7.0)
+	$Body.rotation.z = lerp($Body.rotation.z, -steering * 0.08, delta * 7.0)
 	move_and_slide()
 	global_position.x = clamp(global_position.x, -track_half_width, track_half_width)
 
-func collect_coin() -> void:
-	coin_collected.emit()
+func collect_nova_star() -> void:
+	nova_star_collected.emit()

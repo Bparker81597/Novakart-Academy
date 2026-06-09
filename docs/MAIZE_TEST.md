@@ -9,7 +9,7 @@ is stuck.
 - The child starts a race without reading instructions.
 - The child chooses a driver without assistance.
 - The child discovers steering within 15 seconds.
-- The child collects at least one coin.
+- The child collects at least one Nova Star.
 - The child reaches the finish line.
 - The child can choose replay or home after finishing.
 
@@ -25,8 +25,9 @@ is stuck.
 - Could the player start a race without help?
 - Did the player understand the driver color choices?
 - Could the player control the kart?
-- Did automatic forward movement feel helpful or confusing?
-- Did the player notice and collect coins?
+- Did the child discover Up Arrow to accelerate?
+- Did the player notice and collect Nova Stars?
+- Did the child discover Space to boost?
 - Did the player recognize the finish line?
 - Could the player replay or return home without reading?
 - Where did the player become confused or disengaged?

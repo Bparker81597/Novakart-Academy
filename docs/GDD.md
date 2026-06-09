@@ -10,8 +10,8 @@ simple, readable challenges.
 
 1. Press a large play symbol.
 2. Choose one of four color-coded drivers.
-3. Steer an automatically moving kart.
-4. Collect bright coins placed along a wide track.
+3. Accelerate and steer a kart around Sunny Speedway.
+4. Collect 10 bright Nova Stars placed along a wide track.
 5. Cross a glowing finish line.
 6. Replay or return home using symbols.
 
@@ -19,7 +19,7 @@ simple, readable challenges.
 
 - Reading is optional during the core flow.
 - Use large buttons, familiar symbols, bright colors, and immediate feedback.
-- Keep the kart moving so the player always makes progress.
+- Use a simple four-arrow control scheme with a large, fun boost.
 - Keep the track wide and prevent the kart from leaving it.
 - Do not punish missed coins or slow driving.
 - A race should take less than one minute.

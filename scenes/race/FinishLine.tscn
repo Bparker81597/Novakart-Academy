@@ -3,10 +3,10 @@
 [ext_resource path="res://scripts/race/finish_line.gd" type="Script" id="1"]
 
 [sub_resource type="BoxShape3D" id="FinishShape"]
-size = Vector3(12, 3, 1)
+size = Vector3(16, 3, 1)
 
 [sub_resource type="BoxMesh" id="FinishMesh"]
-size = Vector3(12, 0.1, 1.5)
+size = Vector3(16, 0.1, 1.5)
 
 [sub_resource type="StandardMaterial3D" id="FinishMaterial"]
 albedo_color = Color(0.95, 0.95, 1, 1)
