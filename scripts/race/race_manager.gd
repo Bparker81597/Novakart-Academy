@@ -13,6 +13,7 @@ func _ready() -> void:
 	player.nova_star_collected.connect(_on_nova_star_collected)
 	$FinishLine.race_finished.connect(_on_race_finished)
 	hud.set_character_name(ContentCatalog.get_character(GameState.selected_character).get("name", "Nova Spark"))
+	hud.set_character_portrait(GameState.selected_character)
 	hud.set_star_count(0, TOTAL_STARS)
 
 func _on_nova_star_collected() -> void:

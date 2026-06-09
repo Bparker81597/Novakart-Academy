@@ -56,3 +56,7 @@ art assets to support incremental development.
 - Learning Lab, Garage, and Event Plaza expansion-ready trigger zones
 - Stylized buildings, fountain plaza, trees, gardens, banners, lamps, pathways,
   soft atmosphere, moving clouds, sparkles, and character idle animation
+- Reusable `BuildingCard`, `CharacterPortrait`, `BigKidButton`, and
+  `FloatingStar` presentation components
+- Selected-character portraits integrated into the title flow, Hub welcome,
+  race HUD, and victory celebration

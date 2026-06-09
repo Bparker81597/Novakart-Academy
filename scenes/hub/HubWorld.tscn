@@ -1,11 +1,13 @@
-[gd_scene load_steps=29 format=3]
+[gd_scene load_steps=31 format=3]
 
 [ext_resource path="res://scripts/hub/hub_world.gd" type="Script" id="1"]
 [ext_resource path="res://scenes/hub/HubPlayer.tscn" type="PackedScene" id="2"]
 [ext_resource path="res://scenes/hub/HubActivityZone.tscn" type="PackedScene" id="3"]
-[ext_resource path="res://scenes/hub/AcademyBuilding.tscn" type="PackedScene" id="4"]
+[ext_resource path="res://scenes/hub/BuildingCard.tscn" type="PackedScene" id="4"]
 [ext_resource path="res://scenes/hub/AcademyTree.tscn" type="PackedScene" id="5"]
 [ext_resource path="res://scenes/hub/AcademyLamp.tscn" type="PackedScene" id="6"]
+[ext_resource path="res://scenes/ui/CharacterPortrait.tscn" type="PackedScene" id="7"]
+[ext_resource path="res://scenes/ui/BigKidButton.tscn" type="PackedScene" id="8"]
 
 [sub_resource type="Environment" id="Environment"]
 background_mode = 1
@@ -429,15 +431,40 @@ offset_right = 1260.0
 offset_bottom = 90.0
 theme_override_styles/panel = SubResource("HudStyle")
 
-[node name="Welcome" type="Label" parent="CanvasLayer/HUD"]
+[node name="WelcomePanel" type="Control" parent="CanvasLayer/HUD"]
 layout_mode = 0
-offset_left = 45.0
-offset_top = 30.0
-offset_right = 850.0
-offset_bottom = 78.0
+offset_left = 35.0
+offset_top = 20.0
+offset_right = 720.0
+offset_bottom = 135.0
+
+[node name="Portrait" parent="CanvasLayer/HUD/WelcomePanel" instance=ExtResource("7")]
+layout_mode = 0
+offset_right = 115.0
+offset_bottom = 110.0
+scale = Vector2(0.62, 0.62)
+show_name = false
+idle_animation = true
+
+[node name="Welcome" type="Label" parent="CanvasLayer/HUD/WelcomePanel"]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 10.0
+offset_right = 680.0
+offset_bottom = 58.0
 theme_override_colors/font_color = Color(1, 0.9, 0.15, 1)
 theme_override_font_sizes/font_size = 30
 text = "WELCOME, RACER!"
+
+[node name="Adventure" type="Label" parent="CanvasLayer/HUD/WelcomePanel"]
+layout_mode = 0
+offset_left = 125.0
+offset_top = 60.0
+offset_right = 680.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
+text = "CHOOSE YOUR NEXT ADVENTURE!"
 
 [node name="Hint" type="Label" parent="CanvasLayer/HUD"]
 layout_mode = 0
@@ -449,7 +476,7 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 25
 text = "ARROWS: EXPLORE"
 
-[node name="Home" type="Button" parent="CanvasLayer/HUD"]
+[node name="Home" parent="CanvasLayer/HUD" instance=ExtResource("8")]
 layout_mode = 0
 offset_left = 1080.0
 offset_top = 25.0
@@ -457,6 +484,7 @@ offset_right = 1235.0
 offset_bottom = 82.0
 theme_override_font_sizes/font_size = 26
 text = "⌂ HOME"
+button_color = Color(0.15, 0.28, 0.65, 1)
 
 [node name="ActivityMessage" type="PanelContainer" parent="CanvasLayer/HUD"]
 visible = false

@@ -9,13 +9,12 @@ var selected := false
 
 func configure(profile: Dictionary, is_selected: bool) -> void:
 	character_id = profile.get("id", "")
-	$Content/Portrait.text = profile.get("icon", "★")
+	$Content/Portrait.configure(character_id)
 	$Content/Name.text = profile.get("name", "")
 	$Content/Theme.text = profile.get("theme", "")
 	$Content/Ability.text = profile.get("ability", "")
 	$Content/Catchphrase.text = "\"%s\"" % profile.get("catchphrase", "")
 	var color := Color(profile.get("color", "#a94dff"))
-	$Content/Portrait.modulate = color
 	var style := StyleBoxFlat.new()
 	style.bg_color = color.lightened(0.64)
 	style.border_color = color

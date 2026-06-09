@@ -3,6 +3,7 @@ extends Control
 
 func show_victory(stars: int, total: int, new_stickers: Array[String] = []) -> void:
 	visible = true
+	$Celebration/Portrait.configure(GameState.selected_character)
 	$Celebration/StarScore.text = "★  %d / %d  ★" % [stars, total]
 	$Celebration/NewSticker.visible = not new_stickers.is_empty()
 	if not new_stickers.is_empty():

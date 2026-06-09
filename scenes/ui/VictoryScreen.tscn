@@ -1,6 +1,8 @@
-[gd_scene load_steps=8 format=3]
+[gd_scene load_steps=10 format=3]
 
 [ext_resource path="res://scripts/ui/victory_screen.gd" type="Script" id="1"]
+[ext_resource path="res://scenes/ui/CharacterPortrait.tscn" type="PackedScene" id="2"]
+[ext_resource path="res://scenes/ui/BigKidButton.tscn" type="PackedScene" id="3"]
 
 [sub_resource type="StyleBoxFlat" id="BackgroundStyle"]
 bg_color = Color(0.18, 0.32, 0.82, 0.97)
@@ -111,8 +113,19 @@ theme_override_font_sizes/font_size = 72
 text = "YOU DID IT!"
 horizontal_alignment = 1
 
+[node name="Portrait" parent="Celebration" instance=ExtResource("2")]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 145.0
+offset_right = 230.0
+offset_bottom = 335.0
+show_name = true
+subtitle_override = "Academy Hero"
+idle_animation = true
+
 [node name="StarScore" type="Label" parent="Celebration"]
 layout_mode = 0
+offset_left = 220.0
 offset_top = 165.0
 offset_right = 940.0
 offset_bottom = 245.0
@@ -132,31 +145,23 @@ theme_override_font_sizes/font_size = 34
 text = "NEW STICKER!"
 horizontal_alignment = 1
 
-[node name="RaceAgain" type="Button" parent="Celebration"]
+[node name="RaceAgain" parent="Celebration" instance=ExtResource("3")]
 layout_mode = 0
 offset_left = 65.0
 offset_top = 365.0
 offset_right = 455.0
 offset_bottom = 540.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("RaceButtonStyle")
-theme_override_styles/hover = SubResource("RaceButtonStyle")
-theme_override_styles/pressed = SubResource("RaceButtonStyle")
 text = "↻  RACE AGAIN"
+button_color = Color(0.12, 0.75, 0.3, 1)
 
-[node name="CharacterSelect" type="Button" parent="Celebration"]
+[node name="CharacterSelect" parent="Celebration" instance=ExtResource("3")]
 layout_mode = 0
 offset_left = 485.0
 offset_top = 365.0
 offset_right = 875.0
 offset_bottom = 540.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 31
-theme_override_styles/normal = SubResource("SelectButtonStyle")
-theme_override_styles/hover = SubResource("SelectButtonStyle")
-theme_override_styles/pressed = SubResource("SelectButtonStyle")
 text = "★  CHARACTER SELECT"
+button_color = Color(0.72, 0.3, 0.92, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {"": SubResource("AnimationLibrary")}

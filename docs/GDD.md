@@ -84,3 +84,8 @@ roofs, domes, glowing windows, columns, banners, and clear signs. Landscaped
 paths connect a central fountain plaza to trees, bushes, flowers, and street
 lamps. Soft fog, drifting clouds, sunlight, floating stars, and subtle player
 idle motion make the campus feel magical without changing gameplay.
+
+Character identity remains visible across the complete flow through reusable
+portrait panels on the title screen, Character Select, Hub welcome panel, race
+HUD, and victory celebration. Reusable kid-button and floating-star components
+keep touch targets and ambient effects visually consistent.

@@ -5,14 +5,23 @@ extends Node3D
 @export var primary_color := Color("6a45d9")
 @export var accent_color := Color("ffd43b")
 
+var animation_time := 0.0
+
 func _ready() -> void:
 	$Sign.text = "%s  %s" % [building_icon, building_name]
+	$EntranceIcon.text = building_icon
 	_apply_color($Body, primary_color)
 	_apply_color($Roof, accent_color)
 	_apply_color($Dome, accent_color.lightened(0.18))
 	_apply_color($Awning, primary_color.lightened(0.22))
 	_apply_color($BannerLeft, primary_color.darkened(0.12))
 	_apply_color($BannerRight, primary_color.darkened(0.12))
+
+func _process(delta: float) -> void:
+	animation_time += delta
+	$BannerLeft.rotation.z = sin(animation_time * 1.4) * 0.08
+	$BannerRight.rotation.z = sin(animation_time * 1.4 + 0.8) * 0.08
+	$EntranceIcon.position.y = 6.9 + sin(animation_time * 1.8) * 0.12
 
 func _apply_color(mesh: MeshInstance3D, color: Color) -> void:
 	var material := StandardMaterial3D.new()

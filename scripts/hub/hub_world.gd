@@ -5,7 +5,10 @@ var transition_locked := false
 var visual_time := 0.0
 
 func _ready() -> void:
-	$CanvasLayer/HUD/Welcome.text = "WELCOME, %s!" % ContentCatalog.get_character(SaveManager.get_selected_character()).get("name", "Racer").to_upper()
+	var character_id := SaveManager.get_selected_character()
+	var character_name: String = ContentCatalog.get_character(character_id).get("name", "Racer")
+	$CanvasLayer/HUD/WelcomePanel/Portrait.configure(character_id)
+	$CanvasLayer/HUD/WelcomePanel/Welcome.text = "WELCOME, %s!" % character_name.to_upper()
 	$CanvasLayer/HUD/Home.grab_focus()
 	AudioManager.request_narration("welcome_to_campus")
 
