@@ -7,8 +7,8 @@ A kid-friendly educational kart racing game for ages 4+, built with Godot by Par
 The first playable MVP lets a child:
 
 1. Press the large green play button.
-2. Pick a driver by color.
-3. Drive a kart down Sunny Speedway.
+2. Pick a driver by color and meet their hero.
+3. Enter the Academy Hub and drive a kart down Sunny Speedway.
 4. Collect 10 bright Nova Stars.
 5. Cross the glowing finish line.
 6. Replay or return home using symbol buttons.
@@ -43,8 +43,11 @@ art assets to support incremental development.
 - Four large portrait cards with names, abilities, icons, and catchphrases
 - Viewable character profile pages with bios, catchphrases, abilities, and
   favorite activities
+- Animated character introductions between Character Select and the Campus Hub
+- One-time Academy Student Badge celebration saved to local progress
 - Selected character is saved and displayed in the Sunny Speedway HUD
 - Voice-ready character greeting and narration hooks
+- Future character intro recordings are expected in `assets/audio/voice`
 - Sticker rewards unlocked by finishing races and collecting Nova Stars
 - Sticker Book available from the main menu
 - Local save data for unlocked characters, stickers, and race progress
@@ -52,7 +55,7 @@ art assets to support incremental development.
 ## Campus Experience
 
 - Premium animated title screen inspired by the supplied campus concept
-- Central Campus Hub entered from `Start Racing`
+- Character Select and hero introduction entered from `Start Racing`
 - Safe arrow-key exploration with no enemies or timers
 - Race Center and Sticker Book Hall activity triggers
 - Learning Lab, Garage, and Event Plaza expansion-ready trigger zones

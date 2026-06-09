@@ -25,6 +25,7 @@ func _select_character(character_id: String) -> void:
 		card.set_selected(CHARACTER_IDS[index] == character_id)
 	_update_selected_banner()
 	AudioManager.play_character_greeting(character_id)
+	_open_intro()
 
 func _update_selected_banner() -> void:
 	var profile := ContentCatalog.get_character(selected_character_id)
@@ -36,7 +37,11 @@ func _update_selected_banner() -> void:
 func _start_race() -> void:
 	GameState.selected_character = selected_character_id
 	SaveManager.save_selected_character(selected_character_id)
-	get_tree().change_scene_to_file("res://scenes/race/RaceScene.tscn")
+	_open_intro()
+
+func _open_intro() -> void:
+	GameState.intro_character = selected_character_id
+	get_tree().change_scene_to_file("res://scenes/main/CharacterIntro.tscn")
 
 func _open_profile(character_id: String) -> void:
 	GameState.profile_character = character_id

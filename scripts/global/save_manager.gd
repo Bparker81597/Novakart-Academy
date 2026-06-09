@@ -11,6 +11,7 @@ const DEFAULT_PROGRESS := {
 	"races_completed": 0,
 	"total_nova_stars": 0,
 	"best_nova_stars": 0,
+	"academy_student_badge": false,
 }
 
 var progress: Dictionary = {}
@@ -46,6 +47,13 @@ func save_selected_character(character_id: String) -> void:
 		return
 	progress["selected_character"] = character_id
 	save_progress()
+
+func unlock_academy_student_badge() -> bool:
+	if progress.get("academy_student_badge", false):
+		return false
+	progress["academy_student_badge"] = true
+	save_progress()
+	return true
 
 func unlock_character(character_id: String) -> bool:
 	var unlocked: Array = progress.get("unlocked_characters", [])

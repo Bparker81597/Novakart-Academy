@@ -8,7 +8,7 @@ func _initialize() -> void:
 	assert(content_catalog.stickers.size() == 7, "Expected seven sticker definitions.")
 	for character_id: String in ["blaze_bolt", "finn_tide", "nova_spark", "dash_rocket"]:
 		var profile: Dictionary = content_catalog.get_character(character_id)
-		for key: String in ["name", "icon", "bio", "catchphrase", "ability", "favorite_activity"]:
+		for key: String in ["name", "type", "color_theme", "icon", "personality", "bio", "catchphrase", "intro_line", "ability", "favorite_activity", "greeting_audio"]:
 			assert(profile.has(key), "%s is missing %s" % [character_id, key])
 	var expected_abilities := {
 		"blaze_bolt": "Turbo Burst",
@@ -18,11 +18,12 @@ func _initialize() -> void:
 	}
 	for character_id: String in expected_abilities:
 		assert(content_catalog.get_character(character_id).ability == expected_abilities[character_id], "Wrong ability for %s" % character_id)
-	for key: String in ["unlocked_characters", "selected_character", "collected_stickers", "races_completed", "total_nova_stars", "best_nova_stars"]:
+	for key: String in ["unlocked_characters", "selected_character", "collected_stickers", "races_completed", "total_nova_stars", "best_nova_stars", "academy_student_badge"]:
 		assert(save_manager.progress.has(key), "Save progress is missing %s" % key)
 	for scene_path: String in [
 		"res://scenes/main/CharacterSelect.tscn",
 		"res://scenes/main/CharacterProfile.tscn",
+		"res://scenes/main/CharacterIntro.tscn",
 		"res://scenes/main/StickerBook.tscn",
 		"res://scenes/race/RaceScene.tscn",
 		"res://scenes/ui/VictoryScreen.tscn",
@@ -43,6 +44,12 @@ func _initialize() -> void:
 				var character_profile: Dictionary = content_catalog.get_character(character_id)
 				assert(instance.get_node("Details/Name").text == character_profile.name, "Wrong profile name for %s" % character_id)
 				assert(instance.get_node("Details/Bio").text == character_profile.bio, "Wrong profile bio for %s" % character_id)
+		if scene_path.ends_with("CharacterIntro.tscn"):
+			for character_id: String in ["blaze_bolt", "finn_tide", "nova_spark", "dash_rocket"]:
+				instance._show_character(character_id)
+				var intro_profile: Dictionary = content_catalog.get_character(character_id)
+				assert(instance.get_node("Identity/Row/Text/Name").text == intro_profile.name, "Wrong intro name for %s" % character_id)
+				assert(instance.get_node("SpeechBubble/Text").text == intro_profile.intro_line, "Wrong intro line for %s" % character_id)
 		if scene_path.ends_with("RaceScene.tscn"):
 			var saved_profile: Dictionary = content_catalog.get_character(save_manager.get_selected_character())
 			assert(instance.get_node("HUD/CharacterName").text == saved_profile.name.to_upper(), "HUD did not show selected character.")

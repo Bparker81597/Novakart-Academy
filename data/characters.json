@@ -3,50 +3,70 @@
     {
       "id": "blaze_bolt",
       "name": "Blaze Bolt",
+      "type": "Turbo Tiger",
       "theme": "Speed",
+      "color_theme": ["#ff6a00", "#ef2d20", "#ffd23f"],
       "icon": "⚡",
+      "personality": "Brave, fast, energetic",
       "ability": "Turbo Burst",
-      "catchphrase": "Let's blaze a trail!",
+      "catchphrase": "Let's light up the track!",
+      "intro_line": "Hi! I'm Blaze Bolt! I race fast, think quick, and never give up!",
       "bio": "Blaze Bolt is a fearless speedster who loves helping friends feel brave. Blaze practices fast starts and always cheers for every racer.",
       "favorite_activity": "Sprint races at the Race Center",
       "color": "#ff563d",
-      "greeting_audio": ""
+      "particle_icon": "⚡",
+      "greeting_audio": "res://assets/audio/voice/blaze_intro.ogg"
     },
     {
       "id": "finn_tide",
       "name": "Finn Tide",
+      "type": "Captain Coral",
       "theme": "Ocean Explorer",
+      "color_theme": ["#188cff", "#24c9c7", "#ffffff"],
       "icon": "🌊",
+      "personality": "Curious, kind, ocean explorer",
       "ability": "Wave Rider",
-      "catchphrase": "Ride the wave!",
+      "catchphrase": "Adventure is everywhere!",
+      "intro_line": "Hi! I'm Finn Tide! I explore oceans, help friends, and discover new things!",
       "bio": "Finn Tide is a calm ocean explorer who treats every turn like a rolling wave. Finn loves discovering new places and guiding friends.",
       "favorite_activity": "Exploring the fountain plaza",
       "color": "#32a8ff",
-      "greeting_audio": ""
+      "particle_icon": "●",
+      "greeting_audio": "res://assets/audio/voice/finn_intro.ogg"
     },
     {
       "id": "nova_spark",
       "name": "Nova Spark",
+      "type": "Young Inventor",
       "theme": "Inventor",
+      "color_theme": ["#a94dff", "#c9d2df", "#27b9ff"],
       "icon": "★",
+      "personality": "Creative, smart, inventive",
       "ability": "Rocket Boost",
-      "catchphrase": "Shine bright and race!",
+      "catchphrase": "I've got an idea!",
+      "intro_line": "Hi! I'm Nova Spark! I build cool inventions and solve problems with creativity!",
       "bio": "Nova Spark is a curious young inventor who builds bright ideas into racing adventures. Nova asks questions and finds creative solutions.",
       "favorite_activity": "Creating inventions in the Learning Lab",
       "color": "#a94dff",
-      "greeting_audio": ""
+      "particle_icon": "✦",
+      "greeting_audio": "res://assets/audio/voice/nova_intro.ogg"
     },
     {
       "id": "dash_rocket",
       "name": "Dash Rocket",
+      "type": "Rocket Rabbit",
       "theme": "Adventure",
+      "color_theme": ["#48b84f", "#ffe43b", "#ffffff"],
       "icon": "🚀",
+      "personality": "Funny, adventurous, curious",
       "ability": "Trail Blazer",
-      "catchphrase": "Ready, set, zoom!",
+      "catchphrase": "Ready for blast off?",
+      "intro_line": "Hi! I'm Dash Rocket! I love big jumps, new places, and rocket-powered adventures!",
       "bio": "Dash Rocket is an upbeat adventurer who loves finding friendly new paths. Dash makes every trip feel like an exciting expedition.",
       "favorite_activity": "Planning adventures at Event Plaza",
       "color": "#48b84f",
-      "greeting_audio": ""
+      "particle_icon": "★",
+      "greeting_audio": "res://assets/audio/voice/dash_intro.ogg"
     }
   ]
 }

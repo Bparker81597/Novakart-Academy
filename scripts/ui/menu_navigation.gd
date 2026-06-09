@@ -22,7 +22,7 @@ func _animate_cloud(cloud: Control, phase: float, distance: float) -> void:
 	cloud.position.x = cloud.get_meta("start_x") + sin(animation_time * 0.22 + phase) * distance
 
 func _on_start_pressed() -> void:
-	open_scene("res://scenes/hub/HubWorld.tscn")
+	open_scene("res://scenes/main/CharacterSelect.tscn")
 
 func _on_characters_pressed() -> void:
 	open_scene("res://scenes/main/CharacterSelect.tscn")

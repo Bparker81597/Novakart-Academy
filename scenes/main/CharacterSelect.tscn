@@ -123,8 +123,8 @@ offset_left = 920.0
 offset_top = 645.0
 offset_right = 1235.0
 offset_bottom = 712.0
-theme_override_font_sizes/font_size = 34
-text = "▶  RACE"
+theme_override_font_sizes/font_size = 28
+text = "★  MEET HERO"
 
 [connection signal="pressed" from="Back" to="." method="_go_home"]
 [connection signal="pressed" from="Race" to="." method="_start_race"]

@@ -391,7 +391,7 @@ draw_pass_1 = SubResource("StarParticleMesh")
 [node name="RaceZone" parent="." instance=ExtResource("3")]
 position = Vector3(-13, 0, -5)
 activity_name = "Race Center"
-target_scene = "res://scenes/main/CharacterSelect.tscn"
+target_scene = "res://scenes/race/RaceScene.tscn"
 
 [node name="StickerZone" parent="." instance=ExtResource("3")]
 position = Vector3(13, 0, -5)
