@@ -1,0 +1,16 @@
+# Godot 4+ project files
+.godot/
+
+# Exported builds
+builds/
+exports/
+
+# Environment files
+.env
+.env.*
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
