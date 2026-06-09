@@ -8,6 +8,21 @@ config_version=5
 config/name="Novakart Academy"
 run/main_scene="res://scenes/main/MainMenu.tscn"
 
+[input]
+
+steer_left={
+"deadzone": 0.3,
+"events": [Object(InputEventKey,"physical_keycode":65), Object(InputEventKey,"physical_keycode":4194311)]
+}
+steer_right={
+"deadzone": 0.3,
+"events": [Object(InputEventKey,"physical_keycode":68), Object(InputEventKey,"physical_keycode":4194313)]
+}
+brake={
+"deadzone": 0.3,
+"events": [Object(InputEventKey,"physical_keycode":83), Object(InputEventKey,"physical_keycode":4194314)]
+}
+
 [display]
 
 window/size/viewport_width=1280

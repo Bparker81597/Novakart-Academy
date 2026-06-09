@@ -1,11 +1,21 @@
 class_name RaceManager
 extends Node3D
 
-signal race_started
-signal race_finished
+@onready var player: KartController = $PlayerKart
+@onready var hud: RaceHUD = $HUD
 
-func start_race() -> void:
-	race_started.emit()
+func _ready() -> void:
+	GameState.reset_race()
+	player.coin_collected.connect(_on_coin_collected)
+	$FinishLine.race_finished.connect(_on_race_finished)
+	hud.set_coin_count(0)
 
-func finish_race() -> void:
-	race_finished.emit()
+func _on_coin_collected() -> void:
+	GameState.coins += 1
+	hud.set_coin_count(GameState.coins)
+
+func _on_race_finished() -> void:
+	if not player.can_drive:
+		return
+	player.can_drive = false
+	hud.show_finish(GameState.coins)
