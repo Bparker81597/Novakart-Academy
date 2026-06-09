@@ -2,6 +2,7 @@ class_name CharacterCard
 extends PanelContainer
 
 signal character_selected(character_id: String)
+signal profile_requested(character_id: String)
 
 var character_id := ""
 var base_position := Vector2.ZERO
@@ -30,6 +31,7 @@ func _ready() -> void:
 	mouse_entered.connect(_on_hover_started)
 	mouse_exited.connect(_on_hover_ended)
 	$Content/Select.pressed.connect(_on_select_pressed)
+	$Content/Profile.pressed.connect(_on_profile_pressed)
 
 func set_selected(value: bool, animate: bool = true) -> void:
 	selected = value
@@ -59,3 +61,6 @@ func _on_hover_ended() -> void:
 
 func _on_select_pressed() -> void:
 	character_selected.emit(character_id)
+
+func _on_profile_pressed() -> void:
+	profile_requested.emit(character_id)

@@ -7,6 +7,8 @@
       "icon": "⚡",
       "ability": "Turbo Burst",
       "catchphrase": "Let's blaze a trail!",
+      "bio": "Blaze Bolt is a fearless speedster who loves helping friends feel brave. Blaze practices fast starts and always cheers for every racer.",
+      "favorite_activity": "Sprint races at the Race Center",
       "color": "#ff563d",
       "greeting_audio": ""
     },
@@ -17,6 +19,8 @@
       "icon": "🌊",
       "ability": "Wave Rider",
       "catchphrase": "Ride the wave!",
+      "bio": "Finn Tide is a calm ocean explorer who treats every turn like a rolling wave. Finn loves discovering new places and guiding friends.",
+      "favorite_activity": "Exploring the fountain plaza",
       "color": "#32a8ff",
       "greeting_audio": ""
     },
@@ -27,6 +31,8 @@
       "icon": "★",
       "ability": "Rocket Boost",
       "catchphrase": "Shine bright and race!",
+      "bio": "Nova Spark is a curious young inventor who builds bright ideas into racing adventures. Nova asks questions and finds creative solutions.",
+      "favorite_activity": "Creating inventions in the Learning Lab",
       "color": "#a94dff",
       "greeting_audio": ""
     },
@@ -37,6 +43,8 @@
       "icon": "🚀",
       "ability": "Trail Blazer",
       "catchphrase": "Ready, set, zoom!",
+      "bio": "Dash Rocket is an upbeat adventurer who loves finding friendly new paths. Dash makes every trip feel like an exciting expedition.",
+      "favorite_activity": "Planning adventures at Event Plaza",
       "color": "#48b84f",
       "greeting_audio": ""
     }

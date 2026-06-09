@@ -6,6 +6,7 @@ func _initialize() -> void:
 		"title": "res://scenes/main/MainMenu.tscn",
 		"settings": "res://scenes/main/Settings.tscn",
 		"characters": "res://scenes/main/CharacterSelect.tscn",
+		"profile": "res://scenes/main/CharacterProfile.tscn",
 		"hub": "res://scenes/hub/HubWorld.tscn",
 		"portrait": "res://scenes/ui/CharacterPortrait.tscn",
 		"kid_button": "res://scenes/ui/BigKidButton.tscn",
@@ -30,6 +31,12 @@ func _initialize() -> void:
 	var characters: Node = instances.characters
 	assert(characters.get_node("CharacterCards").get_child_count() == 4, "Character Select needs four cards.")
 	assert(characters.has_node("SelectedCharacter"), "Character Select needs a prominent selected banner.")
+	for card: Node in characters.get_node("CharacterCards").get_children():
+		assert(card.has_node("Content/Profile"), "Character card is missing Profile action.")
+
+	var profile: Node = instances.profile
+	for detail_path: String in ["Portrait", "Details/Name", "Details/Bio", "Details/Catchphrase/Value", "Details/Ability/Value", "Details/FavoriteActivity/Value"]:
+		assert(profile.has_node(detail_path), "Character profile is missing %s" % detail_path)
 
 	var hub: Node = instances.hub
 	for zone_name: String in ["RaceZone", "StickerZone", "LearningZone", "GarageZone", "EventZone"]:

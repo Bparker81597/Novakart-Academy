@@ -8,7 +8,7 @@ func _initialize() -> void:
 	assert(content_catalog.stickers.size() == 7, "Expected seven sticker definitions.")
 	for character_id: String in ["blaze_bolt", "finn_tide", "nova_spark", "dash_rocket"]:
 		var profile: Dictionary = content_catalog.get_character(character_id)
-		for key: String in ["name", "icon", "ability", "catchphrase"]:
+		for key: String in ["name", "icon", "bio", "catchphrase", "ability", "favorite_activity"]:
 			assert(profile.has(key), "%s is missing %s" % [character_id, key])
 	var expected_abilities := {
 		"blaze_bolt": "Turbo Burst",
@@ -22,6 +22,7 @@ func _initialize() -> void:
 		assert(save_manager.progress.has(key), "Save progress is missing %s" % key)
 	for scene_path: String in [
 		"res://scenes/main/CharacterSelect.tscn",
+		"res://scenes/main/CharacterProfile.tscn",
 		"res://scenes/main/StickerBook.tscn",
 		"res://scenes/race/RaceScene.tscn",
 		"res://scenes/ui/VictoryScreen.tscn",
@@ -36,6 +37,12 @@ func _initialize() -> void:
 			instance.show_victory(7, 10, reward_ids)
 			await process_frame
 			assert(instance.visible, "Victory screen did not become visible.")
+		if scene_path.ends_with("CharacterProfile.tscn"):
+			for character_id: String in ["blaze_bolt", "finn_tide", "nova_spark", "dash_rocket"]:
+				instance._show_profile(character_id)
+				var character_profile: Dictionary = content_catalog.get_character(character_id)
+				assert(instance.get_node("Details/Name").text == character_profile.name, "Wrong profile name for %s" % character_id)
+				assert(instance.get_node("Details/Bio").text == character_profile.bio, "Wrong profile bio for %s" % character_id)
 		if scene_path.ends_with("RaceScene.tscn"):
 			var saved_profile: Dictionary = content_catalog.get_character(save_manager.get_selected_character())
 			assert(instance.get_node("HUD/CharacterName").text == saved_profile.name.to_upper(), "HUD did not show selected character.")

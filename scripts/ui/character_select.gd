@@ -12,6 +12,7 @@ func _ready() -> void:
 		var card := $CharacterCards.get_child(index)
 		card.configure(ContentCatalog.get_character(character_id), character_id == selected_character_id)
 		card.character_selected.connect(_select_character)
+		card.profile_requested.connect(_open_profile)
 	_update_selected_banner()
 	$Race.grab_focus()
 
@@ -36,6 +37,10 @@ func _start_race() -> void:
 	GameState.selected_character = selected_character_id
 	SaveManager.save_selected_character(selected_character_id)
 	get_tree().change_scene_to_file("res://scenes/race/RaceScene.tscn")
+
+func _open_profile(character_id: String) -> void:
+	GameState.profile_character = character_id
+	get_tree().change_scene_to_file("res://scenes/main/CharacterProfile.tscn")
 
 func _go_home() -> void:
 	get_tree().change_scene_to_file("res://scenes/hub/HubWorld.tscn")

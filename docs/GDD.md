@@ -56,6 +56,10 @@ Finishing races unlocks stickers for the selected driver and race achievements.
 The Sticker Book shows collected rewards and gentle visual hints for locked
 stickers. Progress is saved locally after every completed race.
 
+Character Select cards link to data-driven profile pages. Each profile shows a
+large portrait, name, bio, catchphrase, ability, and favorite academy activity,
+with previous/next browsing and a direct Choose action.
+
 ## Premium Title Screen
 
 The title screen presents NovaKart Academy as a magical commercial game world:
