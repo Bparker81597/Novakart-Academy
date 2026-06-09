@@ -31,16 +31,30 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		return
 
-	var driving_forward := Input.is_action_pressed("drive_forward") or Input.is_action_pressed("ui_up")
-	var driving_reverse := Input.is_action_pressed("brake") or Input.is_action_pressed("ui_down")
+	var boosting := Input.is_action_pressed("boost") or Input.is_key_pressed(KEY_SPACE)
+	var driving_forward := (
+		Input.is_action_pressed("drive_forward")
+		or Input.is_action_pressed("ui_up")
+		or Input.is_key_pressed(KEY_UP)
+		or boosting
+	)
+	var driving_reverse := (
+		Input.is_action_pressed("brake")
+		or Input.is_action_pressed("ui_down")
+		or Input.is_key_pressed(KEY_DOWN)
+	)
 	var target_speed := 0.0
 	if driving_forward:
-		target_speed = boost_speed if Input.is_action_pressed("boost") else drive_speed
+		target_speed = boost_speed if boosting else drive_speed
 	elif driving_reverse:
 		target_speed = -reverse_speed
 	current_speed = move_toward(current_speed, target_speed, acceleration * delta)
 
 	var steering := Input.get_axis("steer_left", "steer_right")
+	if Input.is_action_pressed("ui_left") or Input.is_key_pressed(KEY_LEFT):
+		steering = -1.0
+	if Input.is_action_pressed("ui_right") or Input.is_key_pressed(KEY_RIGHT):
+		steering = 1.0
 	velocity = Vector3(steering * steering_speed, 0.0, -current_speed)
 	rotation.y = lerp(rotation.y, -steering * 0.18, delta * 7.0)
 	$Body.rotation.z = lerp($Body.rotation.z, -steering * 0.08, delta * 7.0)
