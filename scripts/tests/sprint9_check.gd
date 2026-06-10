@@ -9,8 +9,9 @@ func _initialize() -> void:
 
 	assert(catalog.get_world("coral_coast").name == "Coral Coast", "Coral Coast world data is missing.")
 	var visit_rewards: Array[String] = save_manager.visit_world("coral_coast")
-	assert(save_manager.has_passport_stamp("coral_coast"), "Coral Coast passport stamp was not saved.")
-	assert("coral_coast_visitor" in visit_rewards, "First visit should unlock Coral Coast sticker.")
+	assert(visit_rewards.is_empty(), "Coral Coast mission rewards should not unlock on arrival.")
+	assert(not save_manager.has_passport_stamp("coral_coast"), "Passport stamp should require mission completion.")
+	assert(save_manager.get_mission_state("lighthouse_hero").status == "active", "Lighthouse Hero should start on arrival.")
 
 	var shell_rewards: Array[String] = []
 	for index: int in 5:

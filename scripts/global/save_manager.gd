@@ -1,6 +1,8 @@
 extends Node
 
 signal progress_changed
+signal mission_progress_changed(mission_id: String)
+signal mission_completed(mission_id: String, rewards: Dictionary)
 
 const SAVE_PATH := "user://save.json"
 const ALL_CHARACTERS := ["blaze_bolt", "finn_tide", "nova_spark", "dash_rocket"]
@@ -108,12 +110,8 @@ func visit_world(world_id: String) -> Array[String]:
 	if world_id not in visited:
 		visited.append(world_id)
 		progress["visited_worlds"] = visited
-		if world_id == "coral_coast" and unlock_sticker("coral_coast_visitor"):
-			rewards.append("coral_coast_visitor")
-	var stamps: Array = progress.get("passport_stamps", [])
-	if world_id not in stamps:
-		stamps.append(world_id)
-		progress["passport_stamps"] = stamps
+	if world_id == "coral_coast":
+		start_mission("lighthouse_hero")
 	save_progress()
 	return rewards
 
@@ -123,6 +121,7 @@ func record_seashells(amount: int) -> Array[String]:
 	var missions: Dictionary = progress.get("missions", {})
 	missions["coral_shell_hunt"] = min(int(missions.get("coral_shell_hunt", 0)) + amount, 5)
 	progress["missions"] = missions
+	advance_mission_objective("lighthouse_hero", "collect_seashells", amount)
 	if int(missions["coral_shell_hunt"]) >= 5:
 		if unlock_sticker("shell_collector"):
 			rewards.append("shell_collector")
@@ -136,10 +135,103 @@ func record_coral_race(shells: int) -> Array[String]:
 	var rewards := record_seashells(shells)
 	if unlock_sticker("wave_rider"):
 		rewards.append("wave_rider")
+	complete_mission_objective("lighthouse_hero", "finish_wave_rider")
 	save_progress()
 	return rewards
 
+func start_mission(mission_id: String) -> bool:
+	var mission: Dictionary = ContentCatalog.get_mission(mission_id)
+	if mission.is_empty():
+		return false
+	var missions: Dictionary = progress.get("missions", {})
+	if missions.get(mission_id) is Dictionary:
+		return false
+	var objectives := {}
+	for objective: Dictionary in mission.get("objectives", []):
+		objectives[objective.id] = 0
+	if mission_id == "lighthouse_hero":
+		objectives["collect_seashells"] = min(int(missions.get("coral_shell_hunt", 0)), 5)
+	missions[mission_id] = {
+		"status": "active",
+		"objectives": objectives,
+		"rewards_claimed": false,
+	}
+	progress["missions"] = missions
+	mission_progress_changed.emit(mission_id)
+	save_progress()
+	return true
+
+func advance_mission_objective(mission_id: String, objective_id: String, amount: int = 1) -> bool:
+	start_mission(mission_id)
+	var state := get_mission_state(mission_id)
+	if state.get("status", "") == "complete":
+		return false
+	var target := _mission_objective_target(mission_id, objective_id)
+	if target <= 0:
+		return false
+	var objectives: Dictionary = state.get("objectives", {})
+	var previous := int(objectives.get(objective_id, 0))
+	objectives[objective_id] = min(previous + amount, target)
+	state["objectives"] = objectives
+	mission_progress_changed.emit(mission_id)
+	_try_complete_mission(mission_id)
+	save_progress()
+	return int(objectives[objective_id]) != previous
+
+func complete_mission_objective(mission_id: String, objective_id: String) -> bool:
+	var target := _mission_objective_target(mission_id, objective_id)
+	if target <= 0:
+		return false
+	var current := get_mission_objective_progress(mission_id, objective_id)
+	return advance_mission_objective(mission_id, objective_id, target - current)
+
+func get_mission_state(mission_id: String) -> Dictionary:
+	var missions: Dictionary = progress.get("missions", {})
+	var state: Variant = missions.get(mission_id, {})
+	return state if state is Dictionary else {}
+
+func get_mission_objective_progress(mission_id: String, objective_id: String) -> int:
+	return int(get_mission_state(mission_id).get("objectives", {}).get(objective_id, 0))
+
+func is_mission_complete(mission_id: String) -> bool:
+	return get_mission_state(mission_id).get("status", "") == "complete"
+
+func _try_complete_mission(mission_id: String) -> bool:
+	var mission := ContentCatalog.get_mission(mission_id)
+	var state := get_mission_state(mission_id)
+	for objective: Dictionary in mission.get("objectives", []):
+		if get_mission_objective_progress(mission_id, objective.id) < int(objective.target):
+			return false
+	state["status"] = "complete"
+	var rewards: Dictionary = mission.get("rewards", {}).duplicate(true)
+	if not state.get("rewards_claimed", false):
+		unlock_badge(rewards.get("badge", ""))
+		unlock_sticker(rewards.get("sticker", ""))
+		_unlock_passport_stamp(rewards.get("passport_stamp", ""))
+		state["rewards_claimed"] = true
+	save_progress()
+	mission_completed.emit(mission_id, rewards)
+	return true
+
+func _mission_objective_target(mission_id: String, objective_id: String) -> int:
+	for objective: Dictionary in ContentCatalog.get_mission(mission_id).get("objectives", []):
+		if objective.get("id", "") == objective_id:
+			return int(objective.get("target", 0))
+	return 0
+
+func _unlock_passport_stamp(world_id: String) -> bool:
+	if world_id.is_empty():
+		return false
+	var stamps: Array = progress.get("passport_stamps", [])
+	if world_id in stamps:
+		return false
+	stamps.append(world_id)
+	progress["passport_stamps"] = stamps
+	return true
+
 func unlock_badge(badge_id: String) -> bool:
+	if badge_id.is_empty():
+		return false
 	var badges: Array = progress.get("earned_badges", [])
 	if badge_id in badges:
 		return false

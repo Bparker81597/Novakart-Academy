@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource path="res://scripts/ui/mission_tracker.gd" type="Script" id="1"]
+
+[sub_resource type="StyleBoxFlat" id="TrackerStyle"]
+bg_color = Color(0.02, 0.28, 0.58, 0.95)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.2, 0.9, 0.9, 1)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+shadow_color = Color(0.02, 0.1, 0.3, 0.45)
+shadow_size = 10
+
+[node name="MissionTracker" type="PanelContainer"]
+custom_minimum_size = Vector2(410, 185)
+offset_left = 845.0
+offset_top = 140.0
+offset_right = 1255.0
+offset_bottom = 325.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("TrackerStyle")
+script = ExtResource("1")
+
+[node name="Content" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Title" type="Label" parent="Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.88, 0.2, 1)
+theme_override_font_sizes/font_size = 25
+text = "⚓  LIGHTHOUSE HERO"
+
+[node name="Objectives" type="Label" parent="Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 17
+text = "○ 🐚 Collect 5 Seashells  0/5\n○ 🏁 Finish Wave Rider Raceway  0/1\n○ 🏖 Visit Discovery Beach  0/1"
+
+[node name="Complete" type="Label" parent="Content"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.35, 1, 0.55, 1)
+theme_override_font_sizes/font_size = 20
+text = "★ MISSION COMPLETE! ★"
+horizontal_alignment = 1

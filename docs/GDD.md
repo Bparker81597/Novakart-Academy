@@ -80,9 +80,11 @@ mission. Discovery Beach provides safe exploration and short educational signs.
 Wave Rider Raceway is a wide beginner track framed by coral arches, ocean
 tunnels, collectible seashells, and a lighthouse finish.
 
-The first visit adds a Coral Coast passport stamp and sticker. Mission and race
-progress unlock world-specific stickers plus the Ocean Explorer badge, with all
-progress saved locally.
+Finn's first structured mission, **Lighthouse Hero**, asks players to collect
+five seashells, visit Discovery Beach, and finish Wave Rider Raceway. A large
+mission tracker shows progress without requiring menu navigation. Completing
+all three goals awards the Lighthouse Hero badge, Coral Coast sticker, and
+Coral Coast passport stamp. Mission progress and rewards are saved locally.
 
 Character Select cards link to data-driven profile pages. Each profile shows a
 large portrait, name, bio, catchphrase, ability, and favorite academy activity,

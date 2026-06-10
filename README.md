@@ -80,3 +80,5 @@ art assets to support incremental development.
 - Beginner-friendly Wave Rider Raceway with coral arches and ocean tunnels
 - Saved Coral Coast passport stamp, world visit, Ocean Explorer badge, and
   world-specific sticker rewards
+- Finn's reusable Lighthouse Hero mission tracks seashells, Discovery Beach,
+  and Wave Rider Raceway, then awards a badge, sticker, and passport stamp

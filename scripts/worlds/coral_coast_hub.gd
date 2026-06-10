@@ -6,12 +6,10 @@ var transition_locked := false
 var visual_time := 0.0
 
 func _ready() -> void:
-	var rewards := SaveManager.visit_world("coral_coast")
+	SaveManager.visit_world("coral_coast")
 	$CanvasLayer/HUD/FinnPortrait.configure("finn_tide", "Coral Coast Guide")
 	_update_mission()
 	$CanvasLayer/HUD/Home.focus_mode = Control.FOCUS_NONE
-	if not rewards.is_empty():
-		$CanvasLayer/HUD/StickerUnlockPopup.show_stickers(rewards)
 	AudioManager.play_character_greeting("finn_tide")
 
 func _process(delta: float) -> void:
@@ -41,9 +39,11 @@ func _activate_nearby_activity() -> void:
 	get_tree().change_scene_to_file(nearby_activity.target_scene)
 
 func _update_mission() -> void:
-	var progress := int(SaveManager.progress.get("missions", {}).get("coral_shell_hunt", 0))
-	$CanvasLayer/HUD/Mission.text = "FINN'S MISSION: COLLECT 5 SEASHELLS  🐚 %d / 5" % progress
-	$CanvasLayer/HUD/Passport.text = "PASSPORT  •  CORAL COAST  ✓"
+	$CanvasLayer/HUD/Mission.text = "FINN'S MISSION: HELP THE LIGHTHOUSE BEACON!"
+	if SaveManager.has_passport_stamp("coral_coast"):
+		$CanvasLayer/HUD/Passport.text = "PASSPORT  •  CORAL COAST  ✓"
+	else:
+		$CanvasLayer/HUD/Passport.text = "PASSPORT STAMP: COMPLETE THE MISSION"
 
 func _go_home() -> void:
 	get_tree().change_scene_to_file("res://scenes/hub/HubWorld.tscn")

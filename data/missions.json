@@ -1,0 +1,35 @@
+{
+  "missions": [
+    {
+      "id": "lighthouse_hero",
+      "name": "Lighthouse Hero",
+      "npc": "finn_tide",
+      "story": "The Coral Coast Lighthouse Beacon needs help!",
+      "objectives": [
+        {
+          "id": "collect_seashells",
+          "label": "Collect 5 Seashells",
+          "icon": "🐚",
+          "target": 5
+        },
+        {
+          "id": "finish_wave_rider",
+          "label": "Finish Wave Rider Raceway",
+          "icon": "🏁",
+          "target": 1
+        },
+        {
+          "id": "visit_discovery_beach",
+          "label": "Visit Discovery Beach",
+          "icon": "🏖",
+          "target": 1
+        }
+      ],
+      "rewards": {
+        "badge": "lighthouse_hero",
+        "sticker": "coral_coast_visitor",
+        "passport_stamp": "coral_coast"
+      }
+    }
+  ]
+}
