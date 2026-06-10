@@ -279,10 +279,10 @@ accent_color = Color(1, 0.88, 0.18, 1)
 [node name="EventPavilion" parent="." instance=ExtResource("4")]
 position = Vector3(0, 0, -16)
 scale = Vector3(0.72, 0.72, 0.72)
-building_name = "EVENT PLAZA"
-building_icon = "☀"
-primary_color = Color(0.15, 0.68, 0.32, 1)
-accent_color = Color(1, 0.84, 0.12, 1)
+building_name = "CORAL COAST GATE"
+building_icon = "⚓"
+primary_color = Color(0.05, 0.58, 0.82, 1)
+accent_color = Color(0.18, 0.9, 0.86, 1)
 
 [node name="Trees" type="Node3D" parent="."]
 
@@ -434,9 +434,10 @@ prompt_color = Color(0.95, 0.55, 0.08, 1)
 
 [node name="EventZone" parent="." instance=ExtResource("3")]
 activity_name = "Event Plaza"
-prompt_text = "EVENTS COMING SOON!"
-prompt_icon = "☀"
-prompt_color = Color(0.15, 0.68, 0.32, 1)
+prompt_text = "PRESS SPACE FOR CORAL COAST!"
+prompt_icon = "⚓"
+prompt_color = Color(0.05, 0.62, 0.78, 1)
+target_scene = "res://scenes/worlds/CoralCoastHub.tscn"
 
 [node name="HubPlayer" parent="." instance=ExtResource("2")]
 position = Vector3(0, 0, 10)

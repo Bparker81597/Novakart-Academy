@@ -1,0 +1,57 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource path="res://scripts/worlds/wave_rider_race_manager.gd" type="Script" id="1"]
+[ext_resource path="res://scenes/worlds/WaveRiderRaceway.tscn" type="PackedScene" id="2"]
+[ext_resource path="res://scenes/player/PlayerKart.tscn" type="PackedScene" id="3"]
+[ext_resource path="res://scenes/pickups/Seashell.tscn" type="PackedScene" id="4"]
+[ext_resource path="res://scenes/race/FinishLine.tscn" type="PackedScene" id="5"]
+[ext_resource path="res://scenes/ui/HUD.tscn" type="PackedScene" id="6"]
+[ext_resource path="res://scenes/ui/VictoryScreen.tscn" type="PackedScene" id="7"]
+
+[sub_resource type="Environment" id="Environment"]
+background_mode = 1
+background_color = Color(0.16, 0.72, 0.96, 1)
+ambient_light_source = 3
+ambient_light_color = Color(0.9, 1, 1, 1)
+ambient_light_energy = 1.0
+
+[node name="WaveRiderRace" type="Node3D"]
+script = ExtResource("1")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment")
+
+[node name="SunLight" type="DirectionalLight3D" parent="."]
+rotation = Vector3(-0.75, -0.45, 0)
+light_energy = 1.25
+shadow_enabled = true
+
+[node name="WaveRiderRaceway" parent="." instance=ExtResource("2")]
+
+[node name="PlayerKart" parent="." instance=ExtResource("3")]
+position = Vector3(0, 0, 24)
+track_half_width = 8.0
+
+[node name="Shell1" parent="." instance=ExtResource("4")]
+position = Vector3(0, 1.3, 12)
+[node name="Shell2" parent="." instance=ExtResource("4")]
+position = Vector3(-3, 1.3, -2)
+[node name="Shell3" parent="." instance=ExtResource("4")]
+position = Vector3(3, 1.3, -20)
+[node name="Shell4" parent="." instance=ExtResource("4")]
+position = Vector3(0, 1.3, -38)
+[node name="Shell5" parent="." instance=ExtResource("4")]
+position = Vector3(-4, 1.3, -56)
+[node name="Shell6" parent="." instance=ExtResource("4")]
+position = Vector3(4, 1.3, -72)
+[node name="Shell7" parent="." instance=ExtResource("4")]
+position = Vector3(-2, 1.3, -88)
+[node name="Shell8" parent="." instance=ExtResource("4")]
+position = Vector3(2, 1.3, -104)
+
+[node name="FinishLine" parent="." instance=ExtResource("5")]
+position = Vector3(0, 0.05, -112)
+
+[node name="HUD" parent="." instance=ExtResource("6")]
+
+[node name="VictoryScreen" parent="." instance=ExtResource("7")]

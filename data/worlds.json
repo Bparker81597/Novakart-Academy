@@ -1,0 +1,18 @@
+{
+  "worlds": [
+    {
+      "id": "academy_campus",
+      "name": "NovaKart Academy",
+      "icon": "★"
+    },
+    {
+      "id": "coral_coast",
+      "name": "Coral Coast",
+      "icon": "⚓",
+      "guide": "finn_tide",
+      "welcome": "Welcome to Coral Coast! Let's discover seashells and ride the waves!",
+      "mission": "Collect 5 seashells",
+      "passport_stamp": "CORAL COAST"
+    }
+  ]
+}

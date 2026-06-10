@@ -19,6 +19,11 @@ const DEFAULT_PROGRESS := {
 	"total_nova_stars": 0,
 	"best_nova_stars": 0,
 	"academy_student_badge": false,
+	"visited_worlds": ["academy_campus"],
+	"passport_stamps": [],
+	"earned_badges": [],
+	"total_seashells": 0,
+	"missions": {},
 }
 
 var progress: Dictionary = {}
@@ -96,6 +101,57 @@ func record_race(stars: int, character_id: String) -> Array[String]:
 			new_stickers.append(sticker_id)
 	save_progress()
 	return new_stickers
+
+func visit_world(world_id: String) -> Array[String]:
+	var rewards: Array[String] = []
+	var visited: Array = progress.get("visited_worlds", [])
+	if world_id not in visited:
+		visited.append(world_id)
+		progress["visited_worlds"] = visited
+		if world_id == "coral_coast" and unlock_sticker("coral_coast_visitor"):
+			rewards.append("coral_coast_visitor")
+	var stamps: Array = progress.get("passport_stamps", [])
+	if world_id not in stamps:
+		stamps.append(world_id)
+		progress["passport_stamps"] = stamps
+	save_progress()
+	return rewards
+
+func record_seashells(amount: int) -> Array[String]:
+	var rewards: Array[String] = []
+	progress["total_seashells"] = int(progress.get("total_seashells", 0)) + amount
+	var missions: Dictionary = progress.get("missions", {})
+	missions["coral_shell_hunt"] = min(int(missions.get("coral_shell_hunt", 0)) + amount, 5)
+	progress["missions"] = missions
+	if int(missions["coral_shell_hunt"]) >= 5:
+		if unlock_sticker("shell_collector"):
+			rewards.append("shell_collector")
+		if unlock_badge("ocean_explorer"):
+			if unlock_sticker("ocean_explorer"):
+				rewards.append("ocean_explorer")
+	save_progress()
+	return rewards
+
+func record_coral_race(shells: int) -> Array[String]:
+	var rewards := record_seashells(shells)
+	if unlock_sticker("wave_rider"):
+		rewards.append("wave_rider")
+	save_progress()
+	return rewards
+
+func unlock_badge(badge_id: String) -> bool:
+	var badges: Array = progress.get("earned_badges", [])
+	if badge_id in badges:
+		return false
+	badges.append(badge_id)
+	progress["earned_badges"] = badges
+	return true
+
+func has_badge(badge_id: String) -> bool:
+	return badge_id in progress.get("earned_badges", [])
+
+func has_passport_stamp(world_id: String) -> bool:
+	return world_id in progress.get("passport_stamps", [])
 
 func _earned_stickers(stars: int, character_id: String) -> Array[String]:
 	var character_fans := {

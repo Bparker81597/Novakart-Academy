@@ -4,6 +4,12 @@
       "id": "sunny_speedway",
       "name": "Sunny Speedway",
       "laps": 3
+    },
+    {
+      "id": "wave_rider_raceway",
+      "name": "Wave Rider Raceway",
+      "world": "coral_coast",
+      "laps": 1
     }
   ]
 }

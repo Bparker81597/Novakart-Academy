@@ -70,3 +70,13 @@ art assets to support incremental development.
 - Selected-character portraits integrated into the title flow, Hub welcome,
   race HUD, and victory celebration
 - Large race HUD star count, character identity, and simple control hint
+
+## Coral Coast Expansion
+
+- New ocean destination reached through the Academy Coral Coast Gate
+- Finn Tide world guide, welcome dialogue, and five-seashell discovery mission
+- Coral Coast Hub with palms, coral decorations, and lighthouse landmark
+- Discovery Beach exploration zone with educational signs and seashells
+- Beginner-friendly Wave Rider Raceway with coral arches and ocean tunnels
+- Saved Coral Coast passport stamp, world visit, Ocean Explorer badge, and
+  world-specific sticker rewards

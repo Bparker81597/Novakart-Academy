@@ -69,6 +69,21 @@ confetti, and a silent-safe sound hook. The Academy Student sticker unlocks
 during the first character introduction; race stickers unlock on the victory
 screen.
 
+## Coral Coast
+
+Coral Coast is the first expansion destination and is reached through the
+Academy Coral Coast Gate. Its ocean-blue hub uses a lighthouse, palm trees,
+coral decorations, sand, and water to immediately distinguish it from campus.
+
+Finn Tide acts as the world guide and introduces a five-seashell discovery
+mission. Discovery Beach provides safe exploration and short educational signs.
+Wave Rider Raceway is a wide beginner track framed by coral arches, ocean
+tunnels, collectible seashells, and a lighthouse finish.
+
+The first visit adds a Coral Coast passport stamp and sticker. Mission and race
+progress unlock world-specific stickers plus the Ocean Explorer badge, with all
+progress saved locally.
+
 Character Select cards link to data-driven profile pages. Each profile shows a
 large portrait, name, bio, catchphrase, ability, and favorite academy activity,
 with previous/next browsing and a direct Choose action.

@@ -16,7 +16,7 @@ func _initialize() -> void:
 	var catalog := root.get_node("/root/ContentCatalog")
 	var save_manager := root.get_node("/root/SaveManager")
 
-	assert(catalog.stickers.size() == 8, "Sticker Book needs eight starter stickers.")
+	assert(catalog.stickers.size() == 12, "Sticker Book needs starter and Coral Coast stickers.")
 	for sticker_id: String in STARTER_STICKERS:
 		var sticker: Dictionary = catalog.get_sticker(sticker_id)
 		for key: String in ["name", "icon", "hint", "category", "rarity", "rarity_color"]:
@@ -39,7 +39,7 @@ func _initialize() -> void:
 	book._show_category("characters")
 	assert(book.get_node("StickerGrid").get_child_count() == 4, "Character category needs four stickers.")
 	book._show_category("exploration")
-	assert(book.get_node("Empty").visible, "Exploration category needs a coming-soon state.")
+	assert(book.get_node("StickerGrid").get_child_count() == 2, "Exploration category needs Coral Coast rewards.")
 
 	var popup: Node = load("res://scenes/ui/StickerUnlockPopup.tscn").instantiate()
 	root.add_child(popup)

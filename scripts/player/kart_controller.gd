@@ -2,6 +2,7 @@ class_name KartController
 extends CharacterBody3D
 
 signal nova_star_collected
+signal seashell_collected
 
 @export var drive_speed: float = 13.0
 @export var reverse_speed: float = 5.0
@@ -64,3 +65,6 @@ func _physics_process(delta: float) -> void:
 
 func collect_nova_star() -> void:
 	nova_star_collected.emit()
+
+func collect_seashell() -> void:
+	seashell_collected.emit()

@@ -16,7 +16,7 @@ func _initialize() -> void:
 		"StickerZone": "PRESS SPACE FOR STICKER BOOK!",
 		"LearningZone": "LEARNING LAB COMING SOON!",
 		"GarageZone": "GARAGE COMING SOON!",
-		"EventZone": "EVENTS COMING SOON!",
+		"EventZone": "PRESS SPACE FOR CORAL COAST!",
 	}
 	for zone_name: String in expected_prompts:
 		var zone: Node = hub.get_node(zone_name)

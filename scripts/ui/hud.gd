@@ -9,3 +9,6 @@ func set_character_portrait(character_id: String) -> void:
 
 func set_star_count(value: int, total: int) -> void:
 	$StarCount.text = "★  %d / %d" % [max(value, 0), total]
+
+func set_collectible_count(icon: String, value: int, total: int) -> void:
+	$StarCount.text = "%s  %d / %d" % [icon, max(value, 0), total]

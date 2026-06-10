@@ -71,6 +71,42 @@
       "category": "racing",
       "rarity": "epic",
       "rarity_color": "#ff9f1c"
+    },
+    {
+      "id": "coral_coast_visitor",
+      "name": "Coral Coast",
+      "icon": "⚓",
+      "hint": "Visit Coral Coast",
+      "category": "exploration",
+      "rarity": "rare",
+      "rarity_color": "#28c7cf"
+    },
+    {
+      "id": "shell_collector",
+      "name": "Shell Collector",
+      "icon": "🐚",
+      "hint": "Collect 5 seashells",
+      "category": "exploration",
+      "rarity": "epic",
+      "rarity_color": "#ff9f1c"
+    },
+    {
+      "id": "wave_rider",
+      "name": "Wave Rider Raceway",
+      "icon": "🌊",
+      "hint": "Finish Wave Rider Raceway",
+      "category": "racing",
+      "rarity": "epic",
+      "rarity_color": "#24c9c7"
+    },
+    {
+      "id": "ocean_explorer",
+      "name": "Ocean Explorer",
+      "icon": "🏅",
+      "hint": "Complete Finn's shell mission",
+      "category": "academy",
+      "rarity": "legendary",
+      "rarity_color": "#ffd23f"
     }
   ]
 }
