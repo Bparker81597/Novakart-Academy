@@ -1,0 +1,3 @@
+dash_rocket: I love new places and rocket-powered adventures!
+[signal arg="voice:dash_rocket:test_greeting"]
+dash_rocket: Ready for blast off?

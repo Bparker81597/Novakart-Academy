@@ -1,0 +1,3 @@
+Dialogic 2.0-alpha-19
+Pinned commit: 0dd7da25b26708f17da727d32771e2c23ffdad3f
+Source: https://github.com/dialogic-godot/dialogic

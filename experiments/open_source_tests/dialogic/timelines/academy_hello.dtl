@@ -1,0 +1,8 @@
+finn_tide: Welcome, friends! Dialogic can help us tell Academy stories.
+[signal arg="voice:finn_tide:academy_hello"]
+blaze_bolt: Let's make every conversation feel fast, bright, and fun!
+[signal arg="voice:blaze_bolt:academy_hello"]
+nova_spark: I've got an idea! We can connect future voice lines safely.
+[signal arg="voice:nova_spark:academy_hello"]
+dash_rocket: Ready for blast off? Our next adventure is waiting!
+[signal arg="voice:dash_rocket:academy_hello"]

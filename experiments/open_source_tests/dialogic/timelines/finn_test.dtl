@@ -1,0 +1,3 @@
+finn_tide: Welcome aboard! I explore oceans and help my friends.
+[signal arg="voice:finn_tide:test_greeting"]
+finn_tide: Adventure is everywhere!

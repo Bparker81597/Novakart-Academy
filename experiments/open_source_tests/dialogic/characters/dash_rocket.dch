@@ -1,0 +1,22 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+"_translation_id": "",
+"color": Color(0.26, 0.72, 0.3, 1),
+"custom_info": {},
+"default_portrait": "default",
+"description": "NovaKart test character: Rocket Rabbit",
+"display_name": "Dash Rocket",
+"mirror": false,
+"nicknames": [],
+"offset": Vector2(0, 0),
+"portraits": {
+"default": {
+"export_overrides": {
+"image": "res://assets/characters/dash_rocket/dash_portrait.png"
+},
+"scene": ""
+}
+},
+"scale": 0.55
+}

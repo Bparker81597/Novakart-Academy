@@ -26,6 +26,9 @@ Rollback:
 
 ## Phase B: Isolated Dialogue Test
 
+Status: implemented on `integration/open-source-prep` using pinned Dialogic
+`2.0-alpha-19`. Production scenes remain disconnected.
+
 Actions:
 
 - Branch from the latest known-good main branch.

@@ -1,0 +1,22 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+"_translation_id": "",
+"color": Color(0.15, 0.68, 1, 1),
+"custom_info": {},
+"default_portrait": "default",
+"description": "NovaKart test character: Captain Coral",
+"display_name": "Finn Tide",
+"mirror": false,
+"nicknames": [],
+"offset": Vector2(0, 0),
+"portraits": {
+"default": {
+"export_overrides": {
+"image": "res://assets/characters/finn_tide/finn_portrait.png"
+},
+"scene": ""
+}
+},
+"scale": 0.55
+}

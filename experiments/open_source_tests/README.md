@@ -1,11 +1,10 @@
 # Open Source Tests
 
-These scenes are dependency-free placeholders for future isolated addon tests.
-They do not import, enable, or reference any third-party addon.
+These scenes isolate open-source evaluations from production gameplay.
 
-- `DialogueTest.tscn`: future Dialogic adapter test
+- `DialogueTest.tscn`: pinned Dialogic test with four NovaKart conversations,
+  portraits, a Continue button, character names, and future voice hooks
 - `QuestTest.tscn`: future QuestSystem adapter test
 - `VehicleTest.tscn`: study-only vehicle handling comparison
 
-Production scenes, autoloads, input actions, and saves must not depend on this
-folder.
+Production scenes and saves must not depend on this folder.
