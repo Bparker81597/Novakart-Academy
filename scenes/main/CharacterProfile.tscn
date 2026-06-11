@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene load_steps=6 format=3]
 
 [ext_resource path="res://scripts/ui/character_profile.gd" type="Script" id="1"]
 [ext_resource path="res://scenes/ui/CharacterPortrait.tscn" type="PackedScene" id="2"]
 [ext_resource path="res://scenes/ui/BigKidButton.tscn" type="PackedScene" id="3"]
+[ext_resource path="res://scenes/ui/FriendshipPanel.tscn" type="PackedScene" id="4"]
 
 [sub_resource type="StyleBoxFlat" id="DetailsStyle"]
 bg_color = Color(1, 1, 1, 0.94)
@@ -62,6 +63,13 @@ offset_left = 475.0
 offset_top = 105.0
 offset_right = 1215.0
 offset_bottom = 570.0
+
+[node name="FriendshipPanel" parent="." instance=ExtResource("4")]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 420.0
+offset_right = 435.0
+offset_bottom = 590.0
 
 [node name="Backdrop" type="Panel" parent="Details"]
 layout_mode = 1

@@ -26,7 +26,7 @@ func _on_race_finished() -> void:
 	if not player.can_drive:
 		return
 	player.can_drive = false
-	for reward: String in SaveManager.record_coral_race(0):
+	for reward: String in SaveManager.record_coral_race(0, GameState.selected_character):
 		if reward not in pending_rewards:
 			pending_rewards.append(reward)
 	$VictoryScreen.show_victory(GameState.seashells, TOTAL_SHELLS, pending_rewards)

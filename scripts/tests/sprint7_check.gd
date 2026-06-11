@@ -16,7 +16,7 @@ func _initialize() -> void:
 	var catalog := root.get_node("/root/ContentCatalog")
 	var save_manager := root.get_node("/root/SaveManager")
 
-	assert(catalog.stickers.size() == 12, "Sticker Book needs starter and Coral Coast stickers.")
+	assert(catalog.stickers.size() == 16, "Sticker Book needs progression and friendship stickers.")
 	for sticker_id: String in STARTER_STICKERS:
 		var sticker: Dictionary = catalog.get_sticker(sticker_id)
 		for key: String in ["name", "icon", "hint", "category", "rarity", "rarity_color"]:
@@ -37,7 +37,7 @@ func _initialize() -> void:
 	for category_path: String in ["Categories/Characters", "Categories/Racing", "Categories/Academy", "Categories/Exploration"]:
 		assert(book.has_node(category_path), "Sticker Book is missing %s" % category_path)
 	book._show_category("characters")
-	assert(book.get_node("StickerGrid").get_child_count() == 4, "Character category needs four stickers.")
+	assert(book.get_node("StickerGrid").get_child_count() == 8, "Character category needs fan and friendship stickers.")
 	book._show_category("exploration")
 	assert(book.get_node("StickerGrid").get_child_count() == 2, "Exploration category needs Coral Coast rewards.")
 

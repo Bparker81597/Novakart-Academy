@@ -95,6 +95,15 @@ framework. Active adventures, completed adventures, and earned reward bundles
 are saved locally. Dialogue and completion screens use large portraits, text,
 and buttons with narration hooks ready for future voice files.
 
+## Friendship
+
+Blaze Bolt, Finn Tide, Nova Spark, and Dash Rocket each have friendship levels
+from 1–10. Friendship XP comes from finishing races with a selected hero,
+collecting world items, visiting a guide's world, and completing their
+adventures. Character Profiles show a heart, current level, XP bar, and next
+reward. Milestones save stickers, dialogue, poses, profile decorations, and
+future-adventure unlock markers. Friendship never decreases.
+
 Character Select cards link to data-driven profile pages. Each profile shows a
 large portrait, name, bio, catchphrase, ability, and favorite academy activity,
 with previous/next browsing and a direct Choose action.

@@ -5,6 +5,8 @@ signal mission_progress_changed(mission_id: String)
 signal mission_completed(mission_id: String, rewards: Dictionary)
 signal adventure_progress_changed(adventure_id: String)
 signal adventure_completed(adventure_id: String)
+signal friendship_changed(character_id: String, level: int, xp: int)
+signal friendship_reward_unlocked(character_id: String, reward: Dictionary)
 
 const SAVE_PATH := "user://save.json"
 const ALL_CHARACTERS := ["blaze_bolt", "finn_tide", "nova_spark", "dash_rocket"]
@@ -31,6 +33,9 @@ const DEFAULT_PROGRESS := {
 	"active_adventures": [],
 	"completed_adventures": [],
 	"adventure_rewards": {},
+	"friendship": {},
+	"friendship_world_visits": [],
+	"friendship_rewards": {},
 }
 
 var progress: Dictionary = {}
@@ -106,6 +111,7 @@ func record_race(stars: int, character_id: String) -> Array[String]:
 	for sticker_id: String in _earned_stickers(stars, character_id):
 		if unlock_sticker(sticker_id):
 			new_stickers.append(sticker_id)
+	award_friendship_source(character_id, "race_finish")
 	save_progress()
 	return new_stickers
 
@@ -115,6 +121,10 @@ func visit_world(world_id: String) -> Array[String]:
 	if world_id not in visited:
 		visited.append(world_id)
 		progress["visited_worlds"] = visited
+		var world := ContentCatalog.get_world(world_id)
+		var guide_id: String = world.get("guide", "")
+		if not guide_id.is_empty():
+			award_friendship_world_visit(guide_id, world_id)
 	if world_id == "coral_coast":
 		start_adventure("lighthouse_hero")
 	save_progress()
@@ -127,6 +137,7 @@ func record_seashells(amount: int) -> Array[String]:
 	missions["coral_shell_hunt"] = min(int(missions.get("coral_shell_hunt", 0)) + amount, 5)
 	progress["missions"] = missions
 	advance_mission_objective("lighthouse_hero", "collect_seashells", amount)
+	award_friendship_source("finn_tide", "world_collectible", amount)
 	if int(missions["coral_shell_hunt"]) >= 5:
 		if unlock_sticker("shell_collector"):
 			rewards.append("shell_collector")
@@ -136,13 +147,92 @@ func record_seashells(amount: int) -> Array[String]:
 	save_progress()
 	return rewards
 
-func record_coral_race(shells: int) -> Array[String]:
+func record_coral_race(shells: int, character_id: String = "") -> Array[String]:
 	var rewards := record_seashells(shells)
 	if unlock_sticker("wave_rider"):
 		rewards.append("wave_rider")
 	complete_mission_objective("lighthouse_hero", "finish_wave_rider")
+	if not character_id.is_empty():
+		award_friendship_source(character_id, "race_finish")
 	save_progress()
 	return rewards
+
+func get_friendship(character_id: String) -> Dictionary:
+	var all_friendship: Dictionary = progress.get("friendship", {})
+	var state: Variant = all_friendship.get(character_id, {})
+	if state is Dictionary and state.has("xp"):
+		return state
+	var new_state := {"xp": 0, "level": 1}
+	all_friendship[character_id] = new_state
+	progress["friendship"] = all_friendship
+	return new_state
+
+func get_friendship_level(character_id: String) -> int:
+	return int(get_friendship(character_id).get("level", 1))
+
+func get_friendship_xp(character_id: String) -> int:
+	return int(get_friendship(character_id).get("xp", 0))
+
+func get_friendship_level_progress(character_id: String) -> Dictionary:
+	var xp := get_friendship_xp(character_id)
+	var level := get_friendship_level(character_id)
+	var per_level := int(ContentCatalog.friendship.get("xp_per_level", 100))
+	var max_level := int(ContentCatalog.friendship.get("max_level", 10))
+	return {
+		"level": level,
+		"current_xp": 0 if level >= max_level else xp % per_level,
+		"needed_xp": per_level,
+		"max_level": max_level,
+	}
+
+func award_friendship_source(character_id: String, source_id: String, multiplier: int = 1) -> Array[Dictionary]:
+	return award_friendship_xp(character_id, ContentCatalog.get_friendship_source_xp(source_id) * multiplier)
+
+func award_friendship_world_visit(character_id: String, world_id: String) -> Array[Dictionary]:
+	var visit_id := "%s:%s" % [character_id, world_id]
+	var visits: Array = progress.get("friendship_world_visits", [])
+	if visit_id in visits:
+		return []
+	visits.append(visit_id)
+	progress["friendship_world_visits"] = visits
+	return award_friendship_source(character_id, "world_visit")
+
+func award_friendship_xp(character_id: String, amount: int) -> Array[Dictionary]:
+	var unlocked: Array[Dictionary] = []
+	if character_id not in ALL_CHARACTERS or amount <= 0:
+		return unlocked
+	var state := get_friendship(character_id)
+	var previous_level := int(state.get("level", 1))
+	var per_level := int(ContentCatalog.friendship.get("xp_per_level", 100))
+	var max_level := int(ContentCatalog.friendship.get("max_level", 10))
+	var max_xp := (max_level - 1) * per_level
+	state["xp"] = min(int(state.get("xp", 0)) + amount, max_xp)
+	state["level"] = min(1 + int(state["xp"]) / per_level, max_level)
+	for level: int in range(previous_level + 1, int(state["level"]) + 1):
+		unlocked.append_array(_unlock_friendship_level_rewards(character_id, level))
+	save_progress()
+	friendship_changed.emit(character_id, int(state["level"]), int(state["xp"]))
+	return unlocked
+
+func get_friendship_rewards(character_id: String) -> Array:
+	return progress.get("friendship_rewards", {}).get(character_id, [])
+
+func _unlock_friendship_level_rewards(character_id: String, level: int) -> Array[Dictionary]:
+	var unlocked: Array[Dictionary] = []
+	var all_rewards: Dictionary = progress.get("friendship_rewards", {})
+	var character_rewards: Array = all_rewards.get(character_id, [])
+	for reward: Dictionary in ContentCatalog.get_friendship_character(character_id).get("rewards", []):
+		if int(reward.get("level", 0)) != level or reward.get("id", "") in character_rewards:
+			continue
+		character_rewards.append(reward.id)
+		unlocked.append(reward)
+		if reward.get("type", "") == "sticker":
+			unlock_sticker(reward.id)
+	all_rewards[character_id] = character_rewards
+	progress["friendship_rewards"] = all_rewards
+	for reward: Dictionary in unlocked:
+		friendship_reward_unlocked.emit(character_id, reward)
+	return unlocked
 
 func start_mission(mission_id: String) -> bool:
 	var mission: Dictionary = ContentCatalog.get_mission(mission_id)
@@ -268,13 +358,16 @@ func _complete_adventure_for_mission(mission_id: String, rewards: Dictionary) ->
 	var active: Array = progress.get("active_adventures", [])
 	var completed: Array = progress.get("completed_adventures", [])
 	active.erase(adventure.id)
-	if adventure.id not in completed:
+	var first_completion := adventure.id not in completed
+	if first_completion:
 		completed.append(adventure.id)
 	progress["active_adventures"] = active
 	progress["completed_adventures"] = completed
 	var earned: Dictionary = progress.get("adventure_rewards", {})
 	earned[adventure.id] = rewards.duplicate(true)
 	progress["adventure_rewards"] = earned
+	if first_completion:
+		award_friendship_source(adventure.guide_character, "adventure_complete")
 	save_progress()
 	adventure_completed.emit(adventure.id)
 

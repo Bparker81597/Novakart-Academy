@@ -84,3 +84,5 @@ art assets to support incremental development.
   and Wave Rider Raceway, then awards a badge, sticker, and passport stamp
 - Adventure Hall and its Adventure Board present story-led activities with
   character dialogue, objective progress, reward previews, and completion celebrations
+- Friendship levels 1–10 grow through racing, adventures, world visits, and
+  collectibles, with positive character-specific milestone rewards

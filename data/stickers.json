@@ -107,6 +107,42 @@
       "category": "academy",
       "rarity": "legendary",
       "rarity_color": "#ffd23f"
+    },
+    {
+      "id": "blaze_best_buddy",
+      "name": "Blaze Best Buddy",
+      "icon": "❤",
+      "hint": "Reach friendship level 2 with Blaze",
+      "category": "characters",
+      "rarity": "rare",
+      "rarity_color": "#ff6a00"
+    },
+    {
+      "id": "finn_best_buddy",
+      "name": "Finn Best Buddy",
+      "icon": "❤",
+      "hint": "Reach friendship level 2 with Finn",
+      "category": "characters",
+      "rarity": "rare",
+      "rarity_color": "#24c9c7"
+    },
+    {
+      "id": "nova_best_buddy",
+      "name": "Nova Best Buddy",
+      "icon": "❤",
+      "hint": "Reach friendship level 2 with Nova",
+      "category": "characters",
+      "rarity": "rare",
+      "rarity_color": "#a94dff"
+    },
+    {
+      "id": "dash_best_buddy",
+      "name": "Dash Best Buddy",
+      "icon": "❤",
+      "hint": "Reach friendship level 2 with Dash",
+      "category": "characters",
+      "rarity": "rare",
+      "rarity_color": "#48b84f"
     }
   ]
 }

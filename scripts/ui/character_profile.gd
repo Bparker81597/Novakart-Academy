@@ -22,6 +22,7 @@ func _show_profile(new_character_id: String) -> void:
 	$Details/Ability/Value.text = profile.get("ability", "")
 	$Details/FavoriteActivity/Value.text = profile.get("favorite_activity", "")
 	$Details/Name.add_theme_color_override("font_color", color)
+	$FriendshipPanel.configure(character_id)
 	AudioManager.play_character_greeting(character_id)
 
 func _show_previous() -> void:

@@ -5,7 +5,7 @@ func _initialize() -> void:
 	var content_catalog := root.get_node("/root/ContentCatalog")
 	var save_manager := root.get_node("/root/SaveManager")
 	assert(content_catalog.characters.size() == 4, "Expected four character profiles.")
-	assert(content_catalog.stickers.size() == 12, "Expected starter and Coral Coast sticker definitions.")
+	assert(content_catalog.stickers.size() == 16, "Expected progression and friendship sticker definitions.")
 	for character_id: String in ["blaze_bolt", "finn_tide", "nova_spark", "dash_rocket"]:
 		var profile: Dictionary = content_catalog.get_character(character_id)
 		for key: String in ["name", "type", "color_theme", "icon", "personality", "bio", "catchphrase", "intro_line", "ability", "favorite_activity", "portrait", "greeting_audio"]:
@@ -19,7 +19,7 @@ func _initialize() -> void:
 	}
 	for character_id: String in expected_abilities:
 		assert(content_catalog.get_character(character_id).ability == expected_abilities[character_id], "Wrong ability for %s" % character_id)
-	for key: String in ["unlocked_characters", "selected_character", "collected_stickers", "races_completed", "total_nova_stars", "best_nova_stars", "academy_student_badge", "visited_worlds", "passport_stamps", "earned_badges", "total_seashells", "missions", "active_adventures", "completed_adventures", "adventure_rewards"]:
+	for key: String in ["unlocked_characters", "selected_character", "collected_stickers", "races_completed", "total_nova_stars", "best_nova_stars", "academy_student_badge", "visited_worlds", "passport_stamps", "earned_badges", "total_seashells", "missions", "active_adventures", "completed_adventures", "adventure_rewards", "friendship", "friendship_world_visits", "friendship_rewards"]:
 		assert(save_manager.progress.has(key), "Save progress is missing %s" % key)
 	for scene_path: String in [
 		"res://scenes/main/CharacterSelect.tscn",

@@ -18,6 +18,7 @@ func _ready() -> void:
 
 func _on_nova_star_collected() -> void:
 	GameState.nova_stars += 1
+	SaveManager.award_friendship_source(GameState.selected_character, "world_collectible")
 	hud.set_star_count(GameState.nova_stars, TOTAL_STARS)
 
 func _on_race_finished() -> void:

@@ -1,0 +1,52 @@
+{
+  "xp_per_level": 100,
+  "max_level": 10,
+  "sources": {
+    "adventure_complete": 100,
+    "world_visit": 25,
+    "world_collectible": 5,
+    "race_finish": 30
+  },
+  "characters": [
+    {
+      "id": "blaze_bolt",
+      "rewards": [
+        {"level": 2, "type": "sticker", "id": "blaze_best_buddy", "label": "Blaze Best Buddy Sticker"},
+        {"level": 3, "type": "dialogue", "id": "blaze_friend_chat", "label": "New Blaze Dialogue"},
+        {"level": 5, "type": "pose", "id": "blaze_victory_pose", "label": "Lightning Victory Pose"},
+        {"level": 7, "type": "decoration", "id": "blaze_profile_frame", "label": "Blaze Profile Frame"},
+        {"level": 10, "type": "adventure", "id": "blaze_future_adventure", "label": "Future Blaze Adventure"}
+      ]
+    },
+    {
+      "id": "finn_tide",
+      "rewards": [
+        {"level": 2, "type": "sticker", "id": "finn_best_buddy", "label": "Finn Best Buddy Sticker"},
+        {"level": 3, "type": "dialogue", "id": "finn_friend_chat", "label": "New Finn Dialogue"},
+        {"level": 5, "type": "pose", "id": "finn_victory_pose", "label": "Wave Hello Pose"},
+        {"level": 7, "type": "decoration", "id": "finn_profile_frame", "label": "Coral Profile Frame"},
+        {"level": 10, "type": "adventure", "id": "finn_future_adventure", "label": "Future Finn Adventure"}
+      ]
+    },
+    {
+      "id": "nova_spark",
+      "rewards": [
+        {"level": 2, "type": "sticker", "id": "nova_best_buddy", "label": "Nova Best Buddy Sticker"},
+        {"level": 3, "type": "dialogue", "id": "nova_friend_chat", "label": "New Nova Dialogue"},
+        {"level": 5, "type": "pose", "id": "nova_victory_pose", "label": "Bright Idea Pose"},
+        {"level": 7, "type": "decoration", "id": "nova_profile_frame", "label": "Inventor Profile Frame"},
+        {"level": 10, "type": "adventure", "id": "nova_future_adventure", "label": "Future Nova Adventure"}
+      ]
+    },
+    {
+      "id": "dash_rocket",
+      "rewards": [
+        {"level": 2, "type": "sticker", "id": "dash_best_buddy", "label": "Dash Best Buddy Sticker"},
+        {"level": 3, "type": "dialogue", "id": "dash_friend_chat", "label": "New Dash Dialogue"},
+        {"level": 5, "type": "pose", "id": "dash_victory_pose", "label": "Blast Off Pose"},
+        {"level": 7, "type": "decoration", "id": "dash_profile_frame", "label": "Rocket Profile Frame"},
+        {"level": 10, "type": "adventure", "id": "dash_future_adventure", "label": "Future Dash Adventure"}
+      ]
+    }
+  ]
+}
