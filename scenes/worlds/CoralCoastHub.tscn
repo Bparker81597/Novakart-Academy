@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3]
+[gd_scene load_steps=24 format=3]
 
 [ext_resource path="res://scripts/worlds/coral_coast_hub.gd" type="Script" id="1"]
 [ext_resource path="res://scenes/hub/HubPlayer.tscn" type="PackedScene" id="2"]
@@ -9,6 +9,7 @@
 [ext_resource path="res://scenes/ui/MissionTracker.tscn" type="PackedScene" id="7"]
 [ext_resource path="res://scenes/ui/MissionCompletePopup.tscn" type="PackedScene" id="8"]
 [ext_resource path="res://scenes/ui/RewardPopup.tscn" type="PackedScene" id="9"]
+[ext_resource path="res://scenes/ui/AdventureCompletionScreen.tscn" type="PackedScene" id="10"]
 
 [sub_resource type="Environment" id="Environment"]
 background_mode = 1
@@ -324,6 +325,9 @@ layout_mode = 0
 layout_mode = 1
 
 [node name="RewardPopup" parent="CanvasLayer/HUD" instance=ExtResource("9")]
+layout_mode = 1
+
+[node name="AdventureCompletionScreen" parent="CanvasLayer/HUD" instance=ExtResource("10")]
 layout_mode = 1
 
 [connection signal="pressed" from="CanvasLayer/HUD/Home" to="." method="_go_home"]

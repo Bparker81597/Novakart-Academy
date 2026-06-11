@@ -17,6 +17,7 @@ func _initialize() -> void:
 		"LearningZone": "LEARNING LAB COMING SOON!",
 		"GarageZone": "GARAGE COMING SOON!",
 		"EventZone": "PRESS SPACE FOR CORAL COAST!",
+		"AdventureZone": "PRESS SPACE FOR ADVENTURES!",
 	}
 	for zone_name: String in expected_prompts:
 		var zone: Node = hub.get_node(zone_name)
@@ -26,7 +27,7 @@ func _initialize() -> void:
 		assert(hub.get_node("CanvasLayer/HUD/ActivityPrompt/Row/Prompt").text == expected_prompts[zone_name], "Prompt UI did not update for %s" % zone_name)
 		hub.hide_activity_prompt(zone)
 
-	for building_name: String in ["RaceCenter", "StickerHall", "LearningLab", "Garage", "EventPavilion"]:
+	for building_name: String in ["RaceCenter", "StickerHall", "LearningLab", "Garage", "EventPavilion", "AdventureHall"]:
 		var sign: Label3D = hub.get_node("%s/Sign" % building_name)
 		assert(sign.font_size >= 48, "%s sign is too small." % building_name)
 

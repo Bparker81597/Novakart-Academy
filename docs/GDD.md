@@ -86,6 +86,15 @@ mission tracker shows progress without requiring menu navigation. Completing
 all three goals awards the Lighthouse Hero badge, Coral Coast sticker, and
 Coral Coast passport stamp. Mission progress and rewards are saved locally.
 
+## Story Adventures
+
+Adventure Hall gives players a clear place to choose story-led activities.
+Reusable `AdventureData` resources connect a character guide, intro and
+completion dialogue, objectives, destination, and reward preview to the mission
+framework. Active adventures, completed adventures, and earned reward bundles
+are saved locally. Dialogue and completion screens use large portraits, text,
+and buttons with narration hooks ready for future voice files.
+
 Character Select cards link to data-driven profile pages. Each profile shows a
 large portrait, name, bio, catchphrase, ability, and favorite academy activity,
 with previous/next browsing and a direct Choose action.

@@ -82,3 +82,5 @@ art assets to support incremental development.
   world-specific sticker rewards
 - Finn's reusable Lighthouse Hero mission tracks seashells, Discovery Beach,
   and Wave Rider Raceway, then awards a badge, sticker, and passport stamp
+- Adventure Hall and its Adventure Board present story-led activities with
+  character dialogue, objective progress, reward previews, and completion celebrations

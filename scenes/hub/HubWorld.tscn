@@ -284,6 +284,15 @@ building_icon = "⚓"
 primary_color = Color(0.05, 0.58, 0.82, 1)
 accent_color = Color(0.18, 0.9, 0.86, 1)
 
+[node name="AdventureHall" parent="." instance=ExtResource("4")]
+position = Vector3(0, 0, 16)
+rotation = Vector3(0, 3.14159, 0)
+scale = Vector3(0.72, 0.72, 0.72)
+building_name = "ADVENTURE HALL"
+building_icon = "📜"
+primary_color = Color(0.18, 0.35, 0.78, 1)
+accent_color = Color(1, 0.72, 0.16, 1)
+
 [node name="Trees" type="Node3D" parent="."]
 
 [node name="Tree1" parent="Trees" instance=ExtResource("5")]
@@ -438,6 +447,14 @@ prompt_text = "PRESS SPACE FOR CORAL COAST!"
 prompt_icon = "⚓"
 prompt_color = Color(0.05, 0.62, 0.78, 1)
 target_scene = "res://scenes/worlds/CoralCoastHub.tscn"
+
+[node name="AdventureZone" parent="." instance=ExtResource("3")]
+position = Vector3(0, 0, 11)
+activity_name = "Adventure Hall"
+prompt_text = "PRESS SPACE FOR ADVENTURES!"
+prompt_icon = "📜"
+prompt_color = Color(0.18, 0.42, 0.82, 1)
+target_scene = "res://scenes/main/AdventureHall.tscn"
 
 [node name="HubPlayer" parent="." instance=ExtResource("2")]
 position = Vector3(0, 0, 10)

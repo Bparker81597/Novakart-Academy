@@ -19,7 +19,7 @@ func _initialize() -> void:
 	}
 	for character_id: String in expected_abilities:
 		assert(content_catalog.get_character(character_id).ability == expected_abilities[character_id], "Wrong ability for %s" % character_id)
-	for key: String in ["unlocked_characters", "selected_character", "collected_stickers", "races_completed", "total_nova_stars", "best_nova_stars", "academy_student_badge", "visited_worlds", "passport_stamps", "earned_badges", "total_seashells", "missions"]:
+	for key: String in ["unlocked_characters", "selected_character", "collected_stickers", "races_completed", "total_nova_stars", "best_nova_stars", "academy_student_badge", "visited_worlds", "passport_stamps", "earned_badges", "total_seashells", "missions", "active_adventures", "completed_adventures", "adventure_rewards"]:
 		assert(save_manager.progress.has(key), "Save progress is missing %s" % key)
 	for scene_path: String in [
 		"res://scenes/main/CharacterSelect.tscn",

@@ -3,6 +3,8 @@ extends Node
 signal progress_changed
 signal mission_progress_changed(mission_id: String)
 signal mission_completed(mission_id: String, rewards: Dictionary)
+signal adventure_progress_changed(adventure_id: String)
+signal adventure_completed(adventure_id: String)
 
 const SAVE_PATH := "user://save.json"
 const ALL_CHARACTERS := ["blaze_bolt", "finn_tide", "nova_spark", "dash_rocket"]
@@ -26,6 +28,9 @@ const DEFAULT_PROGRESS := {
 	"earned_badges": [],
 	"total_seashells": 0,
 	"missions": {},
+	"active_adventures": [],
+	"completed_adventures": [],
+	"adventure_rewards": {},
 }
 
 var progress: Dictionary = {}
@@ -111,7 +116,7 @@ func visit_world(world_id: String) -> Array[String]:
 		visited.append(world_id)
 		progress["visited_worlds"] = visited
 	if world_id == "coral_coast":
-		start_mission("lighthouse_hero")
+		start_adventure("lighthouse_hero")
 	save_progress()
 	return rewards
 
@@ -161,6 +166,45 @@ func start_mission(mission_id: String) -> bool:
 	save_progress()
 	return true
 
+func start_adventure(adventure_id: String) -> bool:
+	var adventure := ContentCatalog.get_adventure(adventure_id)
+	if not adventure:
+		return false
+	var active: Array = progress.get("active_adventures", [])
+	var completed: Array = progress.get("completed_adventures", [])
+	if adventure_id in completed or adventure_id in active:
+		return false
+	active.append(adventure_id)
+	progress["active_adventures"] = active
+	start_mission(adventure.mission_id)
+	if is_mission_complete(adventure.mission_id):
+		_complete_adventure_for_mission(adventure.mission_id, adventure.rewards)
+	save_progress()
+	adventure_progress_changed.emit(adventure_id)
+	return true
+
+func get_adventure_progress(adventure_id: String) -> Dictionary:
+	var adventure := ContentCatalog.get_adventure(adventure_id)
+	if not adventure:
+		return {}
+	var mission := ContentCatalog.get_mission(adventure.mission_id)
+	var completed_count: int = 0
+	var objective_count: int = mission.get("objectives", []).size()
+	for objective: Dictionary in mission.get("objectives", []):
+		if get_mission_objective_progress(adventure.mission_id, objective.id) >= int(objective.target):
+			completed_count += 1
+	return {
+		"status": "complete" if adventure_id in progress.get("completed_adventures", []) else "active" if adventure_id in progress.get("active_adventures", []) else "available",
+		"completed_objectives": completed_count,
+		"total_objectives": objective_count,
+	}
+
+func is_adventure_active(adventure_id: String) -> bool:
+	return adventure_id in progress.get("active_adventures", [])
+
+func is_adventure_complete(adventure_id: String) -> bool:
+	return adventure_id in progress.get("completed_adventures", [])
+
 func advance_mission_objective(mission_id: String, objective_id: String, amount: int = 1) -> bool:
 	start_mission(mission_id)
 	var state := get_mission_state(mission_id)
@@ -174,6 +218,9 @@ func advance_mission_objective(mission_id: String, objective_id: String, amount:
 	objectives[objective_id] = min(previous + amount, target)
 	state["objectives"] = objectives
 	mission_progress_changed.emit(mission_id)
+	var adventure := ContentCatalog.get_adventure_for_mission(mission_id)
+	if adventure:
+		adventure_progress_changed.emit(adventure.id)
 	_try_complete_mission(mission_id)
 	save_progress()
 	return int(objectives[objective_id]) != previous
@@ -210,8 +257,26 @@ func _try_complete_mission(mission_id: String) -> bool:
 		_unlock_passport_stamp(rewards.get("passport_stamp", ""))
 		state["rewards_claimed"] = true
 	save_progress()
+	_complete_adventure_for_mission(mission_id, rewards)
 	mission_completed.emit(mission_id, rewards)
 	return true
+
+func _complete_adventure_for_mission(mission_id: String, rewards: Dictionary) -> void:
+	var adventure := ContentCatalog.get_adventure_for_mission(mission_id)
+	if not adventure:
+		return
+	var active: Array = progress.get("active_adventures", [])
+	var completed: Array = progress.get("completed_adventures", [])
+	active.erase(adventure.id)
+	if adventure.id not in completed:
+		completed.append(adventure.id)
+	progress["active_adventures"] = active
+	progress["completed_adventures"] = completed
+	var earned: Dictionary = progress.get("adventure_rewards", {})
+	earned[adventure.id] = rewards.duplicate(true)
+	progress["adventure_rewards"] = earned
+	save_progress()
+	adventure_completed.emit(adventure.id)
 
 func _mission_objective_target(mission_id: String, objective_id: String) -> int:
 	for objective: Dictionary in ContentCatalog.get_mission(mission_id).get("objectives", []):

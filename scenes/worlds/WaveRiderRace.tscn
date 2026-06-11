@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3]
+[gd_scene load_steps=13 format=3]
 
 [ext_resource path="res://scripts/worlds/wave_rider_race_manager.gd" type="Script" id="1"]
 [ext_resource path="res://scenes/worlds/WaveRiderRaceway.tscn" type="PackedScene" id="2"]
@@ -10,6 +10,7 @@
 [ext_resource path="res://scenes/ui/MissionTracker.tscn" type="PackedScene" id="8"]
 [ext_resource path="res://scenes/ui/MissionCompletePopup.tscn" type="PackedScene" id="9"]
 [ext_resource path="res://scenes/ui/RewardPopup.tscn" type="PackedScene" id="10"]
+[ext_resource path="res://scenes/ui/AdventureCompletionScreen.tscn" type="PackedScene" id="11"]
 
 [sub_resource type="Environment" id="Environment"]
 background_mode = 1
@@ -66,4 +67,7 @@ layout_mode = 0
 layout_mode = 1
 
 [node name="RewardPopup" parent="HUD" instance=ExtResource("10")]
+layout_mode = 1
+
+[node name="AdventureCompletionScreen" parent="HUD" instance=ExtResource("11")]
 layout_mode = 1

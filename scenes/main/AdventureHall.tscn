@@ -1,0 +1,228 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource path="res://scripts/adventures/adventure_hall.gd" type="Script" id="1"]
+[ext_resource path="res://scenes/ui/CharacterPortrait.tscn" type="PackedScene" id="2"]
+[ext_resource path="res://scenes/ui/BigKidButton.tscn" type="PackedScene" id="3"]
+[ext_resource path="res://scenes/ui/DialoguePanel.tscn" type="PackedScene" id="4"]
+[ext_resource path="res://scenes/ui/AdventureCompletionScreen.tscn" type="PackedScene" id="5"]
+
+[sub_resource type="StyleBoxFlat" id="BoardStyle"]
+bg_color = Color(0.09, 0.2, 0.52, 0.97)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(1, 0.76, 0.16, 1)
+corner_radius_top_left = 45
+corner_radius_top_right = 45
+corner_radius_bottom_right = 45
+corner_radius_bottom_left = 45
+shadow_color = Color(0.04, 0.08, 0.28, 0.55)
+shadow_size = 20
+
+[sub_resource type="StyleBoxFlat" id="CardStyle"]
+bg_color = Color(0.96, 0.98, 1, 0.96)
+border_width_left = 7
+border_width_top = 7
+border_width_right = 7
+border_width_bottom = 7
+border_color = Color(0.18, 0.72, 0.88, 1)
+corner_radius_top_left = 34
+corner_radius_top_right = 34
+corner_radius_bottom_right = 34
+corner_radius_bottom_left = 34
+
+[node name="AdventureHall" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.28, 0.74, 0.96, 1)
+
+[node name="Stars" type="Label" parent="."]
+layout_mode = 0
+offset_top = 20.0
+offset_right = 1280.0
+offset_bottom = 75.0
+theme_override_colors/font_color = Color(1, 0.88, 0.16, 1)
+theme_override_font_sizes/font_size = 36
+text = "★   ✦   ★   ✦   ★"
+horizontal_alignment = 1
+
+[node name="Header" type="Label" parent="."]
+layout_mode = 0
+offset_top = 70.0
+offset_right = 1280.0
+offset_bottom = 145.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.1, 0.25, 0.65, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 54
+text = "★  ADVENTURE HALL  ★"
+horizontal_alignment = 1
+
+[node name="Board" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 155.0
+offset_right = 1185.0
+offset_bottom = 670.0
+theme_override_styles/panel = SubResource("BoardStyle")
+
+[node name="BoardTitle" type="Label" parent="Board"]
+layout_mode = 0
+offset_top = 18.0
+offset_right = 1090.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(1, 0.88, 0.18, 1)
+theme_override_font_sizes/font_size = 30
+text = "CHOOSE AN ADVENTURE!"
+horizontal_alignment = 1
+
+[node name="Card" type="PanelContainer" parent="Board"]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 72.0
+offset_right = 1052.0
+offset_bottom = 485.0
+theme_override_styles/panel = SubResource("CardStyle")
+
+[node name="Previous" parent="Board" instance=ExtResource("3")]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 435.0
+offset_right = 270.0
+offset_bottom = 500.0
+text = "← PREVIOUS"
+button_color = Color(0.2, 0.48, 0.82, 1)
+
+[node name="Count" type="Label" parent="Board"]
+layout_mode = 0
+offset_left = 430.0
+offset_top = 440.0
+offset_right = 660.0
+offset_bottom = 495.0
+theme_override_colors/font_color = Color(1, 0.9, 0.2, 1)
+theme_override_font_sizes/font_size = 26
+text = "1 / 1"
+horizontal_alignment = 1
+
+[node name="Next" parent="Board" instance=ExtResource("3")]
+layout_mode = 0
+offset_left = 820.0
+offset_top = 435.0
+offset_right = 1050.0
+offset_bottom = 500.0
+text = "NEXT →"
+button_color = Color(0.2, 0.48, 0.82, 1)
+
+[node name="GuidePortrait" parent="Board/Card" instance=ExtResource("2")]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 55.0
+offset_right = 278.0
+offset_bottom = 310.0
+show_name = false
+idle_animation = true
+
+[node name="Title" type="Label" parent="Board/Card"]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 25.0
+offset_right = 930.0
+offset_bottom = 85.0
+theme_override_colors/font_color = Color(0.05, 0.42, 0.72, 1)
+theme_override_font_sizes/font_size = 43
+text = "Lighthouse Hero"
+
+[node name="Guide" type="Label" parent="Board/Card"]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 88.0
+offset_right = 710.0
+offset_bottom = 128.0
+theme_override_colors/font_color = Color(0.1, 0.65, 0.72, 1)
+theme_override_font_sizes/font_size = 22
+text = "GUIDE: FINN TIDE"
+
+[node name="Status" type="Label" parent="Board/Card"]
+layout_mode = 0
+offset_left = 740.0
+offset_top = 88.0
+offset_right = 955.0
+offset_bottom = 128.0
+theme_override_colors/font_color = Color(0.72, 0.38, 0.08, 1)
+theme_override_font_sizes/font_size = 22
+text = "AVAILABLE"
+horizontal_alignment = 2
+
+[node name="Story" type="Label" parent="Board/Card"]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 135.0
+offset_right = 955.0
+offset_bottom = 225.0
+theme_override_colors/font_color = Color(0.15, 0.2, 0.42, 1)
+theme_override_font_sizes/font_size = 21
+text = "The Coral Coast lighthouse needs our help!"
+autowrap_mode = 2
+
+[node name="Rewards" type="Label" parent="Board/Card"]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 230.0
+offset_right = 955.0
+offset_bottom = 275.0
+theme_override_colors/font_color = Color(0.72, 0.38, 0.08, 1)
+theme_override_font_sizes/font_size = 20
+text = "REWARDS  🏅 BADGE  •  ⚓ STICKER  •  📘 STAMP"
+
+[node name="Progress" type="Label" parent="Board/Card"]
+layout_mode = 0
+offset_left = 305.0
+offset_top = 280.0
+offset_right = 650.0
+offset_bottom = 325.0
+theme_override_colors/font_color = Color(0.12, 0.52, 0.35, 1)
+theme_override_font_sizes/font_size = 22
+text = "PROGRESS  0 / 3 GOALS"
+
+[node name="Action" parent="Board/Card" instance=ExtResource("3")]
+layout_mode = 0
+offset_left = 615.0
+offset_top = 300.0
+offset_right = 955.0
+offset_bottom = 385.0
+text = "★  START ADVENTURE"
+button_color = Color(0.12, 0.72, 0.34, 1)
+
+[node name="Back" parent="." instance=ExtResource("3")]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 25.0
+offset_right = 260.0
+offset_bottom = 95.0
+text = "← ACADEMY"
+button_color = Color(0.16, 0.38, 0.72, 1)
+
+[node name="DialoguePanel" parent="." instance=ExtResource("4")]
+layout_mode = 1
+
+[node name="AdventureCompletionScreen" parent="." instance=ExtResource("5")]
+layout_mode = 1
+
+[connection signal="pressed" from="Board/Card/Action" to="." method="_open_selected"]
+[connection signal="pressed" from="Board/Previous" to="." method="_previous_adventure"]
+[connection signal="pressed" from="Board/Next" to="." method="_next_adventure"]
+[connection signal="pressed" from="Back" to="." method="_go_back"]

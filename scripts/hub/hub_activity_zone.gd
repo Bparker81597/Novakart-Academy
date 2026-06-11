@@ -11,12 +11,12 @@ func _on_body_entered(body: Node3D) -> void:
 	if body.name != "HubPlayer":
 		return
 	var hub := get_tree().current_scene
-	if hub.has_method("show_activity_prompt"):
+	if hub and hub.has_method("show_activity_prompt"):
 		hub.show_activity_prompt(self)
 
 func _on_body_exited(body: Node3D) -> void:
 	if body.name != "HubPlayer":
 		return
 	var hub := get_tree().current_scene
-	if hub.has_method("hide_activity_prompt"):
+	if hub and hub.has_method("hide_activity_prompt"):
 		hub.hide_activity_prompt(self)
