@@ -1,0 +1,58 @@
+[gd_scene load_steps=2 format=3]
+
+[sub_resource type="StyleBoxFlat" id="PanelStyle"]
+bg_color = Color(0.16, 0.26, 0.62, 0.96)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(1, 0.76, 0.16, 1)
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+
+[node name="QuestTest" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.7, 0.9, 1, 1)
+
+[node name="Panel" type="PanelContainer" parent="."]
+offset_left = 180.0
+offset_top = 120.0
+offset_right = 1100.0
+offset_bottom = 600.0
+theme_override_styles/panel = SubResource("PanelStyle")
+
+[node name="Title" type="Label" parent="Panel"]
+layout_mode = 0
+offset_top = 30.0
+offset_right = 920.0
+offset_bottom = 95.0
+theme_override_colors/font_color = Color(1, 0.9, 0.2, 1)
+theme_override_font_sizes/font_size = 42
+text = "QUEST INTEGRATION TEST"
+horizontal_alignment = 1
+
+[node name="Objectives" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 120.0
+offset_right = 840.0
+offset_bottom = 390.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "SEA TURTLE RESCUE — FUTURE ISOLATED TEST\n\n☐ Meet Finn Tide\n☐ Find 3 turtle markers\n☐ Return to Finn\n\nNo production rewards or saves are connected."
+vertical_alignment = 1

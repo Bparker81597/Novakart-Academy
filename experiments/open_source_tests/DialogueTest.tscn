@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3]
+
+[sub_resource type="StyleBoxFlat" id="PanelStyle"]
+bg_color = Color(0.08, 0.28, 0.62, 0.96)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.2, 0.85, 0.95, 1)
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+
+[node name="DialogueTest" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.38, 0.8, 1, 1)
+
+[node name="Panel" type="PanelContainer" parent="."]
+offset_left = 180.0
+offset_top = 140.0
+offset_right = 1100.0
+offset_bottom = 580.0
+theme_override_styles/panel = SubResource("PanelStyle")
+
+[node name="Title" type="Label" parent="Panel"]
+layout_mode = 0
+offset_top = 35.0
+offset_right = 920.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(1, 0.9, 0.2, 1)
+theme_override_font_sizes/font_size = 42
+text = "DIALOGUE INTEGRATION TEST"
+horizontal_alignment = 1
+
+[node name="Status" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 130.0
+offset_right = 865.0
+offset_bottom = 350.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 27
+text = "No third-party addon is installed.\n\nFuture test: Finn Tide greeting through a NovaDialogueAdapter.\n\nProtected gameplay scenes remain unchanged."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
