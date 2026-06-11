@@ -70,6 +70,10 @@ art assets to support incremental development.
 - Selected-character portraits integrated into the title flow, Hub welcome,
   race HUD, and victory celebration
 - Large race HUD star count, character identity, and simple control hint
+- Reusable character home framework for Finn's Dock, Blaze's Garage, Nova's
+  Workshop, and Dash's Launch Pad
+- Data-driven home greetings, friendship decoration unlocks, reward displays,
+  and future collectible cases
 
 ## Coral Coast Expansion
 

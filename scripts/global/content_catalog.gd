@@ -6,6 +6,7 @@ const WORLD_PATH := "res://data/worlds.json"
 const MISSION_PATH := "res://data/missions.json"
 const ADVENTURE_DIRECTORY := "res://data/adventures"
 const FRIENDSHIP_PATH := "res://data/friendship.json"
+const HOME_DIRECTORY := "res://data/homes"
 
 var characters: Dictionary = {}
 var stickers: Dictionary = {}
@@ -13,6 +14,7 @@ var worlds: Dictionary = {}
 var missions: Dictionary = {}
 var adventures: Dictionary = {}
 var friendship: Dictionary = {}
+var homes: Dictionary = {}
 
 func _ready() -> void:
 	characters = _load_by_id(CHARACTER_PATH, "characters")
@@ -21,6 +23,7 @@ func _ready() -> void:
 	missions = _load_by_id(MISSION_PATH, "missions")
 	adventures = _load_resources(ADVENTURE_DIRECTORY)
 	friendship = _load_dictionary(FRIENDSHIP_PATH)
+	homes = _load_resources(HOME_DIRECTORY)
 
 func get_character(character_id: String) -> Dictionary:
 	return characters.get(character_id, characters.get("nova_spark", {}))
@@ -58,6 +61,15 @@ func get_friendship_character(character_id: String) -> Dictionary:
 func get_friendship_source_xp(source_id: String) -> int:
 	return int(friendship.get("sources", {}).get(source_id, 0))
 
+func get_home(home_id: String) -> HomeData:
+	return homes.get(home_id)
+
+func get_home_for_character(character_id: String) -> HomeData:
+	for home: HomeData in homes.values():
+		if home.character_id == character_id:
+			return home
+	return null
+
 func _load_by_id(path: String, collection_key: String) -> Dictionary:
 	var file := FileAccess.open(path, FileAccess.READ)
 	if not file:
@@ -82,6 +94,8 @@ func _load_resources(directory_path: String) -> Dictionary:
 			continue
 		var resource: Resource = load("%s/%s" % [directory_path, filename])
 		if resource is AdventureData and not resource.id.is_empty():
+			result[resource.id] = resource
+		elif resource is HomeData and not resource.id.is_empty():
 			result[resource.id] = resource
 	return result
 

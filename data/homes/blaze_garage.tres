@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="HomeData" load_steps=2 format=3]
+
+[ext_resource path="res://scripts/homes/home_data.gd" type="Script" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "blaze_garage"
+character_id = "blaze_bolt"
+home_name = "Blaze's Garage"
+greeting = "Hey, racing buddy! Ready to light up the garage?"
+primary_color = Color(1, 0.28, 0.08, 1)
+accent_color = Color(1, 0.8, 0.12, 1)
+home_icon = "⚡"
+decorations = [{
+"icon": "⚡",
+"label": "Turbo Sign",
+"required_friendship_level": 1
+}, {
+"icon": "🏁",
+"label": "Fast Friend Flag",
+"required_friendship_level": 3
+}, {
+"icon": "🏆",
+"label": "Blaze Trophy",
+"required_friendship_level": 5
+}]
+collectible_slots = [{
+"icon": "🔧",
+"label": "Future Kart Parts"
+}, {
+"icon": "🔥",
+"label": "Speed Badges"
+}]

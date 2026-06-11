@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource path="res://scripts/homes/home_decoration.gd" type="Script" id="1"]
+
+[sub_resource type="CylinderMesh" id="PedestalMesh"]
+top_radius = 1.2
+bottom_radius = 1.45
+height = 0.7
+
+[sub_resource type="StandardMaterial3D" id="PedestalMaterial"]
+albedo_color = Color(1, 0.75, 0.15, 1)
+
+[node name="HomeDecoration" type="Node3D"]
+script = ExtResource("1")
+
+[node name="Pedestal" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.35, 0)
+mesh = SubResource("PedestalMesh")
+material_override = SubResource("PedestalMaterial")
+
+[node name="Icon" type="Label3D" parent="."]
+position = Vector3(0, 2.2, 0)
+font_size = 110
+outline_size = 16
+text = "★"
+pixel_size = 0.012
+billboard = 1
+
+[node name="Label" type="Label3D" parent="."]
+position = Vector3(0, 1.05, 0)
+font_size = 34
+outline_size = 10
+text = "HOME DECORATION"
+pixel_size = 0.014
+billboard = 1

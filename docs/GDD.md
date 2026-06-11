@@ -104,6 +104,16 @@ adventures. Character Profiles show a heart, current level, XP bar, and next
 reward. Milestones save stickers, dialogue, poses, profile decorations, and
 future-adventure unlock markers. Friendship never decreases.
 
+## Character Homes
+
+Each main character has a welcoming personal space built from the reusable
+`CharacterHome.tscn` scene and a character-specific `HomeData` resource.
+Finn's Dock, Blaze's Garage, Nova's Workshop, and Dash's Launch Pad can use the
+same room architecture while changing colors, icons, greetings, decorations,
+friendship reward displays, and future collectible cases. Home decorations
+unlock through positive friendship milestones, and greeting zones are ready
+for future character visits and voice lines.
+
 Character Select cards link to data-driven profile pages. Each profile shows a
 large portrait, name, bio, catchphrase, ability, and favorite academy activity,
 with previous/next browsing and a direct Choose action.

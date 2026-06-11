@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="HomeData" load_steps=2 format=3]
+
+[ext_resource path="res://scripts/homes/home_data.gd" type="Script" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "nova_workshop"
+character_id = "nova_spark"
+home_name = "Nova's Workshop"
+greeting = "I've got an idea! Let's build something bright together!"
+primary_color = Color(0.62, 0.25, 0.92, 1)
+accent_color = Color(0.2, 0.75, 1, 1)
+home_icon = "⚙"
+decorations = [{
+"icon": "💡",
+"label": "Bright Idea Lamp",
+"required_friendship_level": 1
+}, {
+"icon": "⚙",
+"label": "Friendly Gear Wall",
+"required_friendship_level": 3
+}, {
+"icon": "🚀",
+"label": "Rocket Boost Model",
+"required_friendship_level": 5
+}]
+collectible_slots = [{
+"icon": "🔩",
+"label": "Future Invention Parts"
+}, {
+"icon": "★",
+"label": "Idea Stars"
+}]

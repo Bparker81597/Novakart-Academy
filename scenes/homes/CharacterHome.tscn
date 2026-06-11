@@ -1,0 +1,239 @@
+[gd_scene load_steps=15 format=3]
+
+[ext_resource path="res://scripts/homes/character_home.gd" type="Script" id="1"]
+[ext_resource path="res://data/homes/finn_dock.tres" type="Resource" id="2"]
+[ext_resource path="res://scenes/hub/HubPlayer.tscn" type="PackedScene" id="3"]
+[ext_resource path="res://scenes/homes/HomeDecoration.tscn" type="PackedScene" id="4"]
+[ext_resource path="res://scenes/homes/CharacterGreetingZone.tscn" type="PackedScene" id="5"]
+[ext_resource path="res://scenes/ui/CharacterPortrait.tscn" type="PackedScene" id="6"]
+[ext_resource path="res://scenes/ui/FriendshipPanel.tscn" type="PackedScene" id="7"]
+[ext_resource path="res://scenes/ui/BigKidButton.tscn" type="PackedScene" id="8"]
+
+[sub_resource type="Environment" id="Environment"]
+background_mode = 1
+background_color = Color(0.32, 0.76, 1, 1)
+ambient_light_source = 3
+ambient_light_energy = 1.0
+
+[sub_resource type="BoxMesh" id="FloorMesh"]
+size = Vector3(28, 0.4, 24)
+
+[sub_resource type="BoxMesh" id="BackWallMesh"]
+size = Vector3(28, 9, 0.5)
+
+[sub_resource type="BoxMesh" id="AccentWallMesh"]
+size = Vector3(0.5, 9, 24)
+
+[sub_resource type="StyleBoxFlat" id="InfoStyle"]
+bg_color = Color(0.06, 0.2, 0.52, 0.94)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 0.8, 0.2, 1)
+corner_radius_top_left = 26
+corner_radius_top_right = 26
+corner_radius_bottom_right = 26
+corner_radius_bottom_left = 26
+
+[sub_resource type="StyleBoxFlat" id="GreetingStyle"]
+bg_color = Color(1, 1, 1, 0.97)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.18, 0.7, 0.9, 1)
+corner_radius_top_left = 36
+corner_radius_top_right = 36
+corner_radius_bottom_right = 36
+corner_radius_bottom_left = 36
+shadow_color = Color(0.05, 0.12, 0.35, 0.45)
+shadow_size = 16
+
+[node name="CharacterHome" type="Node3D"]
+script = ExtResource("1")
+home_data = ExtResource("2")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment")
+
+[node name="SunLight" type="DirectionalLight3D" parent="."]
+rotation = Vector3(-0.75, -0.45, 0)
+light_energy = 1.2
+shadow_enabled = true
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+position = Vector3(0, -0.2, 0)
+mesh = SubResource("FloorMesh")
+
+[node name="BackWall" type="MeshInstance3D" parent="."]
+position = Vector3(0, 4.5, -12)
+mesh = SubResource("BackWallMesh")
+
+[node name="AccentWall" type="MeshInstance3D" parent="."]
+position = Vector3(-14, 4.5, 0)
+mesh = SubResource("AccentWallMesh")
+
+[node name="HomeTitle" type="Label3D" parent="."]
+position = Vector3(0, 7.3, -11.5)
+font_size = 86
+outline_size = 16
+text = "⚓ FINN'S DOCK"
+pixel_size = 0.014
+billboard = 1
+
+[node name="HomeIcon" type="Label3D" parent="."]
+position = Vector3(0, 6, -8)
+font_size = 135
+outline_size = 18
+text = "⚓"
+pixel_size = 0.014
+billboard = 1
+
+[node name="Decorations" type="Node3D" parent="."]
+
+[node name="Decoration1" parent="Decorations" instance=ExtResource("4")]
+position = Vector3(-8, 0, -5)
+
+[node name="Decoration2" parent="Decorations" instance=ExtResource("4")]
+position = Vector3(0, 0, -5)
+
+[node name="Decoration3" parent="Decorations" instance=ExtResource("4")]
+position = Vector3(8, 0, -5)
+
+[node name="CharacterGreetingZone" parent="." instance=ExtResource("5")]
+position = Vector3(0, 0, 2)
+
+[node name="HubPlayer" parent="." instance=ExtResource("3")]
+position = Vector3(0, 0, 8)
+campus_limit = Vector2(12, 10)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Portrait" parent="CanvasLayer/HUD" instance=ExtResource("6")]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 20.0
+offset_right = 222.0
+offset_bottom = 210.0
+show_name = true
+idle_animation = true
+
+[node name="FriendshipPanel" parent="CanvasLayer/HUD" instance=ExtResource("7")]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 18.0
+offset_right = 625.0
+offset_bottom = 188.0
+
+[node name="RewardsPanel" type="PanelContainer" parent="CanvasLayer/HUD"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 235.0
+offset_right = 440.0
+offset_bottom = 535.0
+theme_override_styles/panel = SubResource("InfoStyle")
+
+[node name="Title" type="Label" parent="CanvasLayer/HUD/RewardsPanel"]
+layout_mode = 0
+offset_top = 14.0
+offset_right = 420.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(1, 0.88, 0.18, 1)
+theme_override_font_sizes/font_size = 24
+text = "❤ FRIENDSHIP REWARDS"
+horizontal_alignment = 1
+
+[node name="List" type="Label" parent="CanvasLayer/HUD/RewardsPanel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 62.0
+offset_right = 400.0
+offset_bottom = 280.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 17
+text = "🔒 LV.2 BEST BUDDY STICKER"
+vertical_alignment = 1
+
+[node name="CollectiblesPanel" type="PanelContainer" parent="CanvasLayer/HUD"]
+layout_mode = 0
+offset_left = 855.0
+offset_top = 20.0
+offset_right = 1260.0
+offset_bottom = 205.0
+theme_override_styles/panel = SubResource("InfoStyle")
+
+[node name="Title" type="Label" parent="CanvasLayer/HUD/CollectiblesPanel"]
+layout_mode = 0
+offset_top = 14.0
+offset_right = 405.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(1, 0.88, 0.18, 1)
+theme_override_font_sizes/font_size = 23
+text = "FUTURE COLLECTIONS"
+horizontal_alignment = 1
+
+[node name="List" type="Label" parent="CanvasLayer/HUD/CollectiblesPanel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 62.0
+offset_right = 385.0
+offset_bottom = 165.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "◇ 🐚 SEASHELL COLLECTION"
+vertical_alignment = 1
+
+[node name="GreetingPanel" type="PanelContainer" parent="CanvasLayer/HUD"]
+visible = false
+layout_mode = 0
+offset_left = 470.0
+offset_top = 430.0
+offset_right = 1180.0
+offset_bottom = 625.0
+pivot_offset = Vector2(355, 98)
+theme_override_styles/panel = SubResource("GreetingStyle")
+
+[node name="Name" type="Label" parent="CanvasLayer/HUD/GreetingPanel"]
+layout_mode = 0
+offset_top = 20.0
+offset_right = 710.0
+offset_bottom = 68.0
+theme_override_colors/font_color = Color(0.06, 0.42, 0.72, 1)
+theme_override_font_sizes/font_size = 30
+text = "FINN TIDE"
+horizontal_alignment = 1
+
+[node name="Text" type="Label" parent="CanvasLayer/HUD/GreetingPanel"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 75.0
+offset_right = 685.0
+offset_bottom = 175.0
+theme_override_colors/font_color = Color(0.12, 0.18, 0.38, 1)
+theme_override_font_sizes/font_size = 23
+text = "Welcome aboard!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Back" parent="CanvasLayer/HUD" instance=ExtResource("8")]
+layout_mode = 0
+offset_left = 1030.0
+offset_top = 640.0
+offset_right = 1250.0
+offset_bottom = 705.0
+theme_override_font_sizes/font_size = 22
+text = "← ACADEMY"
+button_color = Color(0.16, 0.38, 0.72, 1)
+
+[connection signal="pressed" from="CanvasLayer/HUD/Back" to="." method="_go_back"]

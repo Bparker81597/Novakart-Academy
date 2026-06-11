@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="HomeData" load_steps=2 format=3]
+
+[ext_resource path="res://scripts/homes/home_data.gd" type="Script" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "finn_dock"
+character_id = "finn_tide"
+home_name = "Finn's Dock"
+greeting = "Welcome aboard! Let's discover something wonderful together!"
+primary_color = Color(0.08, 0.55, 0.9, 1)
+accent_color = Color(0.2, 0.9, 0.82, 1)
+home_icon = "⚓"
+decorations = [{
+"icon": "⚓",
+"label": "Captain's Anchor",
+"required_friendship_level": 1
+}, {
+"icon": "🐚",
+"label": "Coral Shell Shelf",
+"required_friendship_level": 3
+}, {
+"icon": "🌊",
+"label": "Wave Rider Trophy",
+"required_friendship_level": 5
+}]
+collectible_slots = [{
+"icon": "🐚",
+"label": "Seashell Collection"
+}, {
+"icon": "🐢",
+"label": "Future Ocean Friends"
+}]

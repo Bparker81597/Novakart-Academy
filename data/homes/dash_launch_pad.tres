@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="HomeData" load_steps=2 format=3]
+
+[ext_resource path="res://scripts/homes/home_data.gd" type="Script" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = "dash_launch_pad"
+character_id = "dash_rocket"
+home_name = "Dash's Launch Pad"
+greeting = "Ready for blast off? Every visit can be a new adventure!"
+primary_color = Color(0.2, 0.68, 0.28, 1)
+accent_color = Color(1, 0.86, 0.12, 1)
+home_icon = "🚀"
+decorations = [{
+"icon": "🚀",
+"label": "Launch Pad Sign",
+"required_friendship_level": 1
+}, {
+"icon": "🗺",
+"label": "Adventure Map",
+"required_friendship_level": 3
+}, {
+"icon": "★",
+"label": "Blast Off Star",
+"required_friendship_level": 5
+}]
+collectible_slots = [{
+"icon": "🪨",
+"label": "Future Space Rocks"
+}, {
+"icon": "🧭",
+"label": "Adventure Tokens"
+}]
