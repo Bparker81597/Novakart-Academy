@@ -59,6 +59,10 @@ Rollback:
 
 ## Phase C: Isolated Quest Test
 
+Status: implemented on `integration/open-source-prep` using pinned QuestSystem
+`2.0.1.4_4`. Production missions, adventures, saves, hubs, worlds, and
+character homes remain disconnected.
+
 Actions:
 
 - Import only pinned `addons/quest_system/`.

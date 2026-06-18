@@ -1,0 +1,189 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource path="res://experiments/open_source_tests/quest_system/quest_integration_test.gd" type="Script" id="1"]
+[ext_resource path="res://experiments/open_source_tests/quest_system/quest_adapter.gd" type="Script" id="2"]
+
+[sub_resource type="StyleBoxFlat" id="PanelStyle"]
+bg_color = Color(0.05, 0.24, 0.46, 0.96)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.3, 0.95, 0.9, 1)
+corner_radius_top_left = 34
+corner_radius_top_right = 34
+corner_radius_bottom_right = 34
+corner_radius_bottom_left = 34
+
+[sub_resource type="StyleBoxFlat" id="ButtonStyle"]
+bg_color = Color(0.05, 0.55, 0.9, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.65, 1, 0.92, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+
+[sub_resource type="StyleBoxFlat" id="RewardStyle"]
+bg_color = Color(1, 0.86, 0.18, 0.96)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 28
+corner_radius_top_right = 28
+corner_radius_bottom_right = 28
+corner_radius_bottom_left = 28
+
+[sub_resource type="StyleBoxFlat" id="ResetStyle"]
+bg_color = Color(0.42, 0.27, 0.86, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.85, 0.78, 1, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+
+[node name="QuestIntegrationTest" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25, 0.78, 0.9, 1)
+
+[node name="Adapter" type="Node" parent="."]
+script = ExtResource("2")
+
+[node name="QuestPanel" type="PanelContainer" parent="."]
+offset_left = 110.0
+offset_top = 50.0
+offset_right = 1170.0
+offset_bottom = 500.0
+theme_override_styles/panel = SubResource("PanelStyle")
+
+[node name="Title" type="Label" parent="QuestPanel"]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 1060.0
+offset_bottom = 78.0
+theme_override_colors/font_color = Color(1, 0.9, 0.2, 1)
+theme_override_font_sizes/font_size = 36
+text = "SEA TURTLE RESCUE"
+horizontal_alignment = 1
+
+[node name="Guide" type="Label" parent="QuestPanel"]
+layout_mode = 0
+offset_top = 78.0
+offset_right = 1060.0
+offset_bottom = 120.0
+theme_override_colors/font_color = Color(0.72, 1, 0.96, 1)
+theme_override_font_sizes/font_size = 24
+text = "Quest Giver: Finn Tide"
+horizontal_alignment = 1
+
+[node name="Objectives" type="Label" parent="QuestPanel"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 140.0
+offset_right = 990.0
+offset_bottom = 330.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 28
+text = "Loading objectives..."
+vertical_alignment = 1
+
+[node name="Status" type="Label" parent="QuestPanel"]
+layout_mode = 0
+offset_left = 70.0
+offset_top = 350.0
+offset_right = 990.0
+offset_bottom = 420.0
+theme_override_colors/font_color = Color(1, 0.92, 0.25, 1)
+theme_override_font_sizes/font_size = 30
+text = "Finn Tide is counting on us!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonRow" type="HBoxContainer" parent="."]
+offset_left = 80.0
+offset_top = 520.0
+offset_right = 1200.0
+offset_bottom = 600.0
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="Shells" type="Button" parent="ButtonRow"]
+custom_minimum_size = Vector2(260, 70)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("ButtonStyle")
+theme_override_styles/hover = SubResource("ButtonStyle")
+theme_override_styles/pressed = SubResource("ButtonStyle")
+text = "Collect Seashell"
+
+[node name="Beach" type="Button" parent="ButtonRow"]
+custom_minimum_size = Vector2(260, 70)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("ButtonStyle")
+theme_override_styles/hover = SubResource("ButtonStyle")
+theme_override_styles/pressed = SubResource("ButtonStyle")
+text = "Visit Beach"
+
+[node name="Race" type="Button" parent="ButtonRow"]
+custom_minimum_size = Vector2(260, 70)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("ButtonStyle")
+theme_override_styles/hover = SubResource("ButtonStyle")
+theme_override_styles/pressed = SubResource("ButtonStyle")
+text = "Finish Raceway"
+
+[node name="Reset" type="Button" parent="ButtonRow"]
+custom_minimum_size = Vector2(220, 70)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("ResetStyle")
+theme_override_styles/hover = SubResource("ResetStyle")
+theme_override_styles/pressed = SubResource("ResetStyle")
+text = "Reset Test"
+
+[node name="Reward" type="Label" parent="."]
+offset_left = 150.0
+offset_top = 620.0
+offset_right = 1130.0
+offset_bottom = 700.0
+theme_override_colors/font_color = Color(0.08, 0.2, 0.35, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("RewardStyle")
+text = "Rewards route through WorldState only."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="ButtonRow/Shells" to="." method="_advance" binds= ["collect_seashells", 1]]
+[connection signal="pressed" from="ButtonRow/Beach" to="." method="_advance" binds= ["visit_discovery_beach", 1]]
+[connection signal="pressed" from="ButtonRow/Race" to="." method="_advance" binds= ["finish_wave_rider", 1]]
+[connection signal="pressed" from="ButtonRow/Reset" to="." method="_reset"]

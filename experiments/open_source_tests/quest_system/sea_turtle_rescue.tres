@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SeaTurtleRescueQuest" load_steps=2 format=3]
+
+[ext_resource path="res://experiments/open_source_tests/quest_system/sea_turtle_rescue_quest.gd" type="Script" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = 1401
+quest_name = "Sea Turtle Rescue"
+quest_description = "Finn Tide needs help making Coral Coast safe for a sea turtle friend."
+quest_objective = "Collect 5 Seashells, visit Discovery Beach, and complete Wave Rider Raceway."
